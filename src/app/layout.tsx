@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
+import HeroContextProvider from "@/contexts/heroContext";
+import { Suspense } from "react";
+import Loading from "./loading/loading";
 
 const rubik = Rubik({
   weight: ["300", "400", "500", "700", "900"],
@@ -19,8 +22,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${rubik.variable} antialiased`}>{children}</body>
-    </html>
+    <Suspense fallback={<Loading />}>
+      <HeroContextProvider>
+        <html lang="en">
+          <body className={`${rubik.variable} antialiased`}>{children}</body>
+        </html>
+      </HeroContextProvider>
+    </Suspense>
   );
 }

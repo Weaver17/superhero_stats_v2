@@ -6,7 +6,10 @@ function Navbar() {
   return (
     <header className="flex h-12 bg-background z-10">
       <nav className="flex gap-4 container  items-center ">
-        <Link className="mr-auto text-lg hover:underline px-2 flex" href="/">
+        <Link
+          className="mr-auto text-lg hover:underline px-2 flex text-secondary"
+          href="/"
+        >
           SuperHero Stats
         </Link>
         <Button>Sign In</Button>

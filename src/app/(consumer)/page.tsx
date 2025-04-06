@@ -1,4 +1,5 @@
 import HeroCard from "@/components/hero-card";
+import { Suspense } from "react";
 // import Loading from "../loading/loading";
 
 export default function Home() {
@@ -9,7 +10,9 @@ export default function Home() {
         {/* <Loading /> */}
       </section>
       <section>
-        <HeroCard />
+        <Suspense>
+          <HeroCard />
+        </Suspense>
       </section>
     </main>
   );

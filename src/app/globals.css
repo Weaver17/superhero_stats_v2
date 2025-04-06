@@ -11,6 +11,11 @@ body {
   max-width: 1500px;
 }
 
+@theme {
+  --color-marvel: #ec1d24;
+  --color-dc: #0476f2;
+}
+
 :root {
   --background: oklch(17.76% 0 0);
   --foreground: oklch(95.81% 0 0);
@@ -18,10 +23,12 @@ body {
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.21 0.006 285.885);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.92 0.004 286.32);
+  --primary: oklch(25.56% 0.0612 133.86);
   --primary-foreground: oklch(0.21 0.006 285.885);
-  --secondary: oklch(0.274 0.006 286.033);
+  --secondary: oklch(81.72% 0.169693 99.6152);
   --secondary-foreground: oklch(0.985 0 0);
+  --marvel: oklch(60.16% 0.2335 27.05);
+  --dc: oklch(58.5% 0.206 257.01);
   --muted: oklch(0.274 0.006 286.033);
   --muted-foreground: oklch(0.705 0.015 286.067);
   --accent: oklch(32.11% 0 0);
