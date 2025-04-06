@@ -22,12 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Suspense fallback={<Loading />}>
-      <HeroContextProvider>
-        <html lang="en">
-          <body className={`${rubik.variable} antialiased`}>{children}</body>
-        </html>
-      </HeroContextProvider>
-    </Suspense>
+    <html lang="en">
+      <body className={`${rubik.variable} antialiased`}>
+        {" "}
+        <Suspense fallback={<Loading />}>
+          <HeroContextProvider>{children}</HeroContextProvider>
+        </Suspense>
+      </body>
+    </html>
   );
 }

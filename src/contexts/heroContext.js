@@ -1,27 +1,18 @@
 "use client";
-import { headers, heroRequest } from "@/lib/constants";
-import React, { useMemo } from "react";
-
-// type HeroContextProps = {
-//   children: React.ReactNode;
-// };
+import { BASE_URL, headers, heroRequest } from "@/lib/constants";
+import React, { useMemo, useState } from "react";
 
 export const HeroContext = React.createContext();
 
-// type THeroContext = {
-//     hero: Hero;
-// }
-
 export const HeroContextProvider = ({ children }) => {
-  const baseUrl =
-    "https://superheroapi.com/api/cf5e8cb0f38ad9f2713ccc5537ffa595";
+  const [loading, setLoading] = useState(false);
 
   const contextGetBatman = async () => {
-    return await heroRequest(`${baseUrl}/search/batman`, headers);
+    return await heroRequest(`${BASE_URL}/search/batman`, headers);
   };
   const contextValue = useMemo(
-    () => ({ contextGetBatman }),
-    [contextGetBatman]
+    () => ({ contextGetBatman, loading, setLoading }),
+    [contextGetBatman, loading, setLoading]
   );
 
   return (

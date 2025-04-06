@@ -1,3 +1,4 @@
+import CardList from "@/components/card-list";
 import HeroCard from "@/components/hero-card";
 import { Suspense } from "react";
 // import Loading from "../loading/loading";
@@ -11,7 +12,7 @@ export default function Home() {
       </section>
       <section>
         <Suspense>
-          <HeroCard />
+          <CardList />
         </Suspense>
       </section>
     </main>
