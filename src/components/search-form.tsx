@@ -10,7 +10,7 @@ function SearchForm() {
   };
 
   return (
-    <form className="mx-auto my-4 flex flex-col justify-center items-center gap-4 max-w-3xl">
+    <form className="mx-auto mt-10 flex flex-col justify-center items-center gap-4 max-w-3xl ">
       <h2 className="text-4xl">Search for a Hero</h2>
       <input
         type="text"

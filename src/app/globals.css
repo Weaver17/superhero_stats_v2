@@ -5,10 +5,20 @@ body {
   font-family: Rubik, Helvetica, sans-serif;
 }
 
+.overlay {
+  background: #00000075;
+}
+
+.section {
+  margin: 2rem auto;
+  padding: 2rem 0;
+  max-width: 1500px;
+}
+
 .container {
   margin: 0 auto;
   padding: 0 2rem;
-  max-width: 1500px;
+  max-width: 1350px;
 }
 
 @theme {
@@ -34,7 +44,7 @@ body {
 
 :root {
   --background: oklch(17.76% 0 0);
-  --foreground: oklch(95.81% 0 0);
+  --foreground: oklch(0.92 0 0);
   --card: oklch(0.21 0.006 285.885);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.21 0.006 285.885);

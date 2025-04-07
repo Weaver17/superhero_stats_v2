@@ -23,10 +23,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${rubik.variable} antialiased`}>
+      <body className={`${rubik.variable} antialiased `}>
         {" "}
         <Suspense fallback={<Loading />}>
-          <HeroContextProvider>{children}</HeroContextProvider>
+          <HeroContextProvider>
+            <main className="bg-[url('../../public/city-backdrop.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
+              <div className="overlay">{children}</div>
+            </main>
+          </HeroContextProvider>
         </Suspense>
       </body>
     </html>
