@@ -43,8 +43,6 @@ body {
   --primary-foreground: oklch(0.21 0.006 285.885);
   --secondary: oklch(81.72% 0.169693 99.6152);
   --secondary-foreground: oklch(0.985 0 0);
-  --marvel: oklch(60.16% 0.2335 27.05);
-  --dc: oklch(58.5% 0.206 257.01);
   --muted: oklch(0.274 0.006 286.033);
   --muted-foreground: oklch(0.705 0.015 286.067);
   --accent: oklch(32.11% 0 0);

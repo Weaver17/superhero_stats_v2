@@ -5,14 +5,29 @@ import React, { useMemo, useState } from "react";
 export const HeroContext = React.createContext();
 
 export const HeroContextProvider = ({ children }) => {
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getHero = async (hero) => {
-    return await heroRequest(`${BASE_URL}/search/${hero}`, headers);
+    setIsLoading(true);
+    return await heroRequest(`${BASE_URL}/search/${hero}`, headers).finally(
+      () => {
+        setIsLoading(false);
+      }
+    );
   };
+
+  const getBatman = async () => {
+    setIsLoading(true);
+    return await heroRequest(`${BASE_URL}/search/batman`, headers).finally(
+      () => {
+        setIsLoading(false);
+      }
+    );
+  };
+
   const contextValue = useMemo(
-    () => ({ getHero, loading, setLoading }),
-    [getHero, loading, setLoading]
+    () => ({ getHero, isLoading, setIsLoading, getBatman }),
+    [getHero, isLoading, setIsLoading, getBatman]
   );
 
   return (

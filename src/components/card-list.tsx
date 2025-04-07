@@ -10,19 +10,16 @@ import Loading from "@/app/loading/loading";
 function CardList() {
   const [heroes, setHeroes] = useState<Hero[]>([]);
 
-  const { getHero } = useHeroContextHook();
+  const { getBatman } = useHeroContextHook();
 
-  if (heroes.length == 0) {
-    const getHeroes = async () => {
-      const results = await getHero("a");
-      const usefulResults = await makeUseful(results.results);
-
-      setHeroes(usefulResults);
+  if (heroes === undefined || heroes.length === 0) {
+    const fetchBatman = async () => {
+      const results = await getBatman();
+      const usefulBatman = await makeUseful(results.results);
+      setHeroes(usefulBatman);
     };
-    getHeroes();
+    fetchBatman();
   }
-
-  console.log(heroes.map((hero: Hero) => hero.image?.url));
 
   return (
     <Suspense fallback={<Loading />}>

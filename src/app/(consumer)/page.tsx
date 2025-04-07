@@ -1,5 +1,5 @@
 import CardList from "@/components/card-list";
-import HeroCard from "@/components/hero-card";
+import SearchForm from "@/components/search-form";
 import { Suspense } from "react";
 // import Loading from "../loading/loading";
 
@@ -8,6 +8,7 @@ export default function Home() {
     <main>
       <section>
         <h1>Hello World!</h1>
+        <SearchForm />
         {/* <Loading /> */}
       </section>
       <section>
