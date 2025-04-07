@@ -7,12 +7,12 @@ export const HeroContext = React.createContext();
 export const HeroContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
 
-  const contextGetBatman = async () => {
-    return await heroRequest(`${BASE_URL}/search/batman`, headers);
+  const getHero = async (hero) => {
+    return await heroRequest(`${BASE_URL}/search/${hero}`, headers);
   };
   const contextValue = useMemo(
-    () => ({ contextGetBatman, loading, setLoading }),
-    [contextGetBatman, loading, setLoading]
+    () => ({ getHero, loading, setLoading }),
+    [getHero, loading, setLoading]
   );
 
   return (

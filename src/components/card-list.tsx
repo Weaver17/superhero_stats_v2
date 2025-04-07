@@ -10,29 +10,28 @@ import Loading from "@/app/loading/loading";
 function CardList() {
   const [heroes, setHeroes] = useState<Hero[]>([]);
 
-  const { contextGetBatman } = useHeroContextHook();
+  const { getHero } = useHeroContextHook();
 
-  const getBatman = async () => {
-    const batman = await contextGetBatman();
-    const results = await makeUseful(batman.results);
+  if (heroes.length == 0) {
+    const getHeroes = async () => {
+      const results = await getHero("a");
+      const usefulResults = await makeUseful(results.results);
 
-    setHeroes(results);
-  };
+      setHeroes(usefulResults);
+    };
+    getHeroes();
+  }
 
-  getBatman();
-
-  console.log(heroes.map((hero: Hero) => hero.name));
+  console.log(heroes.map((hero: Hero) => hero.image?.url));
 
   return (
-    <div>
-      <Suspense fallback={<Loading />}>
-        <ul>
-          {heroes.map((hero: Hero) => (
-            <HeroCard key={hero.id} hero={hero} />
-          ))}
-        </ul>
-      </Suspense>
-    </div>
+    <Suspense fallback={<Loading />}>
+      <ul className="mx-2 py-4 grid grid-cols-[repeat(auto-fit,_minmax(0,_355px))] justify-center gap-4">
+        {heroes.map((hero: Hero) => (
+          <HeroCard key={hero.id} hero={hero} />
+        ))}
+      </ul>
+    </Suspense>
   );
 }
 

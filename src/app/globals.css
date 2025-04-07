@@ -14,6 +14,22 @@ body {
 @theme {
   --color-marvel: #ec1d24;
   --color-dc: #0476f2;
+  --color-nbc: #6460aa;
+  --color-dark-horse: #313131;
+  --color-wildstorm: #f5f5dc;
+  --color-star-trek: #f2c300;
+  --color-star-wars: #ffe81f;
+  --color-idw: #d26468;
+  --color-shueisha: #bc002d;
+  --color-syfy: #3c007c;
+  --color-sony: #222222;
+  --color-hp: #7f0909;
+  --color-titan: #4b92db;
+  --color-abc: #aaaaaa;
+  --color-rebellion: #a20a0a;
+  --color-image: #0f0f0f;
+  --color-halo: #2ca243;
+  --color-lotr: #2d590b;
 }
 
 :root {
