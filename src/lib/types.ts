@@ -1,15 +1,18 @@
 export interface Hero {
   id?: string;
   name?: string;
-  powerstats?: Powerstats;
-  biography?: Biography;
-  appearance?: Appearance;
-  work?: Work;
-  connections?: Connections;
-  image?: Image;
+  powerstats?: PowerstatsType;
+  biography?: BiographyType;
+  appearance?: AppearanceType;
+  work?: WorkType;
+  connections?: ConnectionsType;
+  image?: ImageType;
 }
 
-export interface Powerstats {
+export interface PowerstatsType {
+  response?: string;
+  id?: string;
+  name?: string;
   intelligence?: string;
   strength?: string;
   speed?: string;
@@ -18,7 +21,7 @@ export interface Powerstats {
   combat?: string;
 }
 
-export interface Biography {
+export interface BiographyType {
   full_name?: string;
   alter_egos?: string;
   aliases?: string[];
@@ -28,7 +31,7 @@ export interface Biography {
   alignment?: string;
 }
 
-export interface Appearance {
+export interface AppearanceType {
   gender?: string;
   race?: string;
   height?: string[];
@@ -37,17 +40,17 @@ export interface Appearance {
   hair_color?: string;
 }
 
-export interface Work {
+export interface WorkType {
   occupation?: string;
   base?: string;
 }
 
-export interface Connections {
+export interface ConnectionsType {
   group_affiliation?: string;
   relatives?: string;
 }
 
-export interface Image {
+export interface ImageType {
   url?: string;
 }
 

@@ -1,6 +1,8 @@
 export const BASE_URL =
   "https://corsproxy.io/?url=https://superheroapi.com/api/cf5e8cb0f38ad9f2713ccc5537ffa595";
 
+export const POWERSTAT_HERO_ID = "70"; // Bruce Wayne Batman
+
 export const handleServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };

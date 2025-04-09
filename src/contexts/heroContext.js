@@ -1,34 +1,35 @@
 "use client";
 import { BASE_URL, headers, heroRequest } from "@/lib/constants";
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useContext } from "react";
 import PropTypes from "prop-types";
 
 export const HeroContext = React.createContext();
 
 export const HeroContextProvider = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(false);
-
   const getHero = async (hero) => {
-    setIsLoading(true);
-    return await heroRequest(`${BASE_URL}/search/${hero}`, headers).finally(
-      () => {
-        setIsLoading(false);
-      }
-    );
+    return await heroRequest(`${BASE_URL}/search/${hero}`, headers);
+  };
+
+  const getHeroById = async (id) => {
+    return await heroRequest(`${BASE_URL}/${id}`, headers);
   };
 
   const getBatman = async () => {
-    setIsLoading(true);
-    return await heroRequest(`${BASE_URL}/search/batman`, headers).finally(
-      () => {
-        setIsLoading(false);
-      }
-    );
+    return await heroRequest(`${BASE_URL}/search/batman`, headers);
+  };
+
+  const getPowerPreviewHero = async (id) => {
+    return await heroRequest(`${BASE_URL}/${id}/powerstats`, headers);
   };
 
   const contextValue = useMemo(
-    () => ({ getHero, isLoading, setIsLoading, getBatman }),
-    [getHero, isLoading, setIsLoading, getBatman]
+    () => ({
+      getHero,
+      getHeroById,
+      getBatman,
+      getPowerPreviewHero,
+    }),
+    [getHero, getHeroById, getBatman, getPowerPreviewHero]
   );
 
   return (
@@ -39,4 +40,6 @@ HeroContextProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default HeroContextProvider;
+export const useHeroes = () => {
+  return useContext(HeroContext);
+};

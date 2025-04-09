@@ -1,8 +1,6 @@
-import CardList from "@/components/card-list";
 import SearchForm from "@/components/search-form";
+import StatPreviewSection from "@/components/stat-preview";
 import Welcome from "@/components/welcome";
-import { Suspense } from "react";
-// import Loading from "../loading/loading";
 
 export default function Home() {
   return (
@@ -10,9 +8,10 @@ export default function Home() {
       <section className="flex flex-col items-center justify-center section gap-2 border border-secondary rounded-2xl bg-primary/10 backdrop-blur-sm">
         <Welcome />
         <SearchForm />
-        {/* <Loading /> */}
       </section>
-      <section className="container"></section>
+      <section className="section border border-secondary rounded-2xl bg-primary/10 backdrop-blur-sm">
+        <StatPreviewSection />
+      </section>
     </>
   );
 }

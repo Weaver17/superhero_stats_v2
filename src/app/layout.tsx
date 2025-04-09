@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
-import HeroContextProvider from "@/contexts/heroContext";
+import { HeroContextProvider } from "@/contexts/heroContext";
 import { Suspense } from "react";
 import Loading from "./loading/loading";
 

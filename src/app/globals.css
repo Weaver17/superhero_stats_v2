@@ -21,6 +21,12 @@ body {
   max-width: 1350px;
 }
 
+.statbar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
 @theme {
   --color-marvel: #ec1d24;
   --color-dc: #0476f2;
