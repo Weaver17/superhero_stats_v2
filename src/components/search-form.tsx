@@ -1,6 +1,9 @@
 "use client";
-import React, { SetStateAction } from "react";
+import React, { SetStateAction, useActionState } from "react";
 import { Button } from "./ui/button";
+import { searchHero } from "@/actions/actions";
+import useHeroContextHook from "@/hooks/useHeroContextHook";
+import { BASE_URL, headers } from "@/lib/constants";
 
 function SearchForm() {
   const [value, setValue] = React.useState<string>("");
@@ -9,11 +12,25 @@ function SearchForm() {
     setValue(e.target.value);
   };
 
+  const [getHero, isLoading] = useHeroContextHook();
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const hero = formData.get("search") as string;
+    console.log(hero);
+    setValue(hero);
+    await getHero(`${BASE_URL}/search/${hero}`, headers);
+  };
+
   return (
-    <form className="mx-auto mt-10 flex flex-col justify-center items-center gap-4 max-w-3xl ">
+    <form
+      onSubmit={onSubmit}
+      className="mx-auto mt-10 flex flex-col justify-center items-center gap-4 max-w-3xl "
+    >
       <h2 className="text-4xl">Search for a Hero</h2>
       <input
-        type="text"
+        type="search"
         required
         name="search"
         value={value}
@@ -21,7 +38,9 @@ function SearchForm() {
         className="bg-foreground/90 rounded-[4px] w-xl h-12 focus:outline-none p-2 text-2xl text-background"
         placeholder="Batman"
       />
-      <Button className="h-10 text-lg">Search</Button>
+      <Button className="h-10 text-lg">
+        {isLoading ? "Searching..." : "Search"}
+      </Button>
     </form>
   );
 }

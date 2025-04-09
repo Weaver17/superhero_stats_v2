@@ -1,6 +1,6 @@
 "use client";
 import useHeroContextHook from "@/hooks/useHeroContextHook";
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import HeroCard from "./hero-card";
 
 import { Hero } from "@/lib/types";
@@ -12,14 +12,16 @@ function CardList() {
 
   const { getBatman } = useHeroContextHook();
 
-  if (heroes === undefined || heroes.length === 0) {
-    const fetchBatman = async () => {
-      const results = await getBatman();
-      const usefulBatman = await makeUseful(results.results);
-      setHeroes(usefulBatman);
-    };
-    fetchBatman();
-  }
+  useEffect(() => {
+    if (heroes === undefined || heroes.length === 0) {
+      const fetchBatman = async () => {
+        const results = await getBatman();
+        const usefulBatman = await makeUseful(results.results);
+        setHeroes(usefulBatman);
+      };
+      fetchBatman();
+    }
+  }, [heroes]);
 
   return (
     <Suspense fallback={<Loading />}>
