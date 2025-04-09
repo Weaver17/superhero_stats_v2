@@ -1,6 +1,7 @@
 "use client";
 import { BASE_URL, headers, heroRequest } from "@/lib/constants";
 import React, { useMemo, useState } from "react";
+import PropTypes from "prop-types";
 
 export const HeroContext = React.createContext();
 
@@ -33,6 +34,9 @@ export const HeroContextProvider = ({ children }) => {
   return (
     <HeroContext.Provider value={contextValue}>{children}</HeroContext.Provider>
   );
+};
+HeroContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default HeroContextProvider;

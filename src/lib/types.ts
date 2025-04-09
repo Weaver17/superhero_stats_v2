@@ -50,3 +50,9 @@ export interface Connections {
 export interface Image {
   url?: string;
 }
+
+export type HeroResponse = {
+  response: string;
+  "results-for": string;
+  results: string[];
+};

@@ -1,31 +1,17 @@
-"use client";
-import React, { SetStateAction, useActionState } from "react";
+// import React, { SetStateAction, useActionState } from "react";
 import { Button } from "./ui/button";
-import { searchHero } from "@/actions/actions";
-import useHeroContextHook from "@/hooks/useHeroContextHook";
-import { BASE_URL, headers } from "@/lib/constants";
+import Form from "next/form";
 
 function SearchForm() {
-  const [value, setValue] = React.useState<string>("");
+  // const [value, setValue] = React.useState<string>("");
 
-  const handleChange = (e: { target: { value: SetStateAction<string> } }) => {
-    setValue(e.target.value);
-  };
-
-  const [getHero, isLoading] = useHeroContextHook();
-
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const hero = formData.get("search") as string;
-    console.log(hero);
-    setValue(hero);
-    await getHero(`${BASE_URL}/search/${hero}`, headers);
-  };
+  // const handleChange = (e: { target: { value: SetStateAction<string> } }) => {
+  //   setValue(e.target.value);
+  // };
 
   return (
-    <form
-      onSubmit={onSubmit}
+    <Form
+      action="/search"
       className="mx-auto mt-10 flex flex-col justify-center items-center gap-4 max-w-3xl "
     >
       <h2 className="text-4xl">Search for a Hero</h2>
@@ -33,15 +19,13 @@ function SearchForm() {
         type="search"
         required
         name="search"
-        value={value}
-        onChange={handleChange}
+        // value={value}
+        // onChange={handleChange}
         className="bg-foreground/90 rounded-[4px] w-xl h-12 focus:outline-none p-2 text-2xl text-background"
-        placeholder="Batman"
+        placeholder="batman, wolverine, etc..."
       />
-      <Button className="h-10 text-lg">
-        {isLoading ? "Searching..." : "Search"}
-      </Button>
-    </form>
+      <Button className="h-10 text-lg">Search</Button>
+    </Form>
   );
 }
 

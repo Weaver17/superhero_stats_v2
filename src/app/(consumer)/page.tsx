@@ -12,11 +12,7 @@ export default function Home() {
         <SearchForm />
         {/* <Loading /> */}
       </section>
-      <section className="container">
-        <Suspense>
-          <CardList />
-        </Suspense>
-      </section>
+      <section className="container"></section>
     </>
   );
 }
