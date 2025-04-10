@@ -4,10 +4,10 @@ import { Button } from "./ui/button";
 
 function Navbar() {
   return (
-    <header className="flex h-12 bg-background z-10 border-b border-zinc-700/50">
+    <header className="flex h-20 bg-background z-10 border-b border-zinc-700/50">
       <nav className="flex gap-4 container  items-center ">
         <Link
-          className="mr-auto text-2xl hover:underline px-2 flex text-secondary"
+          className="mr-auto text-4xl hover:underline px-2 flex text-secondary"
           href="/"
         >
           SuperHero Stats

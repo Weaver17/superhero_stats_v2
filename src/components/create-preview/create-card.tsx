@@ -1,71 +1,14 @@
-import { dcPublishers, marvelPublishers } from "@/lib/constants";
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { Card, CardDescription, CardFooter, CardTitle } from "../ui/card";
 import { CREATE_PREVIEW_HERO } from "@/lib/create-preview-hero";
+import { getBorderClass } from "@/lib/utils";
 
 function CreateCard() {
   const hero = CREATE_PREVIEW_HERO;
-  let borderClass = "border-secondary";
-  const publisher = hero?.biography?.publisher ?? "";
-
-  if (marvelPublishers.includes(publisher)) {
-    borderClass = "border-marvel";
-  } else if (dcPublishers.includes(publisher)) {
-    borderClass = "border-dc";
-  } else {
-    switch (publisher) {
-      case "NBC - Heroes":
-        borderClass = "border-nbc";
-        break;
-      case "Dark Horse Comics":
-        borderClass = "border-dark-horse";
-        break;
-      case "Wildstorm":
-        borderClass = "border-wildstorm";
-        break;
-      case "Star Trek":
-        borderClass = "border-star-trek";
-        break;
-      case "George Lucas":
-        borderClass = "border-star-wars";
-        break;
-      case "IDW Publishing":
-        borderClass = "border-idw";
-        break;
-      case "Shueisha":
-        borderClass = "border-shueisha";
-        break;
-      case "SyFy":
-        borderClass = "border-syfy";
-        break;
-      case "Sony Pictures":
-        borderClass = "border-sony";
-        break;
-      case "J. K. Rowling":
-        borderClass = "border-hp";
-        break;
-      case "Titan Books":
-        borderClass = "border-titan";
-        break;
-      case "ABC Studios":
-        borderClass = "border-abc";
-        break;
-      case "Rebellion":
-        borderClass = "border-rebellion";
-        break;
-      case "Image Comics":
-        borderClass = "border-image";
-        break;
-      case "Microsoft":
-        borderClass = "border-halo";
-        break;
-      case "J. R. R. Tolkien":
-        borderClass = "border-lotr";
-        break;
-    }
-  }
+  const publisher = hero?.biography?.publisher;
+  const borderClass = getBorderClass(publisher);
 
   return (
     <Link href={`/hero/${hero.id}`}>
