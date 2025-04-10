@@ -4,6 +4,8 @@ export const BASE_URL =
 export const POWERSTAT_HERO_ID = "70"; // Bruce Wayne Batman
 export const APPEARANCE_HERO_ID = "620"; // Peter Parker Spider-Man
 export const BIOGRAPHY_HERO_ID = "644"; // Clark Kent Superman
+export const WORK_HERO_ID = "423"; // Magneto
+export const CONNECTIONS_HERO_ID = "165"; // Catwoman
 
 export const handleServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);

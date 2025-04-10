@@ -26,8 +26,16 @@ export const HeroContextProvider = ({ children }) => {
     return await heroRequest(`${BASE_URL}/${id}/appearance`, headers);
   };
 
+  const getWorkPreviewHero = async (id) => {
+    return await heroRequest(`${BASE_URL}/${id}/work`, headers);
+  };
+
   const getBioPreviewHero = async (id) => {
     return await heroRequest(`${BASE_URL}/${id}/biography`, headers);
+  };
+
+  const getConnPreviewHero = async (id) => {
+    return await heroRequest(`${BASE_URL}/${id}/connections`, headers);
   };
 
   const contextValue = useMemo(
@@ -38,6 +46,8 @@ export const HeroContextProvider = ({ children }) => {
       getPowerPreviewHero,
       getAppPreviewHero,
       getBioPreviewHero,
+      getWorkPreviewHero,
+      getConnPreviewHero,
     }),
     [
       getHero,
@@ -46,6 +56,8 @@ export const HeroContextProvider = ({ children }) => {
       getPowerPreviewHero,
       getAppPreviewHero,
       getBioPreviewHero,
+      getWorkPreviewHero,
+      getConnPreviewHero,
     ]
   );
 

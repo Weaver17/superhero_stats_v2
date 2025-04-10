@@ -8,15 +8,20 @@ import Loading from "@/app/loading/loading";
 
 function StatPreviewSection() {
   return (
-    <div className="py-2 px-15 flex flex-col gap-5">
+    <div
+      id="stat-preview"
+      className="py-2 px-15 flex flex-col gap-5 scroll-mt-35"
+    >
       <Suspense fallback={<Loading />}>
         <Powerstats />
         <div className=" pb-6 grid grid-cols-2 border-b border-secondary">
           <Appearance />
           <Biography />
         </div>
-        <Work />
-        <Connections />
+        <div className=" pb-6 grid grid-cols-2 border-b border-secondary">
+          <Work />
+          <Connections />
+        </div>
       </Suspense>
     </div>
   );
