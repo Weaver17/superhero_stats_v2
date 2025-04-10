@@ -22,6 +22,9 @@ export interface PowerstatsType {
 }
 
 export interface BiographyType {
+  response?: string;
+  id?: string;
+  name?: string;
   full_name?: string;
   alter_egos?: string;
   aliases?: string[];
@@ -32,6 +35,9 @@ export interface BiographyType {
 }
 
 export interface AppearanceType {
+  response?: string;
+  id?: string;
+  name?: string;
   gender?: string;
   race?: string;
   height?: string[];
@@ -41,16 +47,25 @@ export interface AppearanceType {
 }
 
 export interface WorkType {
+  response?: string;
+  id?: string;
+  name?: string;
   occupation?: string;
   base?: string;
 }
 
 export interface ConnectionsType {
+  response?: string;
+  id?: string;
+  name?: string;
   group_affiliation?: string;
   relatives?: string;
 }
 
 export interface ImageType {
+  response?: string;
+  id?: string;
+  name?: string;
   url?: string;
 }
 

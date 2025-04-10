@@ -22,14 +22,31 @@ export const HeroContextProvider = ({ children }) => {
     return await heroRequest(`${BASE_URL}/${id}/powerstats`, headers);
   };
 
+  const getAppPreviewHero = async (id) => {
+    return await heroRequest(`${BASE_URL}/${id}/appearance`, headers);
+  };
+
+  const getBioPreviewHero = async (id) => {
+    return await heroRequest(`${BASE_URL}/${id}/biography`, headers);
+  };
+
   const contextValue = useMemo(
     () => ({
       getHero,
       getHeroById,
       getBatman,
       getPowerPreviewHero,
+      getAppPreviewHero,
+      getBioPreviewHero,
     }),
-    [getHero, getHeroById, getBatman, getPowerPreviewHero]
+    [
+      getHero,
+      getHeroById,
+      getBatman,
+      getPowerPreviewHero,
+      getAppPreviewHero,
+      getBioPreviewHero,
+    ]
   );
 
   return (

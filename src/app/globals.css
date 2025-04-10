@@ -21,10 +21,15 @@ body {
   max-width: 1350px;
 }
 
-.statbar {
+.stat-wrapper {
   display: flex;
   gap: 8px;
   align-items: center;
+}
+
+.stat-wrapper-list {
+  display: flex;
+  gap: 8px;
 }
 
 @theme {

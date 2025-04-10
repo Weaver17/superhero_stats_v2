@@ -4,7 +4,7 @@ import { makeUseful, POWERSTAT_HERO_ID } from "@/lib/constants";
 import PreviewHeroCard from "../preview-hero-card";
 import { useEffect, useState } from "react";
 import { PowerstatsType } from "@/lib/types";
-import StatBar from "./stat-bar";
+import StatBar from "../stat-bar";
 
 function Powerstats() {
   const [powerPreviewCard, setPowerPreviewCard] = useState({});
@@ -28,36 +28,39 @@ function Powerstats() {
     fetchPowerstats();
   }, []);
   return (
-    <div className="flex gap-5">
-      <div>
-        <PreviewHeroCard hero={powerPreviewCard} />
+    <div className="pb-7 flex flex-col justify-center border-b border-secondary">
+      <h3 className="font-semibold mx-auto mb-8">Powerstats</h3>
+      <div className="flex gap-5">
+        <div>
+          <PreviewHeroCard hero={powerPreviewCard} />
+        </div>
+        <ul className="flex flex-col  w-[100%] justify-between">
+          <li className="stat-wrapper">
+            <p className="w-[120px] font-semibold text-end">Combat:</p>
+            <StatBar level={powerstatPreview?.combat ?? "0"} />
+          </li>
+          <li className="stat-wrapper">
+            <p className="w-[120px] font-semibold text-end">Durability:</p>
+            <StatBar level={powerstatPreview?.durability ?? "0"} />
+          </li>
+          <li className="stat-wrapper">
+            <p className="w-[120px] font-semibold text-end">Intelligence:</p>
+            <StatBar level={powerstatPreview?.intelligence ?? "0"} />
+          </li>
+          <li className="stat-wrapper">
+            <p className="w-[120px] font-semibold text-end">Power:</p>
+            <StatBar level={powerstatPreview?.power ?? "0"} />
+          </li>
+          <li className="stat-wrapper">
+            <p className="w-[120px] font-semibold text-end">Speed:</p>
+            <StatBar level={powerstatPreview?.speed ?? "0"} />
+          </li>
+          <li className="stat-wrapper">
+            <p className="w-[120px] font-semibold text-end">Strength:</p>
+            <StatBar level={powerstatPreview?.strength ?? "0"} />
+          </li>
+        </ul>
       </div>
-      <ul className="flex flex-col gap-4 w-[100%] justify-center">
-        <li className="statbar">
-          <p className="w-[120px]">Combat:</p>
-          <StatBar level={powerstatPreview?.combat ?? "0"} />
-        </li>
-        <li className="statbar">
-          <p className="w-[120px]">Durability:</p>
-          <StatBar level={powerstatPreview?.durability ?? "0"} />
-        </li>
-        <li className="statbar">
-          <p className="w-[120px]">Intelligence:</p>
-          <StatBar level={powerstatPreview?.intelligence ?? "0"} />
-        </li>
-        <li className="statbar">
-          <p className="w-[120px]">Power:</p>
-          <StatBar level={powerstatPreview?.power ?? "0"} />
-        </li>
-        <li className="statbar">
-          <p className="w-[120px]">Speed:</p>
-          <StatBar level={powerstatPreview?.speed ?? "0"} />
-        </li>
-        <li className="statbar">
-          <p className="w-[120px]">Strength:</p>
-          <StatBar level={powerstatPreview?.strength ?? "0"} />
-        </li>
-      </ul>
     </div>
   );
 }

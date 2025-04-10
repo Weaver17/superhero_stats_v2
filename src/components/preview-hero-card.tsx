@@ -76,28 +76,28 @@ function PreviewHeroCard({ hero }: Readonly<HeroCardProps>) {
   }
 
   return (
-    // <Link href={`/hero/${hero.id}`}>
-    <div className="cursor-pointer">
-      <Card
-        className={`flex flex-col items-center ${borderClass} w-[255px] h-[385px] `}
-      >
-        <Image
-          className="w-[200px] h-[275px] "
-          src={hero.image?.url ?? backup}
-          alt={hero?.name ?? "N/A"}
-          width={200}
-          height={375}
-          priority
-        />
-        <CardFooter className="flex flex-col gap-2 items-center justify-center">
-          <CardTitle>{hero.name ?? "N/A"}</CardTitle>
-          <CardDescription>
-            {hero.biography?.full_name ?? "N/A"}
-          </CardDescription>
-        </CardFooter>
-      </Card>
-    </div>
-    // </Link>
+    <Link href={`/hero/${hero.id}`}>
+      <div className="cursor-pointer hover:scale-110 transition-transform duration-200">
+        <Card
+          className={`flex flex-col items-center ${borderClass} w-[255px] h-[385px] `}
+        >
+          <Image
+            className="w-[200px] h-[275px] "
+            src={hero.image?.url ?? backup}
+            alt={hero?.name ?? "N/A"}
+            width={200}
+            height={375}
+            priority
+          />
+          <CardFooter className="flex flex-col gap-2 items-center justify-center">
+            <CardTitle>{hero.name ?? "N/A"}</CardTitle>
+            <CardDescription>
+              {hero.biography?.full_name ?? "N/A"}
+            </CardDescription>
+          </CardFooter>
+        </Card>
+      </div>
+    </Link>
   );
 }
 
