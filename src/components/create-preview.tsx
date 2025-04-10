@@ -3,7 +3,7 @@ import CreateCard from "./create-preview/create-card";
 
 function CreateAHeroPreview() {
   return (
-    <div className="flex p-10">
+    <div className="flex p-10" id="create-a-hero">
       <CreateCard />
       <div className="flex flex-col gap-10 ml-20 text-center">
         <h4 className="font-semibold text-3xl">Create your own hero!</h4>

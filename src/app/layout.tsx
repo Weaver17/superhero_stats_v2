@@ -27,8 +27,8 @@ export default function RootLayout({
         {" "}
         <Suspense fallback={<Loading />}>
           <HeroContextProvider>
-            <main className="bg-[url('../../public/city-backdrop.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
-              <div className="overlay">{children}</div>
+            <main className=" ">
+              <div className="">{children}</div>
             </main>
           </HeroContextProvider>
         </Suspense>
