@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: "www.superherodb.com",
         pathname: "/pictures2/portraits/**",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
     ],
   },
 };
