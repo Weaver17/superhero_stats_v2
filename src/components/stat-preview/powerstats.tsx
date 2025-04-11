@@ -29,7 +29,7 @@ function Powerstats() {
   }, []);
   return (
     <div className="pb-7 flex flex-col justify-center border-b border-secondary">
-      <h3 className="font-semibold mx-auto mb-8">Powerstats</h3>
+      <h3 className="font-semibold text-2xl mx-auto mb-8">Powerstats</h3>
       <div className="flex gap-5">
         <div>
           <PreviewHeroCard hero={powerPreviewCard} />

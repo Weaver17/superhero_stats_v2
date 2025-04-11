@@ -51,6 +51,11 @@ body {
   --color-image: #0f0f0f;
   --color-halo: #2ca243;
   --color-lotr: #2d590b;
+
+  --color-weak: #911116;
+  --color-average: #232329;
+  --color-strong: #013166;
+  --color-super: #2a4d0f;
 }
 
 :root {

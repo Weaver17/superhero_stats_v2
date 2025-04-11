@@ -29,7 +29,7 @@ function Appearance() {
 
   return (
     <div className="px-6 flex flex-col justify-center border-r border-secondary">
-      <h3 className="font-semibold mx-auto mb-8">Appearance</h3>
+      <h3 className="font-semibold text-2xl mx-auto mb-8">Appearance</h3>
       <div className="flex flex-row-reverse gap-5">
         <div>
           <PreviewHeroCard hero={appPreviewCard} />

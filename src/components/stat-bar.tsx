@@ -1,9 +1,13 @@
+import { getBorderColor } from "@/lib/utils";
+
 type StatBarProps = {
   level: string | undefined;
 };
 
 const StatBar = ({ level }: StatBarProps) => {
   const levelNumber = parseInt(level ?? "0", 10);
+
+  const barColor = getBorderColor(levelNumber);
 
   return (
     <div className="flex  items-center w-[100%]">
@@ -12,7 +16,7 @@ const StatBar = ({ level }: StatBarProps) => {
         {/* STAT BAR LEVEL */}
         <div
           style={{ width: `${levelNumber}%` }}
-          className="relative h-11 bg-[#162907]"
+          className={`relative h-11 ${barColor}`}
         >
           {/* STAT LEVEL NUMBER */}
           <p className="absolute top-[7px] right-2 text-[#dec400] text-2xl font-bold">

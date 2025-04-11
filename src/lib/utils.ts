@@ -52,3 +52,20 @@ export function getBorderClass(publisher: string | undefined): string {
     }
   }
 }
+
+export function getBorderColor(levelNumber: number | null) {
+  let barColor = "bg-weak";
+
+  if (levelNumber) {
+    if (levelNumber < 24) {
+      // No change to barColor
+    } else if (levelNumber > 25 && levelNumber <= 55) {
+      barColor = "bg-average";
+    } else if (levelNumber > 55 && levelNumber <= 85) {
+      barColor = "bg-strong";
+    } else {
+      barColor = "bg-super";
+    }
+  }
+  return barColor;
+}

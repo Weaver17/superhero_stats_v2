@@ -12,7 +12,7 @@ function CreateCard() {
 
   return (
     <Link href={`/hero/${hero.id}`}>
-      <li className="cursor-pointer hover:scale-110 transition-transform duration-200">
+      <li className="cursor-pointer ml-5 hover:scale-110 transition-transform duration-200">
         <Card className={`flex flex-col items-center ${borderClass} `}>
           <Image
             className="w-[300px] h-[375px] object-cover object-left"
