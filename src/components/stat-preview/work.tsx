@@ -3,7 +3,7 @@ import { useHeroes } from "@/contexts/heroContext";
 import { makeUseful, WORK_HERO_ID } from "@/lib/constants";
 import { WorkType } from "@/lib/types";
 import React, { useEffect, useState } from "react";
-import PreviewHeroCard from "../preview-hero-card";
+import PreviewHeroCard from "../cards/preview-hero-card";
 
 function Work() {
   const [workPreviewCard, setWorkPreviewCard] = useState({});

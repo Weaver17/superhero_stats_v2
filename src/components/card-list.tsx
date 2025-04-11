@@ -1,7 +1,7 @@
 // "use client";
 // import useHeroContextHook from "@/hooks/useHeroContextHook";
 import React, { Suspense } from "react";
-import HeroCard from "./hero-card";
+import HeroCard from "./cards/hero-card";
 
 import { Hero, HeroResponse } from "@/lib/types";
 import { makeUseful } from "@/lib/constants";

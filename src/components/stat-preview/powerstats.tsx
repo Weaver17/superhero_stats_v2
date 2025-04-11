@@ -1,7 +1,7 @@
 "use client";
 import { useHeroes } from "@/contexts/heroContext";
 import { makeUseful, POWERSTAT_HERO_ID } from "@/lib/constants";
-import PreviewHeroCard from "../preview-hero-card";
+import PreviewHeroCard from "../cards/preview-hero-card";
 import { useEffect, useState } from "react";
 import { PowerstatsType } from "@/lib/types";
 import StatBar from "../stat-bar";

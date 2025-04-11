@@ -3,7 +3,7 @@ import { useHeroes } from "@/contexts/heroContext";
 import { BIOGRAPHY_HERO_ID, makeUseful } from "@/lib/constants";
 import { BiographyType } from "@/lib/types";
 import React, { useEffect, useState } from "react";
-import PreviewHeroCard from "../preview-hero-card";
+import PreviewHeroCard from "../cards/preview-hero-card";
 
 function Biography() {
   const [bioPreviewCard, setBioPreviewCard] = useState({});

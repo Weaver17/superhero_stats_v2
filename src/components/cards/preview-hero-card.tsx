@@ -7,7 +7,7 @@ import {
 import { Hero } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
-import backup from "../../public/vercel.svg";
+import backup from "../../../public/vercel.svg";
 import { getBorderClass } from "@/lib/utils";
 
 interface HeroCardProps {

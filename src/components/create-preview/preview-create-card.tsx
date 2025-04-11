@@ -5,7 +5,7 @@ import { Card, CardDescription, CardFooter, CardTitle } from "../ui/card";
 import { CREATE_PREVIEW_HERO } from "@/lib/create-preview-hero";
 import { getBorderClass } from "@/lib/utils";
 
-function CreateCard() {
+function CreateCardPreview() {
   const hero = CREATE_PREVIEW_HERO;
   const publisher = hero?.biography?.publisher;
   const borderClass = getBorderClass(publisher);
@@ -34,4 +34,4 @@ function CreateCard() {
   );
 }
 
-export default CreateCard;
+export default CreateCardPreview;

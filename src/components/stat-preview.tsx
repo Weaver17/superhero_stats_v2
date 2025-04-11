@@ -10,7 +10,7 @@ function StatPreviewSection() {
   return (
     <div
       id="stat-preview"
-      className="py-2 px-15 flex flex-col gap-5 scroll-mt-35"
+      className="py-2 px-15 flex flex-col gap-5 scroll-mt-30"
     >
       <Suspense fallback={<Loading />}>
         <Powerstats />

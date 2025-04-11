@@ -1,7 +1,7 @@
 import React from "react";
 import StatBar from "../stat-bar";
 
-function CreatePower() {
+function CreatePowerPreview() {
   return (
     <div className="px-10 flex flex-col gap-6">
       <h4 className="font-semibold text-2xl text-center">Powerstats</h4>
@@ -20,7 +20,7 @@ function CreatePower() {
           <p className="w-[150px] font-semibold text-xl text-end">
             Intelligence:
           </p>
-          <StatBar level="5" />
+          <StatBar level="1" />
         </li>
         <li className="stat-wrapper">
           <p className="w-[150px] font-semibold text-xl text-end">Power:</p>
@@ -39,4 +39,4 @@ function CreatePower() {
   );
 }
 
-export default CreatePower;
+export default CreatePowerPreview;

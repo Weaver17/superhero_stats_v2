@@ -44,7 +44,7 @@ function Welcome() {
         >
           here
         </Button>{" "}
-        to preview Creat-A-Hero
+        to preview Create-A-Hero
       </p>
     </div>
   );

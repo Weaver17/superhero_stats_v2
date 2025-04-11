@@ -1,6 +1,6 @@
 import React from "react";
 
-function CreateBio() {
+function CreateBioPreview() {
   return (
     <div className="px-6 flex flex-col justify-center gap-6">
       <h3 className="font-semibold  text-2xl text-center">Biography</h3>
@@ -49,4 +49,4 @@ function CreateBio() {
   );
 }
 
-export default CreateBio;
+export default CreateBioPreview;

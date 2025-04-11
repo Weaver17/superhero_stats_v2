@@ -20,7 +20,7 @@ const StatBar = ({ level }: StatBarProps) => {
         >
           {/* STAT LEVEL NUMBER */}
           <p className="absolute top-[7px] right-2 text-[#dec400] text-2xl font-bold">
-            {levelNumber}
+            {Number.isNaN(levelNumber) || levelNumber < 5 ? "" : levelNumber}
           </p>
         </div>
       </div>

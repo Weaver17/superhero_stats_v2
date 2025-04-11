@@ -3,7 +3,7 @@ import { useHeroes } from "@/contexts/heroContext";
 import { CONNECTIONS_HERO_ID, makeUseful } from "@/lib/constants";
 import { ConnectionsType } from "@/lib/types";
 import React, { useEffect, useState } from "react";
-import PreviewHeroCard from "../preview-hero-card";
+import PreviewHeroCard from "../cards/preview-hero-card";
 
 function Connections() {
   const [connPreviewCard, setConnPreviewCard] = useState({});
