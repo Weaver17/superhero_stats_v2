@@ -9,6 +9,8 @@ import HeroWork from "@/components/hero-page/hero-work";
 import { prisma } from "@/lib/database";
 import React, { Suspense } from "react";
 import backup from "../../../../../public/vercel.svg";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 type HeroSlugType = {
   params: {
@@ -37,10 +39,14 @@ async function page({ params }: HeroSlugType) {
       image: true,
       powerstats: true,
       work: true,
+      creator: true,
     },
   });
 
-  console.log(hero?.slug);
+  const creatorSlug = hero?.creator?.username
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, "")
+    .replace(/\s+/g, "-");
 
   const imageBackup =
     hero?.image === undefined || hero?.image === null
@@ -50,81 +56,84 @@ async function page({ params }: HeroSlugType) {
   return (
     <Suspense fallback={<Loading />}>
       <section className="py-6 bg-[url('../../public/city-backdrop-2.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
-        {!hero?.image ? (
-          <div>
-            <h2>AAAAAAAAAAAAAAAAAA</h2>
+        <div className="section relative border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm">
+          <div className="absolute top-3 right-4 flex gap-4 items-center">
+            <p className="text-sm text-muted-foreground">
+              Created by:{" "}
+              <Link href={`/user/${creatorSlug}`} className="hover:underline">
+                {hero?.creator?.username}
+              </Link>
+            </p>
+            {/* //
+            IS LOGGED IN LOGIC FOR EDIT BUTTON
+            // */}
+            <Button variant="ghost">EDIT</Button>
           </div>
-        ) : (
-          <div className="section border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm">
-            <div></div>
-            <div className="grid grid-cols-2 mx-5 pb-10 border-b border-secondary ">
-              <HeroImage
-                image={hero?.image?.url ?? imageBackup}
-                name={hero?.name ?? ""}
-                publisher="custom"
-              />
-              <HeroName
-                heroName={hero?.name ?? ""}
-                realName={hero?.biography?.full_name ?? ""}
-              />
-            </div>
-            <div className="grid grid-cols-2 items-start mx-5 p-10 border-b border-secondary">
-              {/* BIO  */}
-              <HeroBio
-                alter_egos={hero?.biography?.alter_egos ?? ""}
-                aliases={
-                  hero?.biography?.aliases?.map((alias) => alias.aliases) ?? [
-                    "",
-                  ]
-                }
-                place_of_birth={hero?.biography?.place_of_birth ?? ""}
-                first_appearance={hero?.biography?.first_appearance ?? ""}
-                publisher={hero?.biography?.publisher ?? ""}
-                alignment={hero?.biography?.alignment ?? ""}
-              />
-              {/* APP  */}
-              <HeroApp
-                eye_color={hero?.appearance?.eye_color ?? ""}
-                hair_color={hero?.appearance?.hair_color ?? ""}
-                race={hero?.appearance?.race ?? ""}
-                gender={hero?.appearance?.gender ?? ""}
-                height={
-                  hero?.appearance?.height?.map(
-                    (h) => `${h.imperial} (${h.metric} cm)`
-                  ) ?? []
-                }
-                weight={
-                  hero?.appearance?.weight?.map(
-                    (w) => `${w.imperial} lbs (${w.metric} kg)`
-                  ) ?? []
-                }
-              />
-            </div>
-            <div className=" mx-5  border-b border-secondary">
-              {/* POWERSTATS  */}
-              <HeroPower
-                intelligence={hero?.powerstats?.intelligence ?? ""}
-                combat={hero?.powerstats?.combat ?? ""}
-                durability={hero?.powerstats?.durability ?? ""}
-                power={hero?.powerstats?.power ?? ""}
-                speed={hero?.powerstats?.speed ?? ""}
-                strength={hero?.powerstats?.strength ?? ""}
-              />
-            </div>
-            <div className="grid grid-cols-2 items-start mx-5 p-10 border-b border-secondary">
-              {/* WORK  */}
-              <HeroWork
-                occupation={hero?.work?.occupation ?? ""}
-                base={hero?.work?.base ?? ""}
-              />
-              {/* CONN  */}
-              <HeroConn
-                relatives={hero?.connections?.relatives ?? ""}
-                group_affiliation={hero?.connections?.group_affiliation ?? ""}
-              />
-            </div>
+          <div className="grid grid-cols-2 mx-5 pb-10 border-b border-secondary ">
+            <HeroImage
+              image={hero?.image?.url ?? imageBackup}
+              name={hero?.name ?? ""}
+              publisher="custom"
+            />
+            <HeroName
+              heroName={hero?.name ?? ""}
+              realName={hero?.biography?.full_name ?? ""}
+            />
           </div>
-        )}
+          <div className="grid grid-cols-2 items-start mx-5 p-10 border-b border-secondary">
+            {/* BIO  */}
+            <HeroBio
+              alter_egos={hero?.biography?.alter_egos ?? ""}
+              aliases={
+                hero?.biography?.aliases?.map((alias) => alias.aliases) ?? [""]
+              }
+              place_of_birth={hero?.biography?.place_of_birth ?? ""}
+              first_appearance={hero?.biography?.first_appearance ?? ""}
+              publisher={hero?.biography?.publisher ?? ""}
+              alignment={hero?.biography?.alignment ?? ""}
+            />
+            {/* APP  */}
+            <HeroApp
+              eye_color={hero?.appearance?.eye_color ?? ""}
+              hair_color={hero?.appearance?.hair_color ?? ""}
+              race={hero?.appearance?.race ?? ""}
+              gender={hero?.appearance?.gender ?? ""}
+              height={
+                hero?.appearance?.height?.map(
+                  (h) => `${h.imperial} (${h.metric} cm)`
+                ) ?? []
+              }
+              weight={
+                hero?.appearance?.weight?.map(
+                  (w) => `${w.imperial} lbs (${w.metric} kg)`
+                ) ?? []
+              }
+            />
+          </div>
+          <div className=" mx-5  border-b border-secondary">
+            {/* POWERSTATS  */}
+            <HeroPower
+              intelligence={hero?.powerstats?.intelligence ?? ""}
+              combat={hero?.powerstats?.combat ?? ""}
+              durability={hero?.powerstats?.durability ?? ""}
+              power={hero?.powerstats?.power ?? ""}
+              speed={hero?.powerstats?.speed ?? ""}
+              strength={hero?.powerstats?.strength ?? ""}
+            />
+          </div>
+          <div className="grid grid-cols-2 items-start mx-5 p-10 border-b border-secondary">
+            {/* WORK  */}
+            <HeroWork
+              occupation={hero?.work?.occupation ?? ""}
+              base={hero?.work?.base ?? ""}
+            />
+            {/* CONN  */}
+            <HeroConn
+              relatives={hero?.connections?.relatives ?? ""}
+              group_affiliation={hero?.connections?.group_affiliation ?? ""}
+            />
+          </div>
+        </div>
       </section>
     </Suspense>
   );

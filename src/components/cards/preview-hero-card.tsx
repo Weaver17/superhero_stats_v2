@@ -33,7 +33,7 @@ function PreviewHeroCard({ hero }: Readonly<HeroCardProps>) {
         >
           <Image
             className="w-[200px] h-[275px] "
-            src={image || backup}
+            src={image ?? backup}
             alt={hero?.name ?? "N/A"}
             width={200}
             height={375}

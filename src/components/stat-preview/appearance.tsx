@@ -1,12 +1,14 @@
 "use client";
 import { useHeroes } from "@/contexts/heroContext";
 import { APPEARANCE_HERO_ID, makeUseful } from "@/lib/constants";
-import { AppearanceType } from "@/lib/types";
+import { AppearanceType, Hero } from "@/lib/types";
 import React, { useEffect, useState } from "react";
 import PreviewHeroCard from "../cards/preview-hero-card";
 
 function Appearance() {
-  const [appPreviewCard, setAppPreviewCard] = useState({});
+  const [appPreviewCard, setAppPreviewCard] = useState<Hero>({
+    image: { url: "" }, // Provide a default empty image URL
+  });
   const [appPreview, setAppPreview] = useState<AppearanceType | null>(null);
 
   const { getAppPreviewHero, getHeroById } = useHeroes();

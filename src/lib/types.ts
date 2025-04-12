@@ -8,6 +8,7 @@ export interface Hero {
   work?: WorkType;
   connections?: ConnectionsType;
   image: ImageType;
+  creator?: CreatorType;
 }
 
 export interface PowerstatsType {
@@ -74,4 +75,12 @@ export type HeroResponse = {
   response: string;
   "results-for": string;
   results: string[];
+};
+
+export type CreatorType = {
+  id?: string;
+  isAdmin?: boolean;
+  email?: string;
+  username?: string;
+  hashedPassword?: string;
 };
