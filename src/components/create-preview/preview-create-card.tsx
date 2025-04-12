@@ -2,39 +2,41 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { Card, CardDescription, CardFooter, CardTitle } from "../ui/card";
-import { CREATE_PREVIEW_HERO } from "@/lib/create-preview-hero";
 import { getBorderClass } from "@/lib/utils";
 import backup from "../../../public/vercel.svg";
 
-function CreateCardPreview() {
-  const hero = CREATE_PREVIEW_HERO;
-  const publisher = hero?.biography?.publisher;
+type CreateCardPreviewProps = {
+  image: string;
+  heroName: string;
+  name: string;
+  publisher: string;
+  slug: string;
+};
+
+function CreateCardPreview({
+  image,
+  name,
+  publisher,
+  slug,
+  heroName,
+}: Readonly<CreateCardPreviewProps>) {
   const borderClass = getBorderClass(publisher);
 
-  const image =
-    hero?.image?.url === "" ||
-    hero?.image?.url === undefined ||
-    hero?.image?.url === null
-      ? backup
-      : hero?.image?.url;
-
   return (
-    <Link href={`/hero/${hero.id}`}>
+    <Link href={`/custom-hero/${slug}`}>
       <li className="cursor-pointer ml-5 hover:scale-110 transition-transform duration-200">
         <Card className={`flex flex-col items-center ${borderClass} `}>
           <Image
             className="w-[300px] h-[375px] object-cover object-left"
             src={image || backup}
-            alt={hero?.name ?? "N/A"}
+            alt={name ?? "N/A"}
             width={300}
             height={375}
             priority
           />
           <CardFooter className="flex flex-col gap-2 items-center justify-center">
-            <CardTitle>{hero.name ?? "N/A"}</CardTitle>
-            <CardDescription>
-              {hero.biography?.full_name ?? "N/A"}
-            </CardDescription>
+            <CardTitle>{heroName ?? "N/A"}</CardTitle>
+            <CardDescription>{name ?? "N/A"}</CardDescription>
           </CardFooter>
         </Card>
       </li>

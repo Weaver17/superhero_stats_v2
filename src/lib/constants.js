@@ -7,6 +7,16 @@ export const BIOGRAPHY_HERO_ID = "644"; // Clark Kent Superman
 export const WORK_HERO_ID = "423"; // Magneto
 export const CONNECTIONS_HERO_ID = "165"; // Catwoman
 
+export const CUSTOM_HERO_BACKGROUNDS = [
+  "Page Background",
+  "Night City 1",
+  "Night City 2",
+  "Dark 1",
+  "Dark 2",
+  "Space",
+  "Dark Trees",
+];
+
 export const handleServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
