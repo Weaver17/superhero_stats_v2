@@ -1,7 +1,32 @@
-import React from "react";
+import Loading from "@/app/loading/loading";
+import CustomCardList from "@/components/custom-list";
+import { prisma } from "@/lib/database";
+import { Hero } from "@/lib/types";
+import React, { Suspense } from "react";
 
-function page() {
-  return <div>page</div>;
+async function page() {
+  const heroes = (await prisma.hero.findMany({
+    include: {
+      image: true,
+      biography: true,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  })) as Hero[];
+
+  return (
+    <div>
+      <div>
+        <h2>Custom Heroes</h2>
+      </div>
+      <div>
+        <Suspense fallback={<Loading />}>
+          <CustomCardList heroes={heroes} />
+        </Suspense>
+      </div>
+    </div>
+  );
 }
 
 export default page;

@@ -18,6 +18,13 @@ function PreviewHeroCard({ hero }: Readonly<HeroCardProps>) {
   const publisher = hero?.biography?.publisher;
   const borderClass = getBorderClass(publisher);
 
+  const image =
+    hero?.image?.url === "" ||
+    hero?.image?.url === undefined ||
+    hero?.image?.url === null
+      ? backup
+      : hero?.image?.url;
+
   return (
     <Link href={`/hero/${hero.id}`}>
       <div className="cursor-pointer hover:scale-110 transition-transform duration-200">
@@ -26,7 +33,7 @@ function PreviewHeroCard({ hero }: Readonly<HeroCardProps>) {
         >
           <Image
             className="w-[200px] h-[275px] "
-            src={hero.image?.url ?? backup}
+            src={image || backup}
             alt={hero?.name ?? "N/A"}
             width={200}
             height={375}

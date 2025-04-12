@@ -1,12 +1,13 @@
 export interface Hero {
   id?: string;
   name?: string;
+  slug?: string;
   powerstats?: PowerstatsType;
   biography?: BiographyType;
   appearance?: AppearanceType;
   work?: WorkType;
   connections?: ConnectionsType;
-  image?: ImageType;
+  image: ImageType;
 }
 
 export interface PowerstatsType {

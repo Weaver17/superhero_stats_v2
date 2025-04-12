@@ -1,14 +1,21 @@
-import Link from "next/link";
-import Image from "next/image";
-import React from "react";
-import { Card, CardDescription, CardFooter, CardTitle } from "../ui/card";
-import { CREATE_PREVIEW_HERO } from "@/lib/create-preview-hero";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardTitle,
+} from "@/components/ui/card";
+import { Hero } from "@/lib/types";
 import { getBorderClass } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 import backup from "../../../public/vercel.svg";
 
-function CreateCardPreview() {
-  const hero = CREATE_PREVIEW_HERO;
-  const publisher = hero?.biography?.publisher;
+interface CustomAllCardProps {
+  hero: Hero;
+}
+
+function CustomAllCard({ hero }: Readonly<CustomAllCardProps>) {
+  const publisher = "custom";
   const borderClass = getBorderClass(publisher);
 
   const image =
@@ -19,11 +26,11 @@ function CreateCardPreview() {
       : hero?.image?.url;
 
   return (
-    <Link href={`/hero/${hero.id}`}>
-      <li className="cursor-pointer ml-5 hover:scale-110 transition-transform duration-200">
+    <Link href={`/custom-hero/${hero.slug}`}>
+      <li className="cursor-pointer hover:scale-110 transition-transform duration-200">
         <Card className={`flex flex-col items-center ${borderClass} `}>
           <Image
-            className="w-[300px] h-[375px] object-cover object-left"
+            className="w-[300px] h-[375px] "
             src={image || backup}
             alt={hero?.name ?? "N/A"}
             width={300}
@@ -42,4 +49,4 @@ function CreateCardPreview() {
   );
 }
 
-export default CreateCardPreview;
+export default CustomAllCard;

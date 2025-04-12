@@ -7,6 +7,7 @@ import HeroBio from "@/components/hero-page/hero-bio";
 import HeroApp from "@/components/hero-page/hero-app";
 import HeroWork from "@/components/hero-page/hero-work";
 import HeroConn from "@/components/hero-page/hero-conn";
+import backup from "../../../../../public/vercel.svg";
 
 async function page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -15,12 +16,17 @@ async function page({ params }: { params: Promise<{ id: string }> }) {
   const unusefulHero = await heroFromId.json();
   const hero = makeUseful(unusefulHero) as Hero;
 
+  const image =
+    hero?.image === undefined || hero?.image === null
+      ? backup
+      : hero?.image.url;
+
   return (
     <section className="py-6 bg-[url('../../public/city-backdrop-2.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
       <div className="section border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm">
         <div className="grid grid-cols-2 mx-5 pb-10 border-b border-secondary ">
           <HeroImage
-            image={hero?.image?.url}
+            image={image}
             name={hero?.name}
             publisher={hero?.biography?.publisher}
           />

@@ -1,12 +1,14 @@
 "use client";
 import { useHeroes } from "@/contexts/heroContext";
 import { CONNECTIONS_HERO_ID, makeUseful } from "@/lib/constants";
-import { ConnectionsType } from "@/lib/types";
+import { ConnectionsType, Hero } from "@/lib/types";
 import React, { useEffect, useState } from "react";
 import PreviewHeroCard from "../cards/preview-hero-card";
 
 function Connections() {
-  const [connPreviewCard, setConnPreviewCard] = useState({});
+  const [connPreviewCard, setConnPreviewCard] = useState<Hero>({
+    image: { url: "" },
+  });
   const [connPreview, setConnPreview] = useState<ConnectionsType | null>(null);
 
   const { getConnPreviewHero, getHeroById } = useHeroes();

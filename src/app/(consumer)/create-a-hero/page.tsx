@@ -2,6 +2,7 @@
 import CreateCard from "@/components/cards/create-card";
 import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
+import backup from "../../../../public/vercel.svg";
 
 function Page() {
   const [formHeroName, setFormHeroName] = useState("");
@@ -16,7 +17,7 @@ function Page() {
     e.preventDefault();
     setCardHeroName(formHeroName || "SuperHero Name");
     setCardFullName(formFullName || "Full Name");
-    setCardImage(formImage || "");
+    setCardImage(formImage || backup);
   };
 
   return (
@@ -29,6 +30,7 @@ function Page() {
               heroName={cardHeroName}
               fullName={cardFullName}
               image={cardImage}
+              publisher="custom"
             />
           </div>
           <form

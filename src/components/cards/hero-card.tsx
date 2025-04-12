@@ -8,6 +8,7 @@ import { Hero } from "@/lib/types";
 import { getBorderClass } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import backup from "../../../public/vercel.svg";
 
 interface HeroCardProps {
   hero: Hero;
@@ -17,13 +18,20 @@ function HeroCard({ hero }: Readonly<HeroCardProps>) {
   const publisher = hero?.biography?.publisher;
   const borderClass = getBorderClass(publisher);
 
+  const image =
+    hero?.image?.url === "" ||
+    hero?.image?.url === undefined ||
+    hero?.image?.url === null
+      ? backup
+      : hero?.image?.url;
+
   return (
     <Link href={`/hero/${hero.id}`}>
       <li className="cursor-pointer hover:scale-110 transition-transform duration-200">
         <Card className={`flex flex-col items-center ${borderClass} `}>
           <Image
             className="w-[300px] h-[375px] "
-            src={hero.image?.url ?? ""}
+            src={image || backup}
             alt={hero?.name ?? "N/A"}
             width={300}
             height={375}

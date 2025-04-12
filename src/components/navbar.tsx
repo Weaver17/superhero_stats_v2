@@ -12,6 +12,12 @@ function Navbar() {
         >
           SuperHero Stats
         </Link>
+        <Link href="/create-a-hero">
+          <Button>Create-A-Hero</Button>
+        </Link>
+        <Link href="/custom-hero/all">
+          <Button>Created Heroes</Button>
+        </Link>
         <Button>Sign In</Button>
         <Button variant="outline">Sign Up</Button>
       </nav>
