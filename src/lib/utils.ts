@@ -47,6 +47,8 @@ export function getBorderClass(publisher: string | undefined): string {
         return "border-halo";
       case "J. R. R. Tolkien":
         return "border-lotr";
+      case "custom":
+        return "border-custom-hero";
       default:
         return "border-secondary";
     }

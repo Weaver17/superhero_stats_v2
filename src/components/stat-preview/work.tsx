@@ -43,12 +43,10 @@ function Work() {
           </li>
           <li className="flex flex-col">
             <p className="font-semibold text-center">Base(s):</p>
-            <ul className="text-secondary">
-              {workPreview?.base?.split(";").map((b, i) => (
-                <li className="list-disc" key={`${b}-${i}`}>
-                  {b}
-                </li>
-              )) ?? "N/A"}
+            <ul className="text-secondary text-center">
+              {workPreview?.base
+                ?.split(";")
+                .map((b, i) => <li key={`${b}-${i}`}>{b}</li>) ?? "N/A"}
             </ul>
           </li>
         </ul>

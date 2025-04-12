@@ -51,6 +51,7 @@ body {
   --color-image: #0f0f0f;
   --color-halo: #2ca243;
   --color-lotr: #2d590b;
+  --color-custom-hero: oklch(0.705 0.015 286.067);
 
   --color-weak: #911116;
   --color-average: #232329;

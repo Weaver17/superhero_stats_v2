@@ -1,0 +1,117 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String   @id @default(cuid())
+  email          String   @unique
+  username       String   @unique
+  hashedPassword String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Hero {
+  id          String       @id @default(uuid())
+  name        String
+  slug        String       @unique
+  powerstats  Powerstats?
+  biography   Biography?
+  appearance  Appearance?
+  work        Work?
+  connections Connections?
+  image       Image?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model Powerstats {
+  id           String  @id @default(uuid())
+  intelligence String?
+  strength     String?
+  speed        String?
+  durability   String?
+  power        String?
+  combat       String?
+  heroId       String  @unique
+  hero         Hero    @relation(fields: [heroId], references: [id])
+}
+
+model Biography {
+  id               String  @id @default(uuid())
+  full_name        String?
+  alter_egos       String?
+  aliases          Alias[]
+  place_of_birth   String?
+  first_appearance String?
+  publisher        String?
+  alignment        String?
+  heroId           String  @unique
+  hero             Hero    @relation(fields: [heroId], references: [id])
+}
+
+model Appearance {
+  id         String   @id @default(uuid())
+  gender     String?
+  race       String?
+  height     Height[]
+  weight     Weight[]
+  eye_color  String?
+  hair_color String?
+  heroId     String   @unique
+  hero       Hero     @relation(fields: [heroId], references: [id])
+}
+
+model Work {
+  id         String  @id @default(uuid())
+  occupation String?
+  base       String?
+  heroId     String  @unique
+  hero       Hero    @relation(fields: [heroId], references: [id])
+}
+
+model Connections {
+  id                String  @id @default(uuid())
+  group_affiliation String?
+  relatives         String?
+  heroId            String  @unique
+  hero              Hero    @relation(fields: [heroId], references: [id])
+}
+
+model Image {
+  id     String  @id @default(uuid())
+  url    String?
+  heroId String  @unique
+  hero   Hero    @relation(fields: [heroId], references: [id])
+}
+
+model Alias {
+  id          String    @id @default(uuid())
+  aliases     String
+  biographyId String
+  biography   Biography @relation(fields: [biographyId], references: [id])
+}
+
+model Height {
+  id           String     @id @default(uuid())
+  imperial     String
+  metric       String
+  appearanceId String
+  appearance   Appearance @relation(fields: [appearanceId], references: [id])
+}
+
+model Weight {
+  id           String     @id @default(uuid())
+  imperial     String
+  metric       String
+  appearanceId String
+  appearance   Appearance @relation(fields: [appearanceId], references: [id])
+}

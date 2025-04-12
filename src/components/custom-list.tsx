@@ -1,22 +1,10 @@
 import React, { Suspense } from "react";
 import HeroCard from "./cards/hero-card";
 
-import { Hero, HeroResponse } from "@/lib/types";
-import { makeUseful } from "@/lib/constants";
+import { Hero } from "@/lib/types";
 import Loading from "@/app/loading/loading";
 
 async function CardList({ heroes }: Readonly<{ heroes: Hero[] }>) {
-  const batmans = await fetch(
-    "https://corsproxy.io/?url=https://superheroapi.com/api/cf5e8cb0f38ad9f2713ccc5537ffa595/search/batman"
-  );
-  const batmanResponse = ((await batmans.json()) as HeroResponse) || {
-    results: [],
-  };
-  const batman: Hero[] = batmanResponse.results as unknown as Hero[];
-  const usefulBatman = makeUseful(batman);
-
-  const usefulHeroes = makeUseful(heroes);
-
   return (
     <Suspense fallback={<Loading />}>
       {!heroes ? (

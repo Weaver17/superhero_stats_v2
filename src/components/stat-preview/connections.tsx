@@ -47,12 +47,10 @@ function Connections() {
           </li>
           <li className="flex flex-col ">
             <p className="font-semibold text-center">Group Affiliations:</p>
-            <ul className="text-secondary">
-              {connPreview?.group_affiliation?.split(";").map((g, i) => (
-                <li className="list-disc" key={`${g}-${i}`}>
-                  {g}
-                </li>
-              )) ?? "N/A"}
+            <ul className="text-secondary text-center">
+              {connPreview?.group_affiliation
+                ?.split(";")
+                .map((g, i) => <li key={`${g}-${i}`}>{g}</li>) ?? "N/A"}
             </ul>
           </li>
         </ul>
