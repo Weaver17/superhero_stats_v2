@@ -17,6 +17,18 @@ export const CUSTOM_HERO_BACKGROUNDS = [
   "Dark Trees",
 ];
 
+export const CUSTOM_HERO_ALIGNMENT = ["good", "neutral", "bad"];
+
+export const CUSTOM_HERO_GENDERS = [
+  "Male",
+  "Female",
+  "Trans-Male",
+  "Trans-Female",
+  "Non-Binary",
+  "Unknown",
+  "Other",
+];
+
 export const handleServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
