@@ -7,6 +7,7 @@ function HeroFormConn() {
       <h3 className="text-center font-semibold text-2xl  pb-4 border-b border-secondary">
         Connections
       </h3>
+
       <HeroFormList
         formName="relatives"
         label="Relatives"

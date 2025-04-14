@@ -71,3 +71,7 @@ export function getBorderColor(levelNumber: number | null) {
   }
   return barColor;
 }
+
+export function slugifyName(name: string): string {
+  return name.trim().toLowerCase().replace(/\s+/g, "-");
+}

@@ -8,7 +8,7 @@ export const WORK_HERO_ID = "423"; // Magneto
 export const CONNECTIONS_HERO_ID = "165"; // Catwoman
 
 export const CUSTOM_HERO_BACKGROUNDS = [
-  "Page Background",
+  "None",
   "Night City 1",
   "Night City 2",
   "Dark 1",
@@ -54,6 +54,17 @@ export function makeUseful(obj) {
     );
   }
   return obj;
+}
+
+export function heightMetricToImperial(cm) {
+  const totalInches = cm / 2.54;
+  const feet = Math.floor(totalInches / 12);
+  const inches = Math.round(totalInches % 12);
+  return `${feet}'${inches}`;
+}
+
+export function weightMetricToImperial(kg) {
+  return Math.round(kg * 2.20462);
 }
 
 export const marvelPublishers = [

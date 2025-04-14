@@ -30,18 +30,22 @@ function HeroFormNumberInput({
       control={heroForm.control}
       name={formName}
       render={({ field }) => (
-        <FormItem>
-          <FormLabel className="text-xl">{label}</FormLabel>
-          <FormControl>
-            <Input
-              className="no-spinner"
-              type="number"
-              placeholder={placeholder}
-              {...field}
-            />
-          </FormControl>
-          <FormDescription>{description}</FormDescription>
-          <FormMessage />
+        <FormItem className="">
+          <div className="flex justify-between">
+            <FormLabel className="text-xl">{label}</FormLabel>
+            <FormControl>
+              <Input
+                type="number"
+                className="no-spinner max-w-[25%] text-center"
+                placeholder={placeholder}
+                {...field}
+              />
+            </FormControl>
+          </div>
+          <div>
+            <FormDescription>{description}</FormDescription>
+            <FormMessage />
+          </div>
         </FormItem>
       )}
     />

@@ -1,6 +1,5 @@
 import React from "react";
-
-import HeroFormStatsInput from "../hero-form-components/stats-input";
+import HeroFormNumberInput from "../hero-form-components/number-input";
 
 function HeroFormStats() {
   return (
@@ -8,37 +7,37 @@ function HeroFormStats() {
       <h3 className="text-center font-semibold text-2xl  pb-4 border-b border-secondary">
         Powerstats
       </h3>
-      <HeroFormStatsInput
+      <HeroFormNumberInput
         formName="combat"
         label="Combat"
         placeholder="0-100"
         description="How does your hero fair in combat?"
       />
-      <HeroFormStatsInput
+      <HeroFormNumberInput
         formName="durability"
         placeholder="0-100"
         label="Durability"
         description="For how long can your hero keep fighing?"
       />
-      <HeroFormStatsInput
+      <HeroFormNumberInput
         formName="intelligence"
         label="Intelligence"
         placeholder="0-100"
         description="How smart is your hero?"
       />
-      <HeroFormStatsInput
+      <HeroFormNumberInput
         formName="power"
         placeholder="0-100"
         label="Power"
         description="POWERRRRRRR!!1!!!"
       />
-      <HeroFormStatsInput
+      <HeroFormNumberInput
         formName="speed"
         label="Speed"
         placeholder="0-100"
         description="How fast is your hero?"
       />
-      <HeroFormStatsInput
+      <HeroFormNumberInput
         formName="strength"
         placeholder="0-100"
         label="Strength"
