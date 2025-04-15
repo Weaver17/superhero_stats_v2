@@ -93,10 +93,11 @@ model Connections {
 }
 
 model Image {
-  id     String  @id @default(uuid())
-  url    String?
-  heroId String  @unique
-  hero   Hero    @relation(fields: [heroId], references: [id])
+  id              String  @id @default(uuid())
+  url             String?
+  page_background String?
+  heroId          String  @unique
+  hero            Hero    @relation(fields: [heroId], references: [id])
 }
 
 model Alias {

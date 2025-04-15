@@ -1,49 +1,55 @@
 import { z } from "zod";
 
-export const combat = z
-  .string({
+export const combatSchema = z.coerce
+  .number({
     required_error: "The combat stat is required",
     invalid_type_error: "Stat must be a number between 0 and 100",
   })
-  .min(1)
-  .max(3);
+  .positive()
+  .max(100)
+  .optional();
 
-export const durability = z
-  .string({
+export const durabilitySchema = z.coerce
+  .number({
     required_error: "The durability stat is required",
     invalid_type_error: "Stat must be a number between 0 and 100",
   })
-  .min(1)
-  .max(3);
+  .positive()
+  .max(100)
+  .optional();
 
-export const intelligence = z
-  .string({
+export const intelligenceSchema = z.coerce
+  .number({
     required_error: "The intelligence stat is required",
     invalid_type_error: "Stat must be a number between 0 and 100",
   })
-  .min(1)
-  .max(3);
+  .positive()
+  .max(100)
+  .optional();
 
-export const power = z
-  .string({
+export const powerSchema = z.coerce
+  .number({
     required_error: "The power stat is required",
     invalid_type_error: "Stat must be a number between 0 and 100",
   })
-  .min(1)
-  .max(3);
+  .positive()
+  .max(100)
+  .optional();
 
-export const speed = z
-  .string({
+export const speedSchema = z.coerce
+  .number({
     required_error: "The speed stat is required",
     invalid_type_error: "Stat must be a number between 0 and 100",
   })
-  .min(1)
-  .max(3);
+  .positive()
+  .max(100)
+  .optional();
 
-export const strength = z
-  .string({
+export const strengthSchema = z.coerce
+  .number({
     required_error: "The strength stat is required",
     invalid_type_error: "Stat must be a number between 0 and 100",
   })
-  .min(1)
-  .max(3);
+  .positive()
+  .max(100)
+  .optional();

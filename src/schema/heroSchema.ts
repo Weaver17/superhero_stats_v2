@@ -1,76 +1,79 @@
 import { z } from "zod";
-import {
-  heroName,
-  fullName,
-  heroImage,
-  pageBackroundEnum,
-  heroSlug,
-} from "./form-sections/genSchema";
-import { Hero } from "@/lib/types";
-import {
-  eyeColor,
-  gender,
-  hairColor,
-  heightArray,
-  weightArray,
-} from "./form-sections/appSchema";
-import { slugifyName } from "@/lib/utils";
-import { bases, occupations } from "./form-sections/workSchema";
-import { groups, relatives } from "./form-sections/connSchema";
-import {
-  combat,
-  durability,
-  intelligence,
-  power,
-  speed,
-  strength,
-} from "./form-sections/statSchema";
-import {
-  aliases,
-  alignment,
-  alterEgos,
-  birthplace,
-  firstAppearance,
-} from "./form-sections/bioSchema";
+
 import { creatorSchema } from "./creatorSchema";
+import {
+  fullNameSchema,
+  heroImageSchema,
+  heroNameSchema,
+  heroSlugSchema,
+  pageBackroundEnum,
+} from "./form-sections/genSchema";
+import {
+  eyeColorSchema,
+  genderEnum,
+  hairColorSchema,
+  heightSchema,
+  raceSchema,
+  weightSchema,
+} from "./form-sections/appSchema";
+import {
+  aliasSchema,
+  alignmentEnum,
+  alterEgoSchema,
+  birthplaceSchema,
+  firstAppearanceSchema,
+  publisherSchema,
+} from "./form-sections/bioSchema";
+import { basesSchema, occupationsSchema } from "./form-sections/workSchema";
+import { groupsSchema, relativesSchema } from "./form-sections/connSchema";
+import {
+  combatSchema,
+  durabilitySchema,
+  intelligenceSchema,
+  powerSchema,
+  speedSchema,
+  strengthSchema,
+} from "./form-sections/statSchema";
 
 export const heroSchema = z.object({
-  name: heroName,
-  slug: heroSlug.transform((val) => slugifyName(val)),
-  background: pageBackroundEnum,
+  name: heroNameSchema,
+  slug: heroSlugSchema,
   appearance: z.object({
-    gender: gender,
-    height: heightArray,
-    weight: weightArray,
-    eyeColor: eyeColor,
-    hairColor: hairColor,
+    gender: genderEnum,
+    race: raceSchema,
+    height: heightSchema,
+    weight: weightSchema,
+    eye_color: eyeColorSchema,
+    hair_color: hairColorSchema,
   }),
   biography: z.object({
-    full_name: fullName,
-    alter_egos: alterEgos,
-    aliases: aliases,
-    place_of_birth: birthplace,
-    first_appearance: firstAppearance,
-    alignment: alignment,
+    full_name: fullNameSchema,
+    alter_egos: alterEgoSchema,
+    aliases: aliasSchema,
+    place_of_birth: birthplaceSchema,
+    first_appearance: firstAppearanceSchema,
+    publisher: publisherSchema,
+    alignment: alignmentEnum,
   }),
   work: z.object({
-    occupation: occupations,
-    base: bases,
+    occupation: occupationsSchema,
+    base: basesSchema,
   }),
   connections: z.object({
-    group_affiliations: groups,
-    relatives: relatives,
+    group_affiliations: groupsSchema,
+    relatives: relativesSchema,
   }),
   powerstats: z.object({
-    combat: combat,
-    durability: durability,
-    intelligence: intelligence,
-    speed: speed,
-    power: power,
-    strength: strength,
+    combat: combatSchema,
+    durability: durabilitySchema,
+    intelligence: intelligenceSchema,
+    speed: speedSchema,
+    power: powerSchema,
+    strength: strengthSchema,
   }),
   image: z.object({
-    url: heroImage,
+    url: heroImageSchema,
+    page_background: pageBackroundEnum,
   }),
-  creator: creatorSchema,
-}) as unknown as z.ZodType<Hero>;
+  // creator: creatorSchema,
+});

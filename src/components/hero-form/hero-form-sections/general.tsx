@@ -10,25 +10,25 @@ function HeroFormGeneral() {
         General Info
       </h3>
       <HeroFormTextInput
-        formName="hero-name"
+        formName="name"
         placeholder="SuperHero Name"
         label="SuperHero Name"
         description="Enter your superhero's Super Name"
       />
       <HeroFormTextInput
-        formName="full-name"
+        formName="biography.full_name"
         placeholder="Full Name"
         label="Secret Identity"
         description="Your hero's name out on the streets"
       />
       <HeroFormTextInput
-        formName="hero-image"
+        formName="image.url"
         placeholder="https://www.example.com/photo"
         label="SuperHero Image"
         description="Link your hero's image"
       />
       <HeroFormDropdown
-        formName="page-background"
+        formName="image.page_background"
         placeholder="None"
         label="Page Background"
         description="Select the background for your hero's page. (previews are not available at this time)"

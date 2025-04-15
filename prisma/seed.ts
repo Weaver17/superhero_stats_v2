@@ -68,6 +68,7 @@ const initialHeros: Prisma.HeroCreateInput[] = [
     image: {
       create: {
         url: "https://images.unsplash.com/photo-1683509345856-e1ea4f04b806?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        page_background: "Space",
       },
     },
   },
@@ -126,6 +127,7 @@ const initialHeros: Prisma.HeroCreateInput[] = [
     image: {
       create: {
         url: "https://images.unsplash.com/photo-1583680599772-8390c5ebab6a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        page_background: "None",
       },
     },
   },

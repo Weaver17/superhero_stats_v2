@@ -6,9 +6,9 @@ import {
   FormDescription,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 type FormListProps = {
   formName: string;
@@ -22,23 +22,17 @@ function HeroFormList({
 
   description,
 }: Readonly<FormListProps>) {
-  const heroForm = useForm();
+  const form = useFormContext();
 
   return (
     <FormField
-      control={heroForm.control}
+      control={form.control}
       name={formName}
       render={({ field }) => (
         <FormItem>
           <FormLabel className="text-xl">{label}</FormLabel>
           <FormControl>
-            <Input {...field} />
-          </FormControl>
-          <FormControl>
-            <Input {...field} />
-          </FormControl>
-          <FormControl>
-            <Input {...field} />
+            <Textarea {...field} />
           </FormControl>
           <FormDescription>{description}</FormDescription>
           <FormMessage />

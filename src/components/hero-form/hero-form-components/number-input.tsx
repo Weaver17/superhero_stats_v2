@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 type FormInputProps = {
   formName: string;
@@ -23,11 +23,11 @@ function HeroFormNumberInput({
   placeholder,
   description,
 }: Readonly<FormInputProps>) {
-  const heroForm = useForm();
+  const form = useFormContext();
 
   return (
     <FormField
-      control={heroForm.control}
+      control={form.control}
       name={formName}
       render={({ field }) => (
         <FormItem className="">

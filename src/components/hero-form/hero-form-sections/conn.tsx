@@ -9,14 +9,14 @@ function HeroFormConn() {
       </h3>
 
       <HeroFormList
-        formName="relatives"
+        formName="connections.relatives"
         label="Relatives"
-        description="Enter your hero's relatives, like father, brother, or wife. (you may add up to three. If none you can input 'None')"
+        description="Enter your hero's relatives, like father, brother, or wife. Please separate each relative with a comma( , ). (You may add up to three. If none you can input 'None')"
       />
       <HeroFormList
-        formName="groups"
+        formName="connections.group_affiliations"
         label="Group Afilliations(s)"
-        description="Enter your hero's base(s), like New York, New York. (you may add up to three. If none you can input 'None')"
+        description="Enter any of your hero's group affiliations, like The Avengers, or E.V.I.L.(Every Villain Is Lemons). Please separate each group with a semicolon( ; ). (You may add up to three. If none you can input 'None')"
       />
     </div>
   );

@@ -37,20 +37,22 @@ function Work() {
           <PreviewHeroCard hero={workPreviewCard} />
         </div>
         <ul className="flex flex-col gap-4 w-[100%] h-[90%] justify-between">
-          <li className="flex flex-col">
+          <p className="flex flex-col">
             <p className="font-semibold text-center">Occupation:</p>
             <p className="text-secondary text-center">
-              {workPreview?.occupation ?? "N/A"}
+              {workPreview?.occupation
+                ?.split(",")
+                .map((o, i) => <li key={`${o}-${i}`}>{o}</li>) ?? "N/A"}
             </p>
-          </li>
-          <li className="flex flex-col">
+          </p>
+          <p className="flex flex-col">
             <p className="font-semibold text-center">Base(s):</p>
             <ul className="text-secondary text-center">
               {workPreview?.base
                 ?.split(";")
                 .map((b, i) => <li key={`${b}-${i}`}>{b}</li>) ?? "N/A"}
             </ul>
-          </li>
+          </p>
         </ul>
       </div>
     </div>

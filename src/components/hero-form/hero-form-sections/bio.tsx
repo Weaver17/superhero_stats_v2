@@ -11,35 +11,35 @@ function HeroFormBio() {
         Biography
       </h3>
       <HeroFormList
-        formName="alter-egos"
+        formName="biography.alter_egos"
         label="Alter-Ego(s)"
-        description="Enter any of your hero's alter-egos.  (you may add up to three. If none you can input 'None')"
+        description="Enter any of your hero's alter-egos.  (You may add up to three. If none you can input 'None')"
       />
       <HeroFormList
-        formName="aliases"
+        formName="biography.aliases"
         label="Aliases(s)"
-        description="Enter any your of hero's aliases.     (you may add up to three. If none you can input 'None')"
+        description="Enter any your of hero's aliases. Please separate each alias with a semicolon( ; ). (You may add up to three. If none you can input 'None')"
       />
       <HeroFormTextInput
-        formName="birthplace"
+        formName="biography.place_of_birth"
         placeholder="Earth, Krypton, etc..."
         label="Place of Birth"
-        description="Enter your hero's birthplace.  (if unknown, input 'Unknown')"
+        description="Enter your hero's birthplace.  (If unknown, input 'Unknown')"
       />
       <HeroFormTextInput
-        formName="first-appearance"
+        formName="biography.first_appearance"
         placeholder="First Appearance"
         label="First Appearance"
-        description="Enter where your hero first made their appearance to the world! (if unknown, input 'Unknown')"
+        description="Enter where your hero first made their appearance to the world! (If unknown, input 'Unknown')"
       />
       <HeroFormTextInput
-        formName="publisher"
+        formName="biography.publisher"
         placeholder="Publisher"
         label="Publisher"
         description="Enter the publisher of your hero"
       />
       <HeroFormDropdown
-        formName="alignment"
+        formName="biography.alignment"
         placeholder=""
         label="Alignment"
         description="Is your hero Good, Neutral, or EVIL(bad)"

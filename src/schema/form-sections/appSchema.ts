@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const gender = z.enum([
+export const genderEnum = z.enum([
   "Male",
   "Female",
   "Trans-Male",
@@ -10,27 +10,40 @@ export const gender = z.enum([
   "Other",
 ]);
 
-const height = z
+export const raceSchema = z
   .string({
-    required_error: "Height is required",
-    invalid_type_error: "Height must be a number",
+    required_error: "Race is required",
+    invalid_type_error: "Race must only have letter characters. (A-Z)",
   })
   .min(1)
-  .max(4);
+  .max(15)
+  .optional();
 
-const weight = z
-  .string({
-    required_error: "Weight is required",
-    invalid_type_error: "Weight must be a number",
-  })
-  .min(1)
-  .max(5);
+export const heightSchema = z.object({
+  metric: z.coerce
+    .number({
+      required_error: "Height is required",
+      invalid_type_error: "Height must be a number",
+    })
+    .min(1)
+    .max(10000),
+});
 
-export const heightArray = z.array(height).length(2);
+export const weightSchema = z.object({
+  metric: z.coerce
+    .number({
+      required_error: "Weight is required",
+      invalid_type_error: "Weight must be a number",
+    })
+    .min(1)
+    .max(10000),
+});
 
-export const weightArray = z.array(weight).length(2);
+// export const heightArray = z.array(height).length(2);
 
-export const eyeColor = z
+// export const weightArray = z.array(weight).length(2);
+
+export const eyeColorSchema = z
   .string({
     required_error: "Eye Color is required",
     invalid_type_error: "Eye Color must only have letter characters. (A-Z)",
@@ -38,7 +51,7 @@ export const eyeColor = z
   .min(1)
   .max(15);
 
-export const hairColor = z
+export const hairColorSchema = z
   .string({
     required_error: "Hair Color is required",
     invalid_type_error: "Hair Color must only have letter characters. (A-Z)",

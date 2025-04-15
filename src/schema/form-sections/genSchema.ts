@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const heroName = z
+export const heroNameSchema = z
   .string({
     required_error: "SuperHero Name is required",
     invalid_type_error:
@@ -9,24 +9,26 @@ export const heroName = z
   .min(1)
   .max(30);
 
-export const heroSlug = z.string().min(1).max(30);
+export const heroSlugSchema = z.string().min(1).max(30).optional();
 
-export const fullName = z
+export const fullNameSchema = z
   .string({
     required_error: "Secret Identity is required",
     invalid_type_error:
       "Name must only have alphanumeric characters. (A-Z, 0-9)",
   })
   .min(1)
-  .max(30);
+  .max(30)
+  .optional();
 
-export const heroImage = z
+export const heroImageSchema = z
   .string({
     required_error: "SuperHero Image is required",
   })
   .url({
     message: "Invalid URL",
-  });
+  })
+  .optional();
 
 export const pageBackroundEnum = z.enum([
   "None",

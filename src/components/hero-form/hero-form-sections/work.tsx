@@ -8,14 +8,14 @@ function HeroFormWork() {
         Work
       </h3>
       <HeroFormList
-        formName="occupations"
+        formName="work.occupation"
         label="Occupations(s)"
-        description="Enter your hero's day-to-day job(s), like journalist. (you may add up to three. If none you can input 'None')"
+        description="Enter your hero's day-to-day job(s), like journalist. Please separate each occupation with a comma( , ). (You may add up to three. If none you can input 'None')"
       />
       <HeroFormList
-        formName="bases"
+        formName="work.base"
         label="Base(s)"
-        description="Enter your hero's base(s), like New York, New York. (you may add up to three. If none you can input 'None')"
+        description="Enter your hero's base(s), like New York, New York. Please separate each base with a semicolon( ; ). (You may add up to three. If none you can input 'None')"
       />
     </div>
   );

@@ -11,32 +11,38 @@ function HeroFormApp() {
         Appearance
       </h3>
       <HeroFormDropdown
-        formName="gender"
+        formName="appearance.gender"
         label="Gender"
         description="Enter your hero's gender"
         placeholder="Gender"
         options={CUSTOM_HERO_GENDERS}
       />
+      <HeroFormTextInput
+        formName="appearance.race"
+        placeholder="Human, Mermaid, Vulcan, etc..."
+        label="Race"
+        description="Enter your hero's race"
+      />
       <HeroFormNumberInput
-        formName="height"
+        formName="appearance.height.metric"
         label="Height"
         placeholder="188"
         description="Enter your hero's height in centimeters"
       />
       <HeroFormNumberInput
-        formName="weight"
+        formName="appearance.weight.metric"
         placeholder="86"
         label="Weight"
         description="Enter your hero's weight in kilograms"
       />
       <HeroFormTextInput
-        formName="eye-color"
+        formName="appearance.eye_color"
         placeholder="Eye Color"
         label="Eye Color"
-        description="Enter your hero's eye color'"
+        description="Enter your hero's eye color"
       />
       <HeroFormTextInput
-        formName="hair-color"
+        formName="appearance.hair_color"
         placeholder="Hair Color"
         label="Hair Color"
         description="Enter your hero's hair color"

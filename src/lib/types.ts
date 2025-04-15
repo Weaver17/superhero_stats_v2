@@ -69,6 +69,7 @@ export interface ImageType {
   id?: string;
   name?: string;
   url?: string;
+  page_background?: string;
 }
 
 export type HeroResponse = {

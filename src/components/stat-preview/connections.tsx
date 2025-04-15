@@ -40,11 +40,9 @@ function Connections() {
           <li className="flex flex-col  ">
             <p className="font-semibold text-center">Relatives:</p>
             <ul className="text-secondary text-center">
-              {connPreview?.relatives?.split(",").map((r, i) => (
-                <li className="l" key={`${r}-${i}`}>
-                  {r}
-                </li>
-              )) ?? "N/A"}
+              {connPreview?.relatives
+                ?.split(",")
+                .map((r, i) => <li key={`${r}-${i}`}>{r}</li>) ?? "N/A"}
             </ul>
           </li>
           <li className="flex flex-col ">

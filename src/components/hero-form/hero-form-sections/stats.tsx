@@ -8,37 +8,37 @@ function HeroFormStats() {
         Powerstats
       </h3>
       <HeroFormNumberInput
-        formName="combat"
+        formName="powerstats.combat"
         label="Combat"
         placeholder="0-100"
         description="How does your hero fair in combat?"
       />
       <HeroFormNumberInput
-        formName="durability"
+        formName="powerstats.durability"
         placeholder="0-100"
         label="Durability"
         description="For how long can your hero keep fighing?"
       />
       <HeroFormNumberInput
-        formName="intelligence"
+        formName="powerstats.intelligence"
         label="Intelligence"
         placeholder="0-100"
         description="How smart is your hero?"
       />
       <HeroFormNumberInput
-        formName="power"
+        formName="powerstats.power"
         placeholder="0-100"
         label="Power"
         description="POWERRRRRRR!!1!!!"
       />
       <HeroFormNumberInput
-        formName="speed"
+        formName="powerstats.speed"
         label="Speed"
         placeholder="0-100"
         description="How fast is your hero?"
       />
       <HeroFormNumberInput
-        formName="strength"
+        formName="powerstats.strength"
         placeholder="0-100"
         label="Strength"
         description="Physical strength, not inner strength"

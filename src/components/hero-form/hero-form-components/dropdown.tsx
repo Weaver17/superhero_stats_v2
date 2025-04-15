@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 type FormDropdownProps = {
   formName: string;
@@ -31,16 +31,16 @@ function HeroFormDropdown({
   description,
   options,
 }: Readonly<FormDropdownProps>) {
-  const heroForm = useForm();
+  const form = useFormContext();
 
   return (
     <FormField
-      control={heroForm.control}
+      control={form.control}
       name={formName}
       render={({ field }) => (
         <FormItem>
           <FormLabel className="text-xl">{label}</FormLabel>
-          <Select>
+          <Select onValueChange={field.onChange} defaultValue={field.value}>
             <FormControl>
               <SelectTrigger>
                 <SelectValue placeholder={placeholder} />
