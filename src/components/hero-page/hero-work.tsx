@@ -18,13 +18,13 @@ function HeroWork({ occupation, base }: Readonly<HeroWorkProps>) {
         </li>
         <li className="flex flex-col">
           <p className="font-semibold text-xl text-center my-4">Base(s):</p>
-          <ul className="text-secondary text-center">
+          <div className="text-secondary text-center">
             {base?.split(";").map((b, i) => (
-              <li className=" " key={`${b}-${i}`}>
+              <div className=" " key={`${b}-${i}`}>
                 {b}
-              </li>
+              </div>
             )) ?? "N/A"}
-          </ul>
+          </div>
         </li>
       </ul>
     </div>

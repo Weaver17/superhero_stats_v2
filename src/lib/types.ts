@@ -7,7 +7,7 @@ export interface Hero {
   appearance?: AppearanceType;
   work?: WorkType;
   connections?: ConnectionsType;
-  image: ImageType;
+  image?: ImageType;
   creator?: CreatorType;
 }
 

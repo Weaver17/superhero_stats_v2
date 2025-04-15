@@ -30,11 +30,11 @@ function HeroBio({
         <li className="stat-wrapper-list justify-between ">
           <p className="font-semibold self-start text-end">Aliases:</p>
           <div className="w-[40%]">
-            <ul className="text-secondary overflow-ellipsis ">
+            <div className="text-secondary overflow-ellipsis ">
               {aliases?.map((a, i) => (
-                <li key={`${a}-${i}`}>{a}</li>
+                <div key={`${a}-${i}`}>{a}</div>
               ))}
-            </ul>
+            </div>
           </div>
         </li>
         <li className="stat-wrapper justify-between ">

@@ -49,21 +49,21 @@ function HeroApp({
         <li className="stat-wrapper-list justify-between ">
           <p className="font-semibold self-start text-end">Height:</p>
           <div className="w-[30%]">
-            <ul className="text-secondary overflow-ellipsis ">
+            <div className="text-secondary overflow-ellipsis ">
               {height?.map((a, i) => (
-                <li key={`${a}-${i}`}>{a}</li>
+                <div key={`${a}-${i}`}>{a}</div>
               ))}
-            </ul>
+            </div>
           </div>
         </li>
         <li className="stat-wrapper-list justify-between ">
           <p className="font-semibold self-start text-end">Weight:</p>
           <div className="w-[30%]">
-            <ul className="text-secondary overflow-ellipsis ">
+            <div className="text-secondary overflow-ellipsis ">
               {weight?.map((a, i) => (
-                <li key={`${a}-${i}`}>{a}</li>
+                <div key={`${a}-${i}`}>{a}</div>
               ))}
-            </ul>
+            </div>
           </div>
         </li>
       </ul>

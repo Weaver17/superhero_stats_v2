@@ -7,8 +7,13 @@ import React, { Suspense } from "react";
 async function page() {
   const heroes = (await prisma.hero.findMany({
     include: {
-      image: true,
+      appearance: true,
       biography: true,
+      work: true,
+      connections: true,
+      powerstats: true,
+      image: true,
+      creator: true,
     },
     orderBy: {
       createdAt: "desc",
