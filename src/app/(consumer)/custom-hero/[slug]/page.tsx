@@ -11,6 +11,9 @@ import React, { Suspense } from "react";
 import backup from "../../../../../public/vercel.svg";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { getCustomHeroBg } from "@/lib/utils";
+import { stringify } from "querystring";
 
 type HeroSlugType = {
   params: {
@@ -43,6 +46,10 @@ async function page({ params }: HeroSlugType) {
     },
   });
 
+  const { getUser } = getKindeServerSession();
+
+  const kindeUser = await getUser();
+
   const creatorSlug = hero?.creator?.username
     .toLowerCase()
     .replace(/[^a-z0-9\s]/g, "")
@@ -53,9 +60,17 @@ async function page({ params }: HeroSlugType) {
       ? backup
       : hero?.image?.url;
 
+  const pageBackground = getCustomHeroBg(
+    hero?.image?.page_background ?? "None"
+  );
+
+  console.log("PAGE BACKROUND: " + hero?.image?.page_background);
+
   return (
     <Suspense fallback={<Loading />}>
-      <section className="py-6 bg-[url('../../public/city-backdrop-2.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
+      <section
+        className={`py-6 ${pageBackground} bg-cover bg-no-repeat bg-center min-h-screen`}
+      >
         <div className="section relative border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm">
           <div className="absolute top-3 right-4 flex gap-4 items-center">
             <p className="text-sm text-muted-foreground">
@@ -64,10 +79,11 @@ async function page({ params }: HeroSlugType) {
                 {hero?.creator?.username}
               </Link>
             </p>
-            {/* //
-            IS LOGGED IN LOGIC FOR EDIT BUTTON
-            // */}
-            <Button variant="ghost">EDIT</Button>
+            {hero?.creator?.id === kindeUser?.id ? (
+              <Button variant="ghost">EDIT</Button>
+            ) : (
+              <></>
+            )}
           </div>
           <div className="grid grid-cols-2 mx-5 pb-10 border-b border-secondary ">
             <HeroImage

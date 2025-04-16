@@ -1,6 +1,13 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { dcPublishers, marvelPublishers } from "./constants";
+// import night1 from "@public/city-backdrop.jpg";
+// import night2 from "@public/city-backdrop-2.jpg";
+// import dark1 from "@public/random-dark.jpg";
+// import dark2 from "@public/random-dark-2.jpg";
+// import space from "@public/space-backdrop.jpg";
+// import darkTrees from "@public/trees-dark.jpg";
+import React from "react";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -74,4 +81,25 @@ export function getBorderColor(levelNumber: number | null) {
 
 export function slugifyName(name: string): string {
   return name.trim().toLowerCase().replace(/\s+/g, "-");
+}
+
+export function getCustomHeroBg(background: string | undefined) {
+  if (!background) return "custom-hero-bg-none";
+
+  switch (background) {
+    case "Night City 1":
+      return "custom-hero-bg-night1";
+    case "Night City 2":
+      return "custom-hero-bg-night2";
+    case "Dark 1":
+      return "custom-hero-bg-dark1";
+    case "Dark 2":
+      return "custom-hero-bg-dark2";
+    case "Space":
+      return "custom-hero-bg-space ";
+    case "Dark Trees":
+      return "custom-hero-bg-dark-trees";
+    default:
+      return "custom-hero-bg-none";
+  }
 }

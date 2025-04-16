@@ -42,6 +42,34 @@ body {
   -moz-appearance: textfield; /* Firefox */
 }
 
+.custom-hero-bg-night1 {
+  background-image: url("../../public/city-backdrop.jpg");
+}
+
+.custom-hero-bg-night2 {
+  background-image: url("../../public/city-backdrop-2.jpg");
+}
+
+.custom-hero-bg-dark1 {
+  background-image: url("../../public/random-dark.jpg");
+}
+
+.custom-hero-bg-dark2 {
+  background-image: url("../../public/random-dark-2.jpg");
+}
+
+.custom-hero-bg-space {
+  background-image: url("../../public/space-backdrop.jpg");
+}
+
+.custom-hero-bg-dark-trees {
+  background-image: url("../../public/trees-dark.jpg");
+}
+
+.custom-hero-bg-none {
+  background-image: none;
+}
+
 @theme {
   --color-marvel: #ec1d24;
   --color-dc: #0476f2;
