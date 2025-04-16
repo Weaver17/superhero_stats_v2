@@ -35,15 +35,15 @@ function Biography() {
           <PreviewHeroCard hero={bioPreviewCard} />
         </div>
         <ul className="flex flex-col gap-4 w-[100%] h-[90%] justify-between">
-          <li className="stat-wrapper">
+          <li className="stat-wrapper justify-between">
             <p className="font-semibold text-end">Full Name:</p>
             <p className="text-secondary">{bioPreview?.full_name ?? "N/A"}</p>
           </li>
-          <li className="stat-wrapper">
+          <li className="stat-wrapper justify-between">
             <p className="font-semibold text-end">Alter Egos:</p>
             <p className="text-secondary">{bioPreview?.alter_egos ?? "N/A"}</p>
           </li>
-          <li className="stat-wrapper-list">
+          <li className="stat-wrapper-list justify-between">
             <p className="font-semibold text-end">Aliases:</p>
             <div className="text-secondary  overflow-ellipsis ">
               {bioPreview?.aliases?.slice(0, 3).map((a, i) => (
@@ -51,23 +51,23 @@ function Biography() {
               ))}
             </div>
           </li>
-          <li className="stat-wrapper">
+          <li className="stat-wrapper justify-between">
             <p className="font-semibold text-end">Place of Birth:</p>
             <p className="text-secondary">
               {bioPreview?.place_of_birth ?? "N/A"}
             </p>
           </li>
-          <li className="stat-wrapper">
+          <li className="stat-wrapper justify-between">
             <p className="font-semibold text-end">First Appearance:</p>
             <p className="text-secondary">
               {bioPreview?.first_appearance ?? "N/A"}
             </p>
           </li>
-          <li className="stat-wrapper">
+          <li className="stat-wrapper justify-between">
             <p className="font-semibold text-end">Publisher:</p>
             <p className="text-secondary">{bioPreview?.publisher ?? "N/A"}</p>
           </li>
-          <li className="stat-wrapper">
+          <li className="stat-wrapper justify-between">
             <p className="font-semibold text-end">Alignment:</p>
             <p className="text-secondary">{bioPreview?.alignment ?? "N/A"}</p>
           </li>

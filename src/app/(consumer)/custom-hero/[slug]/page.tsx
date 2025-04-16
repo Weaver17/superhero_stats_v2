@@ -14,6 +14,7 @@ import Link from "next/link";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { getCustomHeroBg } from "@/lib/utils";
 import { stringify } from "querystring";
+import { useKindeAuth } from "@kinde-oss/kinde-auth-nextjs";
 
 type HeroSlugType = {
   params: {
@@ -46,9 +47,11 @@ async function page({ params }: HeroSlugType) {
     },
   });
 
-  const { getUser } = getKindeServerSession();
+  const { getUser, getPermission, isAuthenticated } = getKindeServerSession();
 
+  const isLoggedIn = await isAuthenticated();
   const kindeUser = await getUser();
+  const isAdmin = await getPermission("admin");
 
   const creatorSlug = hero?.creator?.username
     .toLowerCase()
@@ -64,8 +67,6 @@ async function page({ params }: HeroSlugType) {
     hero?.image?.page_background ?? "None"
   );
 
-  console.log("PAGE BACKROUND: " + hero?.image?.page_background);
-
   return (
     <Suspense fallback={<Loading />}>
       <section
@@ -79,8 +80,15 @@ async function page({ params }: HeroSlugType) {
                 {hero?.creator?.username}
               </Link>
             </p>
-            {hero?.creator?.id === kindeUser?.id ? (
-              <Button variant="ghost">EDIT</Button>
+            {(hero?.creator?.id === kindeUser?.id || isAdmin) && isLoggedIn ? (
+              <>
+                <Button className="px-1" variant="ghost">
+                  EDIT
+                </Button>
+                <Button className="px-1" variant="ghost">
+                  DELETE
+                </Button>
+              </>
             ) : (
               <></>
             )}

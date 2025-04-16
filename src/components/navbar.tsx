@@ -27,7 +27,9 @@ async function Navbar() {
           SuperHero Stats
         </Link>
         <Link href="/custom-hero/all">
-          <Button variant="link">Custom Heroes</Button>
+          <Button className="px-0" variant="link">
+            Custom Heroes
+          </Button>
         </Link>
         {isLoggedIn ? (
           <>

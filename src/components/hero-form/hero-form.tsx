@@ -20,7 +20,10 @@ import { useRouter } from "next/navigation";
 
 type TCreateHeroSchema = z.infer<typeof heroSchema>;
 
-function HeroForm({ userId, username }: { userId: string; username: string }) {
+function HeroForm({
+  userId,
+  username,
+}: Readonly<{ userId: string; username: string }>) {
   const heroForm = useForm<TCreateHeroSchema>({
     resolver: zodResolver(heroSchema),
   });
@@ -29,12 +32,10 @@ function HeroForm({ userId, username }: { userId: string; username: string }) {
 
   const {
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { isSubmitting },
   } = heroForm;
 
   const onSubmit = async (data: TCreateHeroSchema) => {
-    console.log("submit clicked");
-    console.log("Data being sent to backend:", data);
     try {
       await createHero(data, userId, username);
       const heroSlug = data.name.toLowerCase().replace(/\s+/g, "-");
@@ -50,11 +51,6 @@ function HeroForm({ userId, username }: { userId: string; username: string }) {
     <Form {...heroForm}>
       <form
         onSubmit={(e) => {
-          console.log(
-            "Submitted values:",
-            JSON.stringify(heroForm.getValues(), null, 2)
-          ); // Debug log
-          console.log(errors);
           handleSubmit(onSubmit)(e);
         }}
         className="flex flex-col items-center"
