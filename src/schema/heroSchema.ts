@@ -75,5 +75,8 @@ export const heroSchema = z.object({
     url: heroImageSchema,
     page_background: pageBackroundEnum,
   }),
-  // creator: creatorSchema,
+  creator: z.object({
+    id: z.string().optional(),
+    username: z.string().optional(),
+  }),
 });

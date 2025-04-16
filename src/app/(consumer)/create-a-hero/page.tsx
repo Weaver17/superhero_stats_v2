@@ -3,13 +3,18 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 
 async function Page() {
-  const { isAuthenticated } = getKindeServerSession();
+  const { isAuthenticated, getUser } = getKindeServerSession();
 
   const isLoggedIn = await isAuthenticated();
 
   if (!isLoggedIn) {
     redirect("/");
   }
+
+  const user = await getUser();
+
+  const userId = user?.id;
+  const username = user?.username;
 
   return (
     <div className="py-6 bg-[url('../../public/random-dark.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
@@ -23,7 +28,7 @@ async function Page() {
         <p className="font-semibold text-center">All fields are required</p>
       </div>
       <div className="section border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm">
-        <HeroForm />
+        <HeroForm userId={userId ?? ""} username={username ?? ""} />
       </div>
     </div>
   );

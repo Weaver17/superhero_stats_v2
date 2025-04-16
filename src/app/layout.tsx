@@ -5,6 +5,7 @@ import { HeroContextProvider } from "@/contexts/heroContext";
 import { Suspense } from "react";
 import Loading from "./loading/loading";
 import { AuthProvider } from "./AuthProvider";
+import { Toaster } from "react-hot-toast";
 
 const rubik = Rubik({
   weight: ["300", "400", "500", "700", "900"],
@@ -35,6 +36,7 @@ export default function RootLayout({
             </HeroContextProvider>
           </AuthProvider>
         </Suspense>
+        <Toaster position="top-center" />
       </body>
     </html>
   );

@@ -5,7 +5,7 @@ export const alterEgoSchema = z
     required_error:
       "At least one alter-ego reqiured. Can be 'None' or 'Unknown'",
   })
-  .max(30)
+  .max(60)
   .optional();
 
 export const aliasSchema = z
@@ -13,7 +13,7 @@ export const aliasSchema = z
     required_error: "At least one alias reqiured. Can be 'None' or 'Unknown'",
   })
   .min(1)
-  .max(30);
+  .max(60);
 
 export const birthplaceSchema = z
   .string({

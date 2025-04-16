@@ -14,13 +14,18 @@ import { createHero } from "@/actions/actions";
 import { z } from "zod";
 import { heroSchema } from "@/schema/heroSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import toast from "react-hot-toast";
+import { heroFormErrorToast, heroFormSuccessToast } from "@/lib/toast";
+import { useRouter } from "next/navigation";
 
 type TCreateHeroSchema = z.infer<typeof heroSchema>;
 
-function HeroForm() {
+function HeroForm({ userId, username }: { userId: string; username: string }) {
   const heroForm = useForm<TCreateHeroSchema>({
     resolver: zodResolver(heroSchema),
   });
+
+  const router = useRouter();
 
   const {
     handleSubmit,
@@ -31,11 +36,13 @@ function HeroForm() {
     console.log("submit clicked");
     console.log("Data being sent to backend:", data);
     try {
-      await createHero(data);
-      alert("Hero created successfully!");
+      await createHero(data, userId, username);
+      const heroSlug = data.name.toLowerCase().replace(/\s+/g, "-");
+      toast("Hero created successfully!", heroFormSuccessToast);
+      router.push(`/custom-hero/${heroSlug}`);
     } catch (error) {
       console.error(error);
-      alert("Failed to create hero. Check the console for details.");
+      toast("Failed to Create Hero: ", heroFormErrorToast);
     }
   };
 

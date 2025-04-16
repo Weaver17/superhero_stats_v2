@@ -266,7 +266,11 @@ type TCreateHeroInput = z.infer<typeof heroSchema>;
 //   }
 // }
 
-export async function createHero(data: TCreateHeroInput) {
+export async function createHero(
+  data: TCreateHeroInput,
+  userId: string,
+  username: string
+) {
   try {
     console.log("Trying createHero");
     const parsed = heroSchema.safeParse(data);
@@ -361,6 +365,12 @@ export async function createHero(data: TCreateHeroInput) {
           create: {
             url: image.url,
             page_background: image.page_background,
+          },
+        },
+        creator: {
+          connect: {
+            id: userId,
+            username: username,
           },
         },
       },
