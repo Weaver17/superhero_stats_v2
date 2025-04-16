@@ -30,7 +30,7 @@ function Appearance() {
   }, []);
 
   return (
-    <div className="px-6 flex flex-col justify-center border-r border-secondary">
+    <div className="px-6 flex flex-col  border-r border-secondary">
       <h3 className="font-semibold text-2xl mx-auto mb-8">Appearance</h3>
       <div className="flex flex-row-reverse justify-between gap-5">
         <div>
@@ -63,19 +63,19 @@ function Appearance() {
           </li>
           <li className="stat-wrapper-list ml-[20%] ">
             <p className="font-semibold">Height:</p>
-            <ul className="text-secondary ml-auto ">
+            <div className="text-secondary ml-auto ">
               {appPreview?.height?.map((h, i) => (
-                <li key={`${h}-${i}`}>{h}</li>
+                <div key={`${h}-${i}`}>{h}</div>
               ))}
-            </ul>
+            </div>
           </li>
           <li className="stat-wrapper-list ml-[20%] ">
             <p className="font-semibold">Weight:</p>
-            <ul className="text-secondary ml-auto ">
+            <div className="text-secondary ml-auto ">
               {appPreview?.weight?.map((w, i) => (
-                <li key={`${w}-${i}`}>{w}</li>
+                <div key={`${w}-${i}`}>{w}</div>
               ))}
-            </ul>
+            </div>
           </li>
         </ul>
       </div>

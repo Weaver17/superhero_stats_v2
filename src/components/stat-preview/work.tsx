@@ -30,29 +30,29 @@ function Work() {
   }, []);
 
   return (
-    <div className="px-6 flex flex-col justify-center border-r border-secondary">
+    <div className="px-6 flex flex-col  border-r border-secondary">
       <h3 className="font-semibold text-2xl mx-auto mb-8">Work</h3>
       <div className="flex gap-5">
         <div>
           <PreviewHeroCard hero={workPreviewCard} />
         </div>
         <ul className="flex flex-col gap-4 w-[100%] h-[90%] justify-between">
-          <p className="flex flex-col">
+          <li className="flex flex-col">
             <p className="font-semibold text-center">Occupation:</p>
-            <p className="text-secondary text-center">
+            <div className="text-secondary text-center">
               {workPreview?.occupation
                 ?.split(",")
-                .map((o, i) => <li key={`${o}-${i}`}>{o}</li>) ?? "N/A"}
-            </p>
-          </p>
-          <p className="flex flex-col">
+                .map((o, i) => <div key={`${o}-${i}`}>{o}</div>) ?? "N/A"}
+            </div>
+          </li>
+          <li className="flex flex-col">
             <p className="font-semibold text-center">Base(s):</p>
-            <ul className="text-secondary text-center">
+            <div className="text-secondary text-center">
               {workPreview?.base
                 ?.split(";")
-                .map((b, i) => <li key={`${b}-${i}`}>{b}</li>) ?? "N/A"}
-            </ul>
-          </p>
+                .map((b, i) => <div key={`${b}-${i}`}>{b}</div>) ?? "N/A"}
+            </div>
+          </li>
         </ul>
       </div>
     </div>

@@ -4,6 +4,7 @@ import "./globals.css";
 import { HeroContextProvider } from "@/contexts/heroContext";
 import { Suspense } from "react";
 import Loading from "./loading/loading";
+import { AuthProvider } from "./AuthProvider";
 
 const rubik = Rubik({
   weight: ["300", "400", "500", "700", "900"],
@@ -26,11 +27,13 @@ export default function RootLayout({
       <body className={`${rubik.variable} antialiased `}>
         {" "}
         <Suspense fallback={<Loading />}>
-          <HeroContextProvider>
-            <main className=" ">
-              <div className="">{children}</div>
-            </main>
-          </HeroContextProvider>
+          <AuthProvider>
+            <HeroContextProvider>
+              <main className=" ">
+                <div className="">{children}</div>
+              </main>
+            </HeroContextProvider>
+          </AuthProvider>
         </Suspense>
       </body>
     </html>

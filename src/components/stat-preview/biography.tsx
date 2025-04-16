@@ -28,7 +28,7 @@ function Biography() {
   }, []);
 
   return (
-    <div className="px-6 flex flex-col justify-center">
+    <div className="px-6 flex flex-col">
       <h3 className="font-semibold text-2xl mx-auto mb-8">Biography</h3>
       <div className="flex gap-5">
         <div>
@@ -45,11 +45,11 @@ function Biography() {
           </li>
           <li className="stat-wrapper-list">
             <p className="font-semibold text-end">Aliases:</p>
-            <ul className="text-secondary  overflow-ellipsis ">
+            <div className="text-secondary  overflow-ellipsis ">
               {bioPreview?.aliases?.slice(0, 3).map((a, i) => (
-                <li key={`${a}-${i}`}>{a}</li>
+                <div key={`${a}-${i}`}>{a}</div>
               ))}
-            </ul>
+            </div>
           </li>
           <li className="stat-wrapper">
             <p className="font-semibold text-end">Place of Birth:</p>

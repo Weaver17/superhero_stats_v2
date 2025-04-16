@@ -1,6 +1,16 @@
 import HeroForm from "@/components/hero-form/hero-form";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { redirect } from "next/navigation";
 
-function Page() {
+async function Page() {
+  const { isAuthenticated } = getKindeServerSession();
+
+  const isLoggedIn = await isAuthenticated();
+
+  if (!isLoggedIn) {
+    redirect("/");
+  }
+
   return (
     <div className="py-6 bg-[url('../../public/random-dark.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
       <div className="flex flex-col gap-6 mx-auto mb-6 justify-center items-center max-w-[70%]">

@@ -30,7 +30,7 @@ function Connections() {
   }, []);
 
   return (
-    <div className="px-6 flex flex-col justify-center">
+    <div className="px-6 flex flex-col ">
       <h3 className="font-semibold text-2xl mx-auto mb-8">Connections</h3>
       <div className="flex flex-row-reverse gap-5">
         <div>
@@ -39,19 +39,19 @@ function Connections() {
         <ul className="flex flex-col gap-4 w-[100%] h-[90%] justify-between">
           <li className="flex flex-col  ">
             <p className="font-semibold text-center">Relatives:</p>
-            <ul className="text-secondary text-center">
+            <div className="text-secondary text-center">
               {connPreview?.relatives
                 ?.split(",")
-                .map((r, i) => <li key={`${r}-${i}`}>{r}</li>) ?? "N/A"}
-            </ul>
+                .map((r, i) => <div key={`${r}-${i}`}>{r}</div>) ?? "N/A"}
+            </div>
           </li>
           <li className="flex flex-col ">
             <p className="font-semibold text-center">Group Affiliations:</p>
-            <ul className="text-secondary text-center">
+            <div className="text-secondary text-center">
               {connPreview?.group_affiliation
                 ?.split(";")
-                .map((g, i) => <li key={`${g}-${i}`}>{g}</li>) ?? "N/A"}
-            </ul>
+                .map((g, i) => <div key={`${g}-${i}`}>{g}</div>) ?? "N/A"}
+            </div>
           </li>
         </ul>
       </div>

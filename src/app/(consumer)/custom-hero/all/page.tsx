@@ -23,7 +23,9 @@ async function page() {
   return (
     <div>
       <div>
-        <h2>Custom Heroes</h2>
+        <h2 className=" p-6 font-semibold text-center text-3xl">
+          Custom Heroes
+        </h2>
       </div>
       <div>
         <Suspense fallback={<Loading />}>
