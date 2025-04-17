@@ -43,6 +43,9 @@ function HeroFormStats() {
         label="Strength"
         description="Physical strength, not inner strength"
       />
+      <p className="py-4 text-sm text-muted-foreground text-center">
+        All values must be between 0-100
+      </p>
     </div>
   );
 }

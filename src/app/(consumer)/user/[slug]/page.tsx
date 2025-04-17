@@ -71,8 +71,10 @@ async function page({ params }: UserSlugType) {
             <p>{user?.role === "admin" ? "Admin" : "Basic User"}</p>
           </div>
         </div>
-        <div className="mr-16 flex flex-col gap-10  items-center">
-          <h3 className="text-2xl font-semibold py-4">Custom Heroes</h3>
+        <div className="mr-16 flex flex-col gap-10">
+          <h3 className="text-2xl font-semibold py-4 text-center">
+            Custom Heroes
+          </h3>
           <CustomCardList heroes={heroes} />
         </div>
       </div>
