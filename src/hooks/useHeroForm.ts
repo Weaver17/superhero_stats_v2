@@ -11,12 +11,6 @@ export default function useHeroFormContext() {
       appearance: {
         gender: "Other",
         race: "",
-        height: {
-          metric: undefined,
-        },
-        weight: {
-          metric: undefined,
-        },
         eye_color: "",
         hair_color: "",
       },
@@ -36,14 +30,6 @@ export default function useHeroFormContext() {
       connections: {
         group_affiliations: "",
         relatives: "",
-      },
-      powerstats: {
-        combat: undefined,
-        durability: undefined,
-        intelligence: undefined,
-        speed: undefined,
-        power: undefined,
-        strength: undefined,
       },
       image: {
         url: "",
