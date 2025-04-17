@@ -13,8 +13,9 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { getCustomHeroBg } from "@/lib/utils";
-import { stringify } from "querystring";
-import { useKindeAuth } from "@kinde-oss/kinde-auth-nextjs";
+import { cancelDelete, deleteHero } from "@/actions/actions";
+import Modal from "@/components/modals/modal";
+import PageDeleteBtn from "@/components/buttons/page-delete-btn";
 
 type HeroSlugType = {
   params: {
@@ -67,11 +68,30 @@ async function page({ params }: HeroSlugType) {
     hero?.image?.page_background ?? "None"
   );
 
+  async function handleClose() {
+    "use server";
+    await cancelDelete();
+    console.log("Close Modal");
+  }
+  async function handleConfirm() {
+    "use server";
+    await deleteHero(hero?.id, hero?.creator?.id);
+    console.log("Confirm Delete Hero");
+  }
+
   return (
     <Suspense fallback={<Loading />}>
       <section
-        className={`py-6 ${pageBackground} bg-cover bg-no-repeat bg-center min-h-screen`}
+        className={`py-6 relative ${pageBackground} bg-cover bg-no-repeat bg-center min-h-screen`}
       >
+        <Modal
+          handleClose={handleClose}
+          handleConfirm={handleConfirm}
+          heroId={hero?.creator?.kindeId ?? ""}
+          userId={kindeUser?.id ?? ""}
+          heroSlug={hero?.slug ?? ""}
+        />
+
         <div className="section relative border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm">
           <div className="absolute top-3 right-4 flex gap-4 items-center">
             <p className="text-sm text-muted-foreground">
@@ -80,14 +100,13 @@ async function page({ params }: HeroSlugType) {
                 {hero?.creator?.username}
               </Link>
             </p>
-            {(hero?.creator?.id === kindeUser?.id || isAdmin) && isLoggedIn ? (
+            {(hero?.creator?.kindeId === kindeUser?.id || isAdmin) &&
+            isLoggedIn ? (
               <>
                 <Button className="px-1" variant="ghost">
                   EDIT
                 </Button>
-                <Button className="px-1" variant="ghost">
-                  DELETE
-                </Button>
+                <PageDeleteBtn heroSlug={hero?.slug ?? ""} />
               </>
             ) : (
               <></>

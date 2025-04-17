@@ -14,8 +14,9 @@ type TCreateHeroInput = z.infer<typeof heroSchema>;
 
 export async function createHero(
   data: TCreateHeroInput,
-  userId: string,
-  username: string
+  kindeId: string,
+  username: string,
+  userId: string
 ) {
   try {
     const { isAuthenticated } = getKindeServerSession();
@@ -124,6 +125,7 @@ export async function createHero(
         creator: {
           connect: {
             id: userId,
+            kindeId: kindeId,
             username: username,
           },
         },
@@ -135,4 +137,16 @@ export async function createHero(
     console.log("Error in createHero");
     console.error(e);
   }
+}
+
+export async function deleteHero(
+  heroId: string | undefined,
+  userId: string | undefined
+) {
+  console.log(heroId, userId);
+  redirect("/custom-hero/all");
+}
+
+export async function cancelDelete() {
+  console.log("CANCEL");
 }

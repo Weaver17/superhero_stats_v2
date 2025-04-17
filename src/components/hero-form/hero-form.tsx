@@ -21,9 +21,10 @@ import { useRouter } from "next/navigation";
 type TCreateHeroSchema = z.infer<typeof heroSchema>;
 
 function HeroForm({
-  userId,
+  kindeId,
   username,
-}: Readonly<{ userId: string; username: string }>) {
+  userId,
+}: Readonly<{ kindeId: string; username: string; userId: string }>) {
   const heroForm = useForm<TCreateHeroSchema>({
     resolver: zodResolver(heroSchema),
   });
@@ -37,7 +38,8 @@ function HeroForm({
 
   const onSubmit = async (data: TCreateHeroSchema) => {
     try {
-      await createHero(data, userId, username);
+      console.log("onSubmit");
+      await createHero(data, kindeId, username, userId);
       const heroSlug = data.name.toLowerCase().replace(/\s+/g, "-");
       toast("Hero created successfully!", heroFormSuccessToast);
       router.push(`/custom-hero/${heroSlug}`);

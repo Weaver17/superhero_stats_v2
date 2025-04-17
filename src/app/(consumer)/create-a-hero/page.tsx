@@ -1,4 +1,5 @@
 import HeroForm from "@/components/hero-form/hero-form";
+import { prisma } from "@/lib/database";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 
@@ -13,8 +14,16 @@ async function Page() {
 
   const user = await getUser();
 
-  const userId = user?.id;
+  const userRecord = await prisma.user.findUnique({
+    where: { username: user?.username ?? "" },
+  });
+
+  const kindeId = user?.id;
   const username = user?.username;
+
+  const userId = userRecord?.id;
+
+  console.log(userRecord?.kindeId, user?.id);
 
   return (
     <div className="py-6 bg-[url('../../public/random-dark.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
@@ -28,7 +37,11 @@ async function Page() {
         <p className="font-semibold text-center">All fields are required</p>
       </div>
       <div className="section border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm">
-        <HeroForm userId={userId ?? ""} username={username ?? ""} />
+        <HeroForm
+          kindeId={kindeId ?? ""}
+          username={username ?? ""}
+          userId={userId ?? ""}
+        />
       </div>
     </div>
   );

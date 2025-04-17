@@ -1,6 +1,5 @@
 import { z } from "zod";
 
-import { creatorSchema } from "./creatorSchema";
 import {
   fullNameSchema,
   heroImageSchema,
@@ -74,9 +73,5 @@ export const heroSchema = z.object({
   image: z.object({
     url: heroImageSchema,
     page_background: pageBackroundEnum,
-  }),
-  creator: z.object({
-    id: z.string().optional(),
-    username: z.string().optional(),
   }),
 });

@@ -3,10 +3,11 @@ import { Prisma, PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const initialUser: Prisma.UserCreateInput = {
-  isAdmin: true,
+  kindeId: "kp_afcf0c377526494bb58b434f9969f3c6",
   email: "obi1@jedi.com",
   username: "Obi-Wan",
-  hashedPassword: "qwerty",
+  slug: "obi-wan",
+  role: "basic-user",
 };
 
 const initialHeros: Prisma.HeroCreateInput[] = [
