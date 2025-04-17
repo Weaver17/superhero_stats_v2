@@ -2,7 +2,6 @@
 import React from "react";
 
 import { Form } from "../ui/form";
-import { useForm } from "react-hook-form";
 import { Button } from "../ui/button";
 import HeroFormGeneral from "./hero-form-sections/general";
 import HeroFormBio from "./hero-form-sections/bio";
@@ -11,25 +10,20 @@ import HeroFormWork from "./hero-form-sections/work";
 import HeroFormConn from "./hero-form-sections/conn";
 import HeroFormStats from "./hero-form-sections/stats";
 import { createHero } from "@/actions/actions";
-import { z } from "zod";
-import { heroSchema } from "@/schema/heroSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
 import toast from "react-hot-toast";
 import { heroFormErrorToast, heroFormSuccessToast } from "@/lib/toast";
 import { useRouter } from "next/navigation";
-
-type TCreateHeroSchema = z.infer<typeof heroSchema>;
+import { TCreateHeroSchema } from "@/lib/types";
+import useHeroFormContext from "@/hooks/useHeroForm";
 
 function HeroForm({
   kindeId,
   username,
   userId,
 }: Readonly<{ kindeId: string; username: string; userId: string }>) {
-  const heroForm = useForm<TCreateHeroSchema>({
-    resolver: zodResolver(heroSchema),
-  });
-
   const router = useRouter();
+
+  const heroForm = useHeroFormContext();
 
   const {
     handleSubmit,

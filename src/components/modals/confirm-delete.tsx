@@ -8,16 +8,16 @@ type ConfirmDeleteProps = {
   modalRef: React.RefObject<HTMLDialogElement | null>;
   onClose: () => void;
   onConfirm: () => void;
-  heroId: string;
-  userId: string;
+  creatorKindeId: string;
+  userKindeId: string;
 };
 
 function ConfirmDelete({
   modalRef,
   onClose,
   onConfirm,
-  heroId,
-  userId,
+  creatorKindeId,
+  userKindeId,
 }: Readonly<ConfirmDeleteProps>) {
   const closeModal = () => {
     modalRef.current?.close();
@@ -40,7 +40,9 @@ function ConfirmDelete({
       </div>
       <div className="flex gap-5 mt-8 justify-center">
         <Button onClick={closeModal}>Cancel</Button>
-        <ModalDeleteBtn onClick={confirmDelete} />
+        {userKindeId === creatorKindeId ? (
+          <ModalDeleteBtn onClick={confirmDelete} />
+        ) : null}
       </div>
     </div>
   );

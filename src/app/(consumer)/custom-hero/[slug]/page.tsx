@@ -87,8 +87,8 @@ async function page({ params }: HeroSlugType) {
         <Modal
           handleClose={handleClose}
           handleConfirm={handleConfirm}
-          heroId={hero?.creator?.kindeId ?? ""}
-          userId={kindeUser?.id ?? ""}
+          creatorKindeId={hero?.creator?.kindeId ?? ""}
+          userKindeId={kindeUser?.id ?? ""}
           heroSlug={hero?.slug ?? ""}
         />
 

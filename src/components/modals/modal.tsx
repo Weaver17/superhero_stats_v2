@@ -5,16 +5,16 @@ import ConfirmDelete from "./confirm-delete";
 
 type ModalProps = {
   //   children: React.ReactNode;
-  heroId: string | null;
-  userId: string | null;
+  creatorKindeId: string | null;
+  userKindeId: string | null;
   handleClose: () => void;
   handleConfirm: () => void;
   heroSlug: string;
 };
 
 export default function Modal({
-  heroId,
-  userId,
+  creatorKindeId,
+  userKindeId,
   handleClose,
   handleConfirm,
   heroSlug,
@@ -48,13 +48,15 @@ export default function Modal({
         ref={modalRef}
         className="fixed self-center justify-self-center border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm w-[100%] h-[100%] flex items-center justify-center z-30"
       >
-        <ConfirmDelete
-          onClose={onClose}
-          onConfirm={onConfirm}
-          modalRef={modalRef}
-          heroId={heroId ?? ""}
-          userId={userId ?? ""}
-        />
+        {userKindeId === creatorKindeId ? (
+          <ConfirmDelete
+            onClose={onClose}
+            onConfirm={onConfirm}
+            modalRef={modalRef}
+            creatorKindeId={creatorKindeId ?? ""}
+            userKindeId={userKindeId ?? ""}
+          />
+        ) : null}
       </dialog>
     ) : null;
 

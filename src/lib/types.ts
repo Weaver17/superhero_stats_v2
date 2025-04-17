@@ -1,3 +1,8 @@
+import { heroSchema } from "@/schema/heroSchema";
+import { z } from "zod";
+
+export type TCreateHeroSchema = z.infer<typeof heroSchema>;
+
 export interface Hero {
   id?: string;
   name?: string;
