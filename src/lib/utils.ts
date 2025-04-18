@@ -1,13 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { dcPublishers, marvelPublishers } from "./constants";
-// import night1 from "@public/city-backdrop.jpg";
-// import night2 from "@public/city-backdrop-2.jpg";
-// import dark1 from "@public/random-dark.jpg";
-// import dark2 from "@public/random-dark-2.jpg";
-// import space from "@public/space-backdrop.jpg";
-// import darkTrees from "@public/trees-dark.jpg";
-import React from "react";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

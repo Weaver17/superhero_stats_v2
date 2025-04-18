@@ -29,7 +29,7 @@ function ConfirmDelete({
   };
 
   return (
-    <div className="p-15 border border-muted-foreground rounded-2xl bg-background/10 backdrop-blur-sm">
+    <div className="p-15 border border-muted-foreground rounded-2xl bg-background/80 backdrop-blur-sm">
       <div className="flex flex-col items-center justify-center gap-5">
         <h3 className="text-center text-foreground font-semibold text-2xl">
           Are your sure you want to delete this Hero?
