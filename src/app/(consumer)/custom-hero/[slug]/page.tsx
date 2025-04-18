@@ -13,9 +13,12 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { getCustomHeroBg } from "@/lib/utils";
-import { cancelDelete, deleteHero } from "@/actions/actions";
+import { closeDelete, deleteHero } from "@/actions/actions";
 import Modal from "@/components/modals/modal";
 import PageDeleteBtn from "@/components/buttons/page-delete-btn";
+import { redirect } from "next/navigation";
+import toast from "react-hot-toast";
+import { heroFormSuccessToast } from "@/lib/toast";
 
 type HeroSlugType = {
   params: {
@@ -70,13 +73,16 @@ async function page({ params }: HeroSlugType) {
 
   async function handleClose() {
     "use server";
-    await cancelDelete();
+    await closeDelete();
     console.log("Close Modal");
   }
   async function handleConfirm() {
     "use server";
-    await deleteHero(hero?.id, hero?.creator?.id);
+    await deleteHero(hero?.id, hero?.creator?.kindeId, kindeUser?.id);
+    closeDelete();
     console.log("Confirm Delete Hero");
+    toast("That Hero's Hero-ing time is OVER!!", heroFormSuccessToast);
+    redirect("/custom-hero/all");
   }
 
   return (

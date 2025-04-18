@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Button } from "./ui/button";
+import toast from "react-hot-toast";
 
 function Welcome() {
   const handleLinkClick = (

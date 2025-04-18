@@ -49,7 +49,7 @@ model Powerstats {
   power        String?
   combat       String?
   heroId       String  @unique
-  hero         Hero    @relation(fields: [heroId], references: [id])
+  hero         Hero    @relation(fields: [heroId], references: [id], onDelete: Cascade)
 }
 
 model Biography {
@@ -62,7 +62,7 @@ model Biography {
   publisher        String?
   alignment        String?
   heroId           String  @unique
-  hero             Hero    @relation(fields: [heroId], references: [id])
+  hero             Hero    @relation(fields: [heroId], references: [id], onDelete: Cascade)
 }
 
 model Appearance {
@@ -74,7 +74,7 @@ model Appearance {
   eye_color  String?
   hair_color String?
   heroId     String   @unique
-  hero       Hero     @relation(fields: [heroId], references: [id])
+  hero       Hero     @relation(fields: [heroId], references: [id], onDelete: Cascade)
 }
 
 model Work {
@@ -90,7 +90,7 @@ model Connections {
   group_affiliation String?
   relatives         String?
   heroId            String  @unique
-  hero              Hero    @relation(fields: [heroId], references: [id])
+  hero              Hero    @relation(fields: [heroId], references: [id], onDelete: Cascade)
 }
 
 model Image {
@@ -98,14 +98,14 @@ model Image {
   url             String?
   page_background String?
   heroId          String  @unique
-  hero            Hero    @relation(fields: [heroId], references: [id])
+  hero            Hero    @relation(fields: [heroId], references: [id], onDelete: Cascade)
 }
 
 model Alias {
   id          String    @id @default(uuid())
   aliases     String
   biographyId String
-  biography   Biography @relation(fields: [biographyId], references: [id])
+  biography   Biography @relation(fields: [biographyId], references: [id], onDelete: Cascade)
 }
 
 model Height {
@@ -113,7 +113,7 @@ model Height {
   imperial     String
   metric       String
   appearanceId String
-  appearance   Appearance @relation(fields: [appearanceId], references: [id])
+  appearance   Appearance @relation(fields: [appearanceId], references: [id], onDelete: Cascade)
 }
 
 model Weight {
@@ -121,5 +121,5 @@ model Weight {
   imperial     String
   metric       String
   appearanceId String
-  appearance   Appearance @relation(fields: [appearanceId], references: [id])
+  appearance   Appearance @relation(fields: [appearanceId], references: [id], onDelete: Cascade)
 }

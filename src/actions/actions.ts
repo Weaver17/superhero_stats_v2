@@ -139,14 +139,71 @@ export async function createHero(
   }
 }
 
-export async function deleteHero(
-  heroId: string | undefined,
-  userId: string | undefined
-) {
-  console.log(heroId, userId);
-  redirect("/custom-hero/all");
+export async function updateHero(formData: FormData, id: string) {
+  console.log("Update Hero");
 }
 
-export async function cancelDelete() {
+export async function deleteHero(
+  id: string | undefined,
+  creatorKindeId: string | undefined,
+  currentUserKindeId: string | undefined
+) {
+  try {
+    console.log(id, creatorKindeId, currentUserKindeId);
+
+    const { isAuthenticated } = getKindeServerSession();
+
+    const isLoggedIn = await isAuthenticated();
+
+    if (!isLoggedIn) {
+      redirect("/");
+    }
+    if (creatorKindeId !== currentUserKindeId) {
+      throw new Error("Cannot delete heroes you did not create!");
+    }
+
+    const hero = await prisma.hero.findUnique({
+      where: {
+        id: id,
+      },
+      include: {
+        appearance: {
+          include: {
+            height: true,
+            weight: true,
+          },
+        },
+        biography: {
+          include: {
+            aliases: true,
+          },
+        },
+        connections: true,
+        image: true,
+        powerstats: true,
+        work: true,
+      },
+    });
+
+    await prisma.$transaction([
+      prisma.height.deleteMany({ where: { id: hero?.appearance?.id } }),
+      prisma.weight.deleteMany({ where: { id: hero?.appearance?.id } }),
+      prisma.alias.deleteMany({ where: { id: hero?.biography?.id } }),
+      prisma.appearance.deleteMany({ where: { heroId: id } }),
+      prisma.biography.deleteMany({ where: { heroId: id } }),
+      prisma.powerstats.deleteMany({ where: { heroId: id } }),
+      prisma.connections.deleteMany({ where: { heroId: id } }),
+      prisma.image.deleteMany({ where: { heroId: id } }),
+      prisma.work.deleteMany({ where: { heroId: id } }),
+    ]);
+
+    await prisma.hero.delete({ where: { id } });
+  } catch (e) {
+    console.log("Error in deleteHero");
+    console.error(e);
+  }
+}
+
+export async function closeDelete() {
   console.log("CANCEL");
 }
