@@ -10,41 +10,41 @@ function HeroFormStats() {
       <HeroFormNumberInput
         formName="powerstats.combat"
         label="Combat"
-        placeholder="0-100"
+        placeholder="1s-100"
         description="How does your hero fair in combat?"
       />
       <HeroFormNumberInput
         formName="powerstats.durability"
-        placeholder="0-100"
+        placeholder="1-100"
         label="Durability"
         description="For how long can your hero keep fighing?"
       />
       <HeroFormNumberInput
         formName="powerstats.intelligence"
         label="Intelligence"
-        placeholder="0-100"
+        placeholder="1-100"
         description="How smart is your hero?"
       />
       <HeroFormNumberInput
         formName="powerstats.power"
-        placeholder="0-100"
+        placeholder="1-100"
         label="Power"
         description="POWERRRRRRR!!1!!!"
       />
       <HeroFormNumberInput
         formName="powerstats.speed"
         label="Speed"
-        placeholder="0-100"
+        placeholder="1-100"
         description="How fast is your hero?"
       />
       <HeroFormNumberInput
         formName="powerstats.strength"
-        placeholder="0-100"
+        placeholder="1-100"
         label="Strength"
         description="Physical strength, not inner strength"
       />
       <p className="py-4 text-sm text-muted-foreground text-center">
-        All values must be between 0-100
+        All values must be between 1-100
       </p>
     </div>
   );

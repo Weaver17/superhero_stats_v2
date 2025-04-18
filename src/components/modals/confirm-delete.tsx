@@ -5,7 +5,6 @@ import { Button } from "../ui/button";
 import ModalDeleteBtn from "../buttons/modal-delete-btn";
 
 type ConfirmDeleteProps = {
-  modalRef: React.RefObject<HTMLDialogElement | null>;
   onClose: () => void;
   onConfirm: () => void;
   creatorKindeId: string;
@@ -13,17 +12,11 @@ type ConfirmDeleteProps = {
 };
 
 function ConfirmDelete({
-  modalRef,
   onClose,
   onConfirm,
   creatorKindeId,
   userKindeId,
 }: Readonly<ConfirmDeleteProps>) {
-  const closeModal = () => {
-    modalRef.current?.close();
-    onClose();
-  };
-
   const confirmDelete = () => {
     onConfirm();
   };
@@ -39,7 +32,7 @@ function ConfirmDelete({
         </p>
       </div>
       <div className="flex gap-5 mt-8 justify-center">
-        <Button onClick={closeModal}>Cancel</Button>
+        <Button onClick={onClose}>Cancel</Button>
         {userKindeId === creatorKindeId ? (
           <ModalDeleteBtn onClick={confirmDelete} />
         ) : null}

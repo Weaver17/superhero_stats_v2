@@ -7,7 +7,6 @@ type ModalProps = {
   //   children: React.ReactNode;
   creatorKindeId: string | null;
   userKindeId: string | null;
-  handleClose: () => void;
   handleConfirm: () => void;
   heroSlug: string;
 };
@@ -15,7 +14,6 @@ type ModalProps = {
 export default function Modal({
   creatorKindeId,
   userKindeId,
-  handleClose,
   handleConfirm,
   heroSlug,
 }: Readonly<ModalProps>) {
@@ -25,13 +23,14 @@ export default function Modal({
 
   const router = useRouter();
 
-  function onClose() {
-    handleClose();
+  const closeModal = () => {
+    modalRef.current?.close();
     router.push(`/custom-hero/${heroSlug}`);
-  }
+  };
 
   function onConfirm() {
     handleConfirm();
+    modalRef.current?.close();
   }
 
   useEffect(() => {
@@ -50,9 +49,8 @@ export default function Modal({
       >
         {userKindeId === creatorKindeId ? (
           <ConfirmDelete
-            onClose={onClose}
+            onClose={closeModal}
             onConfirm={onConfirm}
-            modalRef={modalRef}
             creatorKindeId={creatorKindeId ?? ""}
             userKindeId={userKindeId ?? ""}
           />

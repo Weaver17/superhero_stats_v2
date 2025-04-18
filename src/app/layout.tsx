@@ -36,7 +36,15 @@ export default function RootLayout({
             </HeroContextProvider>
           </AuthProvider>
         </Suspense>
-        <Toaster position="top-center" />
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            style: {
+              width: "800px",
+              maxWidth: "100%",
+            },
+          }}
+        />
       </body>
     </html>
   );

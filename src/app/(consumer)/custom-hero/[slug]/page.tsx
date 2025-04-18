@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { getCustomHeroBg } from "@/lib/utils";
-import { closeDelete, deleteHero } from "@/actions/actions";
+import { deleteHero } from "@/actions/actions";
 import Modal from "@/components/modals/modal";
 import PageDeleteBtn from "@/components/buttons/page-delete-btn";
 import { redirect } from "next/navigation";
@@ -71,15 +71,9 @@ async function page({ params }: HeroSlugType) {
     hero?.image?.page_background ?? "None"
   );
 
-  async function handleClose() {
-    "use server";
-    await closeDelete();
-    console.log("Close Modal");
-  }
   async function handleConfirm() {
     "use server";
     await deleteHero(hero?.id, hero?.creator?.kindeId, kindeUser?.id);
-    closeDelete();
     console.log("Confirm Delete Hero");
     toast("That Hero's Hero-ing time is OVER!!", heroFormSuccessToast);
     redirect("/custom-hero/all");
@@ -91,7 +85,6 @@ async function page({ params }: HeroSlugType) {
         className={`py-6 relative ${pageBackground} bg-cover bg-no-repeat bg-center min-h-screen`}
       >
         <Modal
-          handleClose={handleClose}
           handleConfirm={handleConfirm}
           creatorKindeId={hero?.creator?.kindeId ?? ""}
           userKindeId={kindeUser?.id ?? ""}
@@ -109,9 +102,11 @@ async function page({ params }: HeroSlugType) {
             {(hero?.creator?.kindeId === kindeUser?.id || isAdmin) &&
             isLoggedIn ? (
               <>
-                <Button className="px-1" variant="ghost">
-                  EDIT
-                </Button>
+                <Link href={`/custom-hero/${hero?.slug}/edit`}>
+                  <Button className="px-1" variant="ghost">
+                    EDIT
+                  </Button>
+                </Link>
                 <PageDeleteBtn heroSlug={hero?.slug ?? ""} />
               </>
             ) : (
