@@ -12,14 +12,14 @@ const StatBar = ({ level }: StatBarProps) => {
   return (
     <div className="flex  items-center w-[100%]">
       {/* STAT BAR BACKGROUND */}
-      <div className="flex items-center h-12 w-[95%] bg-backround border border-foreground">
+      <div className="flex items-center h-8 w-[95%] bg-backround border border-foreground md:h-10 lg:h-12">
         {/* STAT BAR LEVEL */}
         <div
           style={{ width: `${levelNumber}%` }}
-          className={`relative h-11 ${barColor}`}
+          className={`relative h-7 ${barColor}  md:h-9 lg:h-11`}
         >
           {/* STAT LEVEL NUMBER */}
-          <p className="absolute top-[7px] right-2 text-[#dec400] text-2xl font-bold">
+          <p className="absolute top-[2px] right-2 text-[#dec400] md:top-[6px] lg:top-[7px] lg:text-2xl lg:font-bold">
             {Number.isNaN(levelNumber) || levelNumber < 5 ? "" : levelNumber}
           </p>
         </div>

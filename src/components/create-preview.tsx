@@ -34,7 +34,15 @@ async function CreateAHeroPreview() {
 
   return (
     <div id="create-a-hero" className="flex flex-col gap-10 scroll-mt-30">
-      <div className="grid grid-cols-3 items-start mx-5 py-10 border-b border-secondary">
+      <div className="flex flex-col text-center mx-auto my-4 lg:gap-10">
+        <h4 className="font-semibold lg:text-3xl create-preview:text-3xl">
+          Sign up to create your own hero!
+        </h4>
+        <p className="font-semibold create-preview:text-2xl">
+          Customize image, name, powerstats and more!
+        </p>
+      </div>
+      <div className="flex flex-col items-center justify-center gap-4 lg:flex-row">
         <CreateCardPreview
           image={imageBackup}
           name={hero?.biography?.full_name ?? ""}
@@ -42,14 +50,7 @@ async function CreateAHeroPreview() {
           slug={hero?.slug ?? ""}
           heroName={hero?.name ?? ""}
         />
-        <div className="flex flex-col gap-10 mt-20 text-center">
-          <h4 className="font-semibold text-3xl">
-            Sign up to create your own hero!
-          </h4>
-          <p className="font-semibold text-2xl">
-            Customize image, name, powerstats and more!
-          </p>
-        </div>
+
         <CreateBioPreview
           alter_egos={hero?.biography?.alter_egos ?? ""}
           aliases={

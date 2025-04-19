@@ -14,11 +14,11 @@ function StatPreviewSection() {
     >
       <Suspense fallback={<Loading />}>
         <Powerstats />
-        <div className=" pb-6 grid grid-cols-2 border-b border-secondary">
+        <div className="flex flex-col gap-4 pb-6 border-b border-secondary lg:grid lg:grid-cols-2">
           <Appearance />
           <Biography />
         </div>
-        <div className=" pb-6 grid grid-cols-2 border-b border-secondary">
+        <div className="flex flex-col gap-4 pb-6 border-b border-secondary md:grid md:grid-cols-2">
           <Work />
           <Connections />
         </div>

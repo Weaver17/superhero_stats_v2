@@ -23,13 +23,22 @@ body {
 
 .stat-wrapper {
   display: flex;
-  gap: 8px;
-  align-items: center;
+  gap: 2px;
 }
 
 .stat-wrapper-list {
   display: flex;
   gap: 8px;
+}
+
+.preview-stat-title {
+  font-size: var(--text-sm) /* 0.875rem = 14px */;
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+
+  @media (width >= 48rem /* 768px */) {
+    --tw-font-weight: var(--font-weight-semibold) /* 600 */;
+    font-weight: var(--font-weight-semibold) /* 600 */;
+  }
 }
 
 .no-spinner::-webkit-inner-spin-button,
@@ -71,6 +80,10 @@ body {
 }
 
 @theme {
+  --breakpoint-bio-list: 1364px;
+  --breakpoint-app-list: 1100px;
+  --breakpoint-create-preview: 1161px;
+
   --color-marvel: #ec1d24;
   --color-dc: #0476f2;
   --color-nbc: #6460aa;

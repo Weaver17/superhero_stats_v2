@@ -24,7 +24,7 @@ function CreateCardPreview({
 
   return (
     <Link href={`/custom-hero/${slug}`}>
-      <li className="cursor-pointer ml-5 hover:scale-110 transition-transform duration-200">
+      <div className="cursor-pointer mx-5 hover:scale-110 transition-transform duration-200">
         <Card className={`flex flex-col items-center ${borderClass} `}>
           <Image
             className="w-[300px] h-[375px] object-cover object-left"
@@ -39,7 +39,7 @@ function CreateCardPreview({
             <CardDescription>{name ?? "N/A"}</CardDescription>
           </CardFooter>
         </Card>
-      </li>
+      </div>
     </Link>
   );
 }

@@ -1,12 +1,12 @@
 "use client";
 import { useHeroes } from "@/contexts/heroContext";
 import { BIOGRAPHY_HERO_ID, makeUseful } from "@/lib/constants";
-import { BiographyType } from "@/lib/types";
+import { BiographyType, Hero } from "@/lib/types";
 import React, { useEffect, useState } from "react";
 import PreviewHeroCard from "../cards/preview-hero-card";
 
 function Biography() {
-  const [bioPreviewCard, setBioPreviewCard] = useState({});
+  const [bioPreviewCard, setBioPreviewCard] = useState<Hero>();
   const [bioPreview, setBioPreview] = useState<BiographyType | null>(null);
 
   const { getBioPreviewHero, getHeroById } = useHeroes();
@@ -29,46 +29,51 @@ function Biography() {
 
   return (
     <div className="px-6 flex flex-col">
-      <h3 className="font-semibold text-2xl mx-auto mb-8">Biography</h3>
-      <div className="flex gap-5">
-        <div>
+      <h3 className=" mx-auto mb-4 text-sm font-semibold md:mb-4 md:text-xl lg:mb-8 lg:text-2xl">
+        Biography
+      </h3>
+      <p className="mx-auto mb-2 text-sm font-semibold sm:hidden">
+        {bioPreviewCard?.name}
+      </p>
+      <div className="flex gap-5 justify-center">
+        <div className="hidden sm:block">
           <PreviewHeroCard hero={bioPreviewCard} />
         </div>
-        <ul className="flex flex-col gap-4 w-[100%] h-[90%] justify-between">
-          <li className="stat-wrapper justify-between">
-            <p className="font-semibold text-end">Full Name:</p>
+        <ul className="flex flex-col gap-4  h-[90%] lg:w-[100%] lg:justify-between">
+          <li className="flex flex-col items-center text-center bio-list:gap-[2px] bio-list:flex-row bio-list:justify-between">
+            <p className="preview-stat-title text-end">Full Name:</p>
             <p className="text-secondary">{bioPreview?.full_name ?? "N/A"}</p>
           </li>
-          <li className="stat-wrapper justify-between">
-            <p className="font-semibold text-end">Alter Egos:</p>
+          <li className="flex flex-col items-center text-center bio-list:gap-[2px] bio-list:flex-row bio-list:justify-between">
+            <p className="preview-stat-title text-end">Alter Egos:</p>
             <p className="text-secondary">{bioPreview?.alter_egos ?? "N/A"}</p>
           </li>
-          <li className="stat-wrapper-list justify-between">
-            <p className="font-semibold text-end">Aliases:</p>
+          <li className="flex flex-col items-center text-center bio-list:gap-[2px] bio-list:flex-row bio-list:justify-between">
+            <p className="preview-stat-title text-end">Aliases:</p>
             <div className="text-secondary  overflow-ellipsis ">
               {bioPreview?.aliases?.slice(0, 3).map((a, i) => (
                 <div key={`${a}-${i}`}>{a}</div>
               ))}
             </div>
           </li>
-          <li className="stat-wrapper justify-between">
-            <p className="font-semibold text-end">Place of Birth:</p>
+          <li className="flex flex-col items-center text-center bio-list:gap-[2px] bio-list:flex-row bio-list:justify-between">
+            <p className="preview-stat-title text-end">Place of Birth:</p>
             <p className="text-secondary">
               {bioPreview?.place_of_birth ?? "N/A"}
             </p>
           </li>
-          <li className="stat-wrapper justify-between">
-            <p className="font-semibold text-end">First Appearance:</p>
+          <li className="flex flex-col items-center text-center bio-list:gap-[2px] bio-list:flex-row bio-list:justify-between">
+            <p className="preview-stat-title text-end">First Appearance:</p>
             <p className="text-secondary">
               {bioPreview?.first_appearance ?? "N/A"}
             </p>
           </li>
-          <li className="stat-wrapper justify-between">
-            <p className="font-semibold text-end">Publisher:</p>
+          <li className="flex flex-col items-center text-center bio-list:gap-[2px] bio-list:flex-row bio-list:justify-between">
+            <p className="preview-stat-title text-end">Publisher:</p>
             <p className="text-secondary">{bioPreview?.publisher ?? "N/A"}</p>
           </li>
-          <li className="stat-wrapper justify-between">
-            <p className="font-semibold text-end">Alignment:</p>
+          <li className="flex flex-col items-center text-center bio-list:gap-[2px] bio-list:flex-row bio-list:justify-between">
+            <p className="preview-stat-title text-end">Alignment:</p>
             <p className="text-secondary">{bioPreview?.alignment ?? "N/A"}</p>
           </li>
         </ul>

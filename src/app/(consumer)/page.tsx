@@ -13,7 +13,7 @@ export default function Home() {
         </section>
       </div>
       <div className=" py-6 bg-[url('../../public/city-backdrop-2.jpg')] bg-cover bg-no-repeat bg-center">
-        <h3 className=" pb-6 font-semibold text-center text-3xl">
+        <h3 className="font-semibold text-center text-sm pb-6 md:text-xl lg:text-3xl">
           Stat Category Previews
         </h3>
 
@@ -22,7 +22,7 @@ export default function Home() {
         </section>
       </div>
       <div className="py-6 bg-[url('../../public/space-backdrop.jpg')] bg-cover bg-no-repeat bg-center">
-        <h3 className=" pb-6 font-semibold text-center text-3xl">
+        <h3 className="font-semibold text-center text-sm pb-6 md:text-xl lg:text-3xl">
           Create-A-Hero Preview
         </h3>
         <section className="section border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm">

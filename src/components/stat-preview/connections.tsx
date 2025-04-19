@@ -31,14 +31,19 @@ function Connections() {
 
   return (
     <div className="px-6 flex flex-col ">
-      <h3 className="font-semibold text-2xl mx-auto mb-8">Connections</h3>
+      <h3 className=" mx-auto mb-4 text-sm md:font-semibold md:mb-4 md:text-xl lg:mb-8 lg:text-2xl">
+        Connections
+      </h3>
+      <p className="mx-auto mb-4 text-sm font-semibold md:text-lg lg:hidden">
+        {connPreviewCard?.name}
+      </p>
       <div className="flex flex-row-reverse gap-5">
-        <div>
+        <div className="hidden lg:block">
           <PreviewHeroCard hero={connPreviewCard} />
         </div>
         <ul className="flex flex-col gap-4 w-[100%] h-[90%] justify-between">
           <li className="flex flex-col  ">
-            <p className="font-semibold text-center">Relatives:</p>
+            <p className="preview-stat-title text-center">Relatives:</p>
             <div className="text-secondary text-center">
               {connPreview?.relatives
                 ?.split(",")
@@ -46,7 +51,9 @@ function Connections() {
             </div>
           </li>
           <li className="flex flex-col ">
-            <p className="font-semibold text-center">Group Affiliations:</p>
+            <p className="preview-stat-title text-center">
+              Group Affiliations:
+            </p>
             <div className="text-secondary text-center">
               {connPreview?.group_affiliation
                 ?.split(";")

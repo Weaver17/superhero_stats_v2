@@ -11,7 +11,7 @@ import backup from "../../../public/vercel.svg";
 import { getBorderClass } from "@/lib/utils";
 
 interface HeroCardProps {
-  hero: Hero;
+  hero?: Hero;
 }
 
 function PreviewHeroCard({ hero }: Readonly<HeroCardProps>) {
@@ -26,7 +26,7 @@ function PreviewHeroCard({ hero }: Readonly<HeroCardProps>) {
       : hero?.image?.url;
 
   return (
-    <Link href={`/hero/${hero.id}`}>
+    <Link href={`/hero/${hero?.id}`}>
       <div className="cursor-pointer hover:scale-110 transition-transform duration-200">
         <Card
           className={`flex flex-col items-center ${borderClass} w-[255px] h-[385px] `}
@@ -40,9 +40,9 @@ function PreviewHeroCard({ hero }: Readonly<HeroCardProps>) {
             priority
           />
           <CardFooter className="flex flex-col gap-2 items-center justify-center">
-            <CardTitle>{hero.name ?? "N/A"}</CardTitle>
+            <CardTitle>{hero?.name ?? "N/A"}</CardTitle>
             <CardDescription>
-              {hero.biography?.full_name ?? "N/A"}
+              {hero?.biography?.full_name ?? "N/A"}
             </CardDescription>
           </CardFooter>
         </Card>

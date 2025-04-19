@@ -18,48 +18,38 @@ function CreateBioPreview({
   alignment,
 }: Readonly<CreateBioPreviewProps>) {
   return (
-    <div className="px-6 flex flex-col justify-center gap-6">
-      <h3 className="font-semibold  text-2xl text-center">Biography</h3>
-      <ul className="flex flex-col  mx-auto gap-4 w-[80%] text-xl justify-between">
-        <li className="stat-wrapper justify-between">
-          <p className="font-semibold">Alter Egos:</p>
-          <div className="w-[40%]">
-            <p className="text-secondary">{alter_egos}</p>
+    <div className="px-6 mt-6 flex flex-col justify-center gap-6 md:w-[30rem] lg:mt-0">
+      <h3 className=" mx-auto mb-4 text-md font-semibold md:mb-4 md:text-2xl lg:mb-8">
+        Biography
+      </h3>
+      <ul className="flex flex-col gap-4 md:mx-auto md:w-full md:justify-between">
+        <li className="flex flex-col items-center text-center  md:flex-row md:justify-between">
+          <p className="preview-stat-title text-end">Alter Egos:</p>
+          <p className="text-secondary">{alter_egos ?? "N/A"}</p>
+        </li>
+        <li className="flex flex-col items-center text-center  md:flex-row md:justify-between">
+          <p className="preview-stat-title text-end">Aliases:</p>
+          <div className="text-secondary  overflow-ellipsis ">
+            {aliases?.slice(0, 3).map((a, i) => (
+              <div key={`${a}-${i}`}>{a}</div>
+            ))}
           </div>
         </li>
-        <li className="stat-wrapper-list justify-between ">
-          <p className="font-semibold">Aliases:</p>
-          <div className="w-[40%]">
-            <div className="text-secondary overflow-ellipsis ">
-              {aliases.map((a, i) => (
-                <div key={`${a} - ${i}`}>{a}</div>
-              ))}
-            </div>
-          </div>
+        <li className="flex flex-col items-center text-center  md:flex-row md:justify-between">
+          <p className="preview-stat-title text-end">Place of Birth:</p>
+          <p className="text-secondary">{place_of_birth ?? "N/A"}</p>
         </li>
-        <li className="stat-wrapper justify-between ">
-          <p className="font-semibold">Place of Birth:</p>
-          <div className="w-[40%]">
-            <p className="text-secondary text-">{place_of_birth}</p>
-          </div>
+        <li className="flex flex-col items-center text-center  md:flex-row md:justify-between">
+          <p className="preview-stat-title text-end">First Appearance:</p>
+          <p className="text-secondary">{first_appearance ?? "N/A"}</p>
         </li>
-        <li className="stat-wrapper justify-between ">
-          <p className="font-semibold">First Appearance:</p>
-          <div className="w-[40%]">
-            <p className="text-secondary">{first_appearance}</p>
-          </div>
+        <li className="flex flex-col items-center text-center  md:flex-row md:justify-between">
+          <p className="preview-stat-title text-end">Publisher:</p>
+          <p className="text-secondary">{publisher ?? "N/A"}</p>
         </li>
-        <li className="stat-wrapper justify-between ">
-          <p className="font-semibold">Publisher:</p>
-          <div className="w-[40%]">
-            <p className="text-secondary">{publisher}</p>
-          </div>
-        </li>
-        <li className="stat-wrapper justify-between ">
-          <p className="font-semibold">Alignment:</p>
-          <div className="w-[40%]">
-            <p className="text-secondary">{alignment}</p>
-          </div>
+        <li className="flex flex-col items-center text-center  md:flex-row md:justify-between">
+          <p className="preview-stat-title text-end">Alignment:</p>
+          <p className="text-secondary">{alignment ?? "N/A"}</p>
         </li>
       </ul>
     </div>
