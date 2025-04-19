@@ -44,4 +44,4 @@ next-env.d.ts
 bash.exe.stackdump
 
 # just in case
-prisma/seed.ts
+prisma/

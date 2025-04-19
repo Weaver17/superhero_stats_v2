@@ -60,8 +60,8 @@ async function Page({ params }: HeroSlugType) {
       <div className="flex flex-col gap-6 mx-auto mb-6 justify-center items-center max-w-[70%]">
         <h2 className="font-semibold text-6xl">Edit {hero?.name}</h2>
         <p className="font-semibold text-xl text-center">
-          Here you can edit your Hero. Click "Save" to save changes or "Cancel
-          to go back to the hero's page."
+          Here you can edit your Hero. Click "Save" to save changes or "Cancel"
+          to go back to the hero's page.
         </p>
         <p className="font-semibold text-center">All fields are required</p>
       </div>

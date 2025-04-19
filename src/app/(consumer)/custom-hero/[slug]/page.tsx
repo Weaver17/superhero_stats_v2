@@ -59,7 +59,6 @@ async function page({ params }: HeroSlugType) {
 
   const creatorSlug = hero?.creator?.username
     .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, "")
     .replace(/\s+/g, "-");
 
   const imageBackup =

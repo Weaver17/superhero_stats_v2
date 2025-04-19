@@ -53,22 +53,22 @@ export default function useCustomHeroUpdateFormContext(hero: Hero) {
       },
       powerstats: {
         combat: hero?.powerstats?.combat
-          ? parseFloat(hero?.powerstats.combat[0]) ?? ""
+          ? parseFloat(hero?.powerstats.combat) ?? ""
           : 0,
         durability: hero?.powerstats?.durability
-          ? parseFloat(hero?.powerstats.durability[0]) ?? ""
+          ? parseFloat(hero?.powerstats.durability) ?? ""
           : 0,
         intelligence: hero?.powerstats?.intelligence
-          ? parseFloat(hero?.powerstats.intelligence[0]) ?? ""
+          ? parseFloat(hero?.powerstats.intelligence) ?? ""
           : 0,
         speed: hero?.powerstats?.speed
-          ? parseFloat(hero?.powerstats.speed[0]) ?? ""
+          ? parseFloat(hero?.powerstats.speed) ?? ""
           : 0,
         power: hero?.powerstats?.power
-          ? parseFloat(hero?.powerstats.power[0]) ?? ""
+          ? parseFloat(hero?.powerstats.power) ?? ""
           : 0,
         strength: hero?.powerstats?.strength
-          ? parseFloat(hero?.powerstats.strength[0]) ?? ""
+          ? parseFloat(hero?.powerstats.strength) ?? ""
           : 0,
       },
       image: {

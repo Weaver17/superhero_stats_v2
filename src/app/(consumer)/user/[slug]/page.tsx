@@ -14,7 +14,7 @@ type UserSlugType = {
 async function page({ params }: UserSlugType) {
   const user = await prisma.user.findUnique({
     where: {
-      slug: params.slug,
+      slug: params?.slug,
     },
   });
 
@@ -25,7 +25,7 @@ async function page({ params }: UserSlugType) {
   const heroes = (await prisma.hero.findMany({
     where: {
       creator: {
-        kindeId: user?.kindeId,
+        id: user?.id,
       },
     },
     include: {
@@ -46,37 +46,35 @@ async function page({ params }: UserSlugType) {
 
   return (
     <section className="py-6 bg-[url('../../public/city-backdrop-2.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
-      <div className="section relative border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm">
-        <div className="absolute top-3 right-4 flex gap-4 items-center">
-          {user?.kindeId === kindeInfo?.id ? (
-            <Button variant="ghost">EDIT</Button>
-          ) : null}
-        </div>
-        <div className="grid grid-cols-2 mx-5 pb-10 border-b border-secondary ">
-          <div className="mr-16 flex flex-col gap-10  items-center">
-            <h2 className="text-4xl font-semibold">{user?.username}</h2>
-            <p className="text-muted-foreground/50">{`member since: ${month} ${user?.createdAt.getFullYear()}`}</p>
-          </div>
-          <div className="mr-16 flex flex-col gap-10  items-center">
-            {user?.kindeId === kindeInfo?.id ? (
-              <>
-                <p>{user?.email}</p>
-                <p>
-                  {` ${kindeInfo?.given_name}
-              ${kindeInfo?.family_name}`}
-                </p>
-              </>
-            ) : null}
-
-            <p>{user?.role === "admin" ? "Admin" : "Basic User"}</p>
-          </div>
-        </div>
-        <div className="mr-16 flex flex-col gap-10">
-          <h3 className="text-2xl font-semibold py-4 text-center">
-            Custom Heroes
-          </h3>
-          <CustomCardList heroes={heroes} />
-        </div>
+      <div className="section relative border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm min-h-screen">
+        {!user ? (
+          <h2 className="font-semibold text-center text-4xl">
+            No User Found :/
+          </h2>
+        ) : (
+          <>
+            <div className="absolute top-3 right-4 flex gap-4 items-center">
+              {user?.kindeId === kindeInfo?.id ? (
+                <Button variant="ghost">EDIT</Button>
+              ) : null}
+            </div>
+            <div className="grid grid-cols-2 mx-5 pb-10 border-b border-secondary ">
+              <div className="mr-16 flex flex-col gap-10  items-center">
+                <h2 className="text-4xl font-semibold">{user?.username}</h2>
+                <p className="text-muted-foreground/50">{`member since: ${month} ${user?.createdAt.getFullYear()}`}</p>
+              </div>
+              <div className="mr-16 flex flex-col gap-10  items-center">
+                <p>{user?.role === "admin" ? "Admin" : "Basic User"}</p>
+              </div>
+            </div>
+            <div className="mr-16 flex flex-col gap-10">
+              <h3 className="text-2xl font-semibold py-4 text-center">
+                Custom Heroes
+              </h3>
+              <CustomCardList heroes={heroes} />
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

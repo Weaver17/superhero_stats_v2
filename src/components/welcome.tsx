@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
 import { Button } from "./ui/button";
-import toast from "react-hot-toast";
-import { heroFormSuccessToast } from "@/lib/toast";
 
 function Welcome() {
   const handleLinkClick = (
@@ -15,10 +13,6 @@ function Welcome() {
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: "smooth" });
       }
-      toast(
-        "This is an extremely long test sentence to format the toast",
-        heroFormSuccessToast
-      );
     } else {
       window.scrollTo(href);
     }

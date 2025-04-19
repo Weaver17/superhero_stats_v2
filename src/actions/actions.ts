@@ -6,11 +6,18 @@ import {
 } from "@/lib/constants";
 import { prisma } from "@/lib/database";
 import { heroSchema } from "@/schema/heroSchema";
+import { KindeUser } from "@kinde-oss/kinde-auth-nextjs";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 
 type TCreateHeroInput = z.infer<typeof heroSchema>;
+
+// type kindeUserInfoProps = {
+//   username?: string;
+//   id?: string;
+//   email?: string;
+// };
 
 export async function createHero(
   data: TCreateHeroInput,
@@ -406,6 +413,45 @@ export async function deleteHero(
     await prisma.hero.delete({ where: { id } });
   } catch (e) {
     console.log("Error in deleteHero");
+    console.error(e);
+  }
+}
+
+export async function createLocalUser(
+  kindeUserInfo: KindeUser<Record<string, any>> | null
+) {
+  try {
+    console.log("Creating Local User...");
+
+    const { isAuthenticated, getUser } = getKindeServerSession();
+
+    const isLoggedIn = await isAuthenticated();
+
+    const currentKindeUser = await getUser();
+
+    if (!isLoggedIn) {
+      redirect("/");
+    }
+
+    if (currentKindeUser && kindeUserInfo) {
+      if (currentKindeUser.id !== kindeUserInfo.id) {
+        throw new Error("IDs do not match");
+      }
+
+      const localUser = prisma.user.create({
+        data: {
+          kindeId: kindeUserInfo.id ?? "",
+          username: kindeUserInfo.username ?? "",
+          slug:
+            kindeUserInfo.username?.toLowerCase().replace(/\s+/g, "-") ?? "",
+          role: "basic-user",
+          email: kindeUserInfo.email ?? "",
+        },
+      });
+      return localUser;
+    }
+  } catch (e) {
+    console.log("Error in addLocalUser");
     console.error(e);
   }
 }
