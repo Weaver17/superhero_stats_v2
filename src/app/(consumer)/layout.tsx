@@ -1,10 +1,10 @@
 import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
+import Header from "@/components/header";
 
 function ConsumerLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
-      <Navbar />
+      <Header />
       {children}
       <Footer />
     </>

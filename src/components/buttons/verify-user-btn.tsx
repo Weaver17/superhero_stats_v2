@@ -2,17 +2,15 @@
 import React from "react";
 import { Button } from "../ui/button";
 
-function VerifyUserBtn({
-  onVerifyClick,
-}: {
-  onVerifyClick: () => Promise<void>;
-}) {
+type VerifyBtnProps = {
+  onClick: () => Promise<void>;
+};
+
+function VerifyUserBtn({ onClick }: VerifyBtnProps) {
   return (
     <Button
       onClick={() => {
-        onVerifyClick().catch((error) => {
-          console.error("Error in button component:", error);
-        });
+        onClick();
       }}
       variant="outline"
     >
