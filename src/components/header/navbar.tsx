@@ -14,27 +14,46 @@ function Navbar({ isLoggedIn, user, userSlug }: NavbarProps) {
   return (
     <nav className="flex gap-4 items-center">
       <Link href="/custom-hero/all">
-        <Button className="px-0" variant="link">
+        <Button
+          className="h-8 rounded-md gap-1.5 px-0 md:h-9 md:py-2 lg:h-10 lg:rounded-md"
+          variant="link"
+        >
           Custom Heroes
         </Button>
       </Link>
       {isLoggedIn ? (
         <>
           <Link href={`/user/${userSlug}`}>
-            <Button variant="link">{user?.username}</Button>
+            <Button
+              className="h-8 rounded-md gap-1.5 px-0 md:h-9 md:py-2 lg:h-10 lg:rounded-md"
+              variant="link"
+            >
+              {user?.username}
+            </Button>
           </Link>
           <Link href="/create-a-hero">
-            <Button>Create-A-Hero</Button>
+            <Button className="h-8 rounded-md gap-1.5 px-3 md:h-9 md:px-4 md:py-2 lg:h-10 lg:rounded-md lg:px-6">
+              Create-A-Hero
+            </Button>
           </Link>
         </>
       ) : (
         <>
           <LoginLink>
-            <Button> Sign In</Button>
+            <Button className="h-8 rounded-md gap-1.5 px-3 md:h-9 md:px-4 md:py-2 lg:h-10 lg:rounded-md lg:px-6">
+              {" "}
+              Sign In
+            </Button>
           </LoginLink>
 
           <RegisterLink>
-            <Button variant="outline"> Sign Up</Button>
+            <Button
+              className="h-8 rounded-md gap-1.5 px-3 md:h-9 md:px-4 md:py-2 lg:h-10 lg:rounded-md lg:px-6"
+              variant="outline"
+            >
+              {" "}
+              Sign Up
+            </Button>
           </RegisterLink>
         </>
       )}

@@ -32,20 +32,27 @@ async function Header() {
   }
 
   return (
-    <header className="flex h-20 bg-background z-10 border-b border-zinc-700/50">
-      <div className="flex gap-4 container justify-between items-center ">
+    <header className="flex px-10 py-2 w-full bg-background z-10 border-b border-primary md:py-10">
+      <div className="flex flex-col g-10 items-center w-full  md:flex-row md:justify-between">
         <TitleLink />
-        <Navbar isLoggedIn={isLoggedIn} user={user} userSlug={userSlug} />
+        <div className="flex flex-col gap-4 items-center mx-auto mt-4 md:flex-row md:mx-0 ">
+          <Navbar isLoggedIn={isLoggedIn} user={user} userSlug={userSlug} />
 
-        {isLoggedIn &&
-          (localUser ? (
-            <LogoutLink>
-              {" "}
-              <Button variant="outline">Log Out</Button>
-            </LogoutLink>
-          ) : (
-            <VerifyUserBtn onClick={onVerifyClick} />
-          ))}
+          {isLoggedIn &&
+            (localUser ? (
+              <LogoutLink>
+                {" "}
+                <Button
+                  className="h-8 rounded-md gap-1.5 px-3 md:h-9 md:px-4 md:py-2 lg:h-10 lg:rounded-md lg:px-6"
+                  variant="outline"
+                >
+                  Log Out
+                </Button>
+              </LogoutLink>
+            ) : (
+              <VerifyUserBtn onClick={onVerifyClick} />
+            ))}
+        </div>
       </div>
     </header>
   );
