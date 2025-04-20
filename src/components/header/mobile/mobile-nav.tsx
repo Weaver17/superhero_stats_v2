@@ -1,16 +1,16 @@
 import Link from "next/link";
 import React from "react";
-import { Button } from "../ui/button";
 import {
   LoginLink,
   RegisterLink,
   LogoutLink,
 } from "@kinde-oss/kinde-auth-nextjs/server";
 import { KindeUser } from "@kinde-oss/kinde-auth-nextjs";
+import { Button } from "@/components/ui/button";
 import { TCreateLocalUserSchema } from "@/lib/types";
-import VerifyUserBtn from "../buttons/verify-user-btn";
+import VerifyUserBtn from "@/components/buttons/verify-user-btn";
 
-type NavbarProps = {
+type MobileNavbarProps = {
   isLoggedIn: boolean | null;
   user: KindeUser<Record<string, any>> | null;
   userSlug: string;
@@ -18,20 +18,17 @@ type NavbarProps = {
   onVerifyClick: () => Promise<void>;
 };
 
-function Navbar({
+function MobileNavbar({
   isLoggedIn,
   user,
   userSlug,
   localUser,
   onVerifyClick,
-}: NavbarProps) {
+}: MobileNavbarProps) {
   return (
-    <nav className=" hidden sm:flex gap-4 items-center">
+    <nav className="flex flex-col gap-1 items-center sm:hidden">
       <Link href="/custom-hero/all">
-        <Button
-          className="h-8 rounded-md gap-1.5 px-0 md:h-9 md:py-2 lg:h-10 lg:rounded-md"
-          variant="link"
-        >
+        <Button className="h-8 rounded-md gap-1.5 text-xs px-0 " variant="link">
           Custom Heroes
         </Button>
       </Link>
@@ -40,7 +37,7 @@ function Navbar({
           {localUser ? (
             <Link href={`/user/${userSlug}`}>
               <Button
-                className="h-8 rounded-md gap-1.5 px-0 md:h-9 md:py-2 lg:h-10 lg:rounded-md"
+                className="h-8 rounded-md gap-1.5 text-xs px-0 "
                 variant="link"
               >
                 {user?.username}
@@ -51,15 +48,18 @@ function Navbar({
           )}
 
           <Link href="/create-a-hero">
-            <Button className="h-8 rounded-md gap-1.5 px-3 md:h-9 md:px-4 md:py-2 lg:h-10 lg:rounded-md lg:px-6">
+            <Button
+              className="h-8 rounded-md gap-1.5 text-xs px-3 "
+              variant="link"
+            >
               Create-A-Hero
             </Button>
           </Link>
           <LogoutLink>
             {" "}
             <Button
-              className="h-8 rounded-md gap-1.5 px-3 md:h-9 md:px-4 md:py-2 lg:h-10 lg:rounded-md lg:px-6"
-              variant="outline"
+              className="h-8 rounded-md gap-1.5 px-3 text-xs md:h-9 md:px-4 md:py-2 lg:h-10 lg:rounded-md lg:px-6"
+              variant="link"
             >
               Log Out
             </Button>
@@ -68,7 +68,10 @@ function Navbar({
       ) : (
         <>
           <LoginLink>
-            <Button className="h-8 rounded-md gap-1.5 px-3 md:h-9 md:px-4 md:py-2 lg:h-10 lg:rounded-md lg:px-6">
+            <Button
+              className="h-8 rounded-md gap-1.5 text-xs px-3"
+              variant="link"
+            >
               {" "}
               Sign In
             </Button>
@@ -76,8 +79,8 @@ function Navbar({
 
           <RegisterLink>
             <Button
-              className="h-8 rounded-md gap-1.5 px-3 md:h-9 md:px-4 md:py-2 lg:h-10 lg:rounded-md lg:px-6"
-              variant="outline"
+              className="h-8 rounded-md gap-1.5 text-xs px-3"
+              variant="link"
             >
               {" "}
               Sign Up
@@ -89,4 +92,4 @@ function Navbar({
   );
 }
 
-export default Navbar;
+export default MobileNavbar;

@@ -1,7 +1,10 @@
 import { heroSchema } from "@/schema/heroSchema";
+import { localUserSchema } from "@/schema/localUser";
 import { z } from "zod";
 
 export type TCreateHeroSchema = z.infer<typeof heroSchema>;
+
+export type TCreateLocalUserSchema = z.infer<typeof localUserSchema>;
 
 export interface Hero {
   id?: string;

@@ -10,6 +10,7 @@ import TitleLink from "./header/title-link";
 import Navbar from "./header/navbar";
 import { Button } from "./ui/button";
 import VerifyUserBtn from "./buttons/verify-user-btn";
+import MobileNavbar from "./header/mobile/mobile-nav";
 
 async function Header() {
   const { isAuthenticated, getUser } = getKindeServerSession();
@@ -36,9 +37,22 @@ async function Header() {
       <div className="flex flex-col g-10 items-center w-full  md:flex-row md:justify-between">
         <TitleLink />
         <div className="flex flex-col gap-4 items-center mx-auto mt-4 md:flex-row md:mx-0 ">
-          <Navbar isLoggedIn={isLoggedIn} user={user} userSlug={userSlug} />
+          <Navbar
+            isLoggedIn={isLoggedIn}
+            user={user}
+            userSlug={userSlug}
+            localUser={localUser}
+            onVerifyClick={onVerifyClick}
+          />
+          <MobileNavbar
+            isLoggedIn={isLoggedIn}
+            user={user}
+            userSlug={userSlug}
+            localUser={localUser}
+            onVerifyClick={onVerifyClick}
+          />
 
-          {isLoggedIn &&
+          {/* {isLoggedIn &&
             (localUser ? (
               <LogoutLink>
                 {" "}
@@ -51,7 +65,7 @@ async function Header() {
               </LogoutLink>
             ) : (
               <VerifyUserBtn onClick={onVerifyClick} />
-            ))}
+            ))} */}
         </div>
       </div>
     </header>
