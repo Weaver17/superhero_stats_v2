@@ -29,7 +29,7 @@ function PreviewHeroCard({ hero }: Readonly<HeroCardProps>) {
     <Link href={`/hero/${hero?.id}`}>
       <div className="cursor-pointer hover:scale-110 transition-transform duration-200">
         <Card
-          className={`flex flex-col items-center ${borderClass} w-[255px] h-[385px] `}
+          className={`flex flex-col items-center ${borderClass} sm:w-[255px] sm:h-[385px] `}
         >
           <Image
             className="w-[200px] h-[275px] "

@@ -26,10 +26,10 @@ function CreateCard({
   return (
     <Card className={`flex flex-col items-center ${borderClass} `}>
       <Image
-        className="w-[300px] h-[375px] object-contain "
+        className="object-contain w-[200px] h-[275px] sm:w-[300px] sm:h-[375px] "
         src={image || backup}
         alt={heroName ?? "backup image"}
-        width={300}
+        width={200}
         height={375}
         priority
       />

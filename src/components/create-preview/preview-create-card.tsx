@@ -27,8 +27,8 @@ function CreateCardPreview({
       <div className="cursor-pointer mx-5 hover:scale-110 transition-transform duration-200">
         <Card className={`flex flex-col items-center ${borderClass} `}>
           <Image
-            className="w-[300px] h-[375px] object-cover object-left"
-            src={image || backup}
+            className="object-cover object-left w-[200px] h-[275px] sm:w-[300px] sm:h-[375px]"
+            src={image ?? backup}
             alt={name ?? "N/A"}
             width={300}
             height={375}
