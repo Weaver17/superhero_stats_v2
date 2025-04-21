@@ -27,7 +27,7 @@ function CustomAllCard({ hero }: Readonly<CustomAllCardProps>) {
 
   return (
     <Link href={`/custom-hero/${hero.slug}`}>
-      <li className="cursor-pointer hover:scale-110 transition-transform duration-200">
+      <li className="mx-auto w-[255px] h-[385px] cursor-pointer hover:scale-110 transition-transform duration-200 sm:w-[355px] sm:h-[485px]">
         <Card className={`flex flex-col items-center ${borderClass} `}>
           <Image
             className="w-[200px] h-[275px] sm:w-[300px] sm:h-[375px]"

@@ -26,7 +26,7 @@ async function Page() {
   console.log(userRecord?.kindeId, user?.id);
 
   return (
-    <div className="py-6 bg-[url('../../public/random-dark.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
+    <div className="py-6 px-2 bg-[url('../../public/random-dark.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
       <div className="flex flex-col gap-6 mx-auto mb-6 justify-center items-center max-w-[70%]">
         <h2 className="font-semibold text-6xl">Create-A-Hero</h2>
         <p className="font-semibold text-xl text-center">

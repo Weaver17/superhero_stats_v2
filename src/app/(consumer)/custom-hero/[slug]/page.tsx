@@ -81,7 +81,7 @@ async function page({ params }: HeroSlugType) {
   return (
     <Suspense fallback={<Loading />}>
       <section
-        className={`py-6 relative ${pageBackground} bg-cover bg-no-repeat bg-center min-h-screen`}
+        className={`py-6 px-2 relative ${pageBackground} bg-cover bg-no-repeat bg-center min-h-screen`}
       >
         <Modal
           handleConfirm={handleConfirm}

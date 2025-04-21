@@ -22,7 +22,7 @@ async function page({ params }: { params: Promise<{ id: string }> }) {
       : hero?.image.url;
 
   return (
-    <section className="py-6 bg-[url('../../public/city-backdrop-2.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
+    <section className="py-6 px-2 bg-[url('../../public/city-backdrop-2.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
       <div className="section border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm">
         <div className="grid grid-cols-2 mx-5 pb-10 border-b border-secondary ">
           <HeroImage

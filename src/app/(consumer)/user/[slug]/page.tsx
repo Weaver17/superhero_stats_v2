@@ -45,7 +45,7 @@ async function page({ params }: UserSlugType) {
   const month = getMonth(user?.createdAt.getMonth() ?? 0);
 
   return (
-    <section className="py-6 bg-[url('../../public/city-backdrop-2.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
+    <section className="py-6 px-2 bg-[url('../../public/city-backdrop-2.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
       <div className="section relative border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm min-h-screen">
         {!user ? (
           <h2 className="font-semibold text-center text-4xl">

@@ -20,8 +20,8 @@ async function CardList({ heroes }: Readonly<{ heroes: Hero[] }>) {
   return (
     <Suspense fallback={<Loading />}>
       {!heroes ? (
-        <div className="my-10 flex flex-col text-center">
-          <h3 className="mx-auto py-10 px-20 text-2xl font-semibold border border-secondary rounded-2xl bg-primary/10 backdrop-blur-sm">
+        <div className="my-10 mx-auto flex flex-col text-center">
+          <h3 className="mx-auto py-6 px-10 font-semibold border border-secondary rounded-2xl bg-primary/10 backdrop-blur-sm md:px-20 md:py-10 md:text-2xl">
             No Heroes found matching your search.
             <br /> So here is Batman:
           </h3>
