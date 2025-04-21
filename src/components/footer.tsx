@@ -93,7 +93,7 @@ async function Footer() {
                 className="text-xs p-0 sm:text-sm md:text-md lg:text-lg "
                 variant="link"
               >
-                View on GitHub
+                GitHub
               </Button>
             </Link>
           </li>

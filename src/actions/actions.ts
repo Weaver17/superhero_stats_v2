@@ -455,3 +455,12 @@ export async function createLocalUser(
     console.error(e);
   }
 }
+
+export async function onVerifyClick(
+  user: KindeUser<Record<string, any>> | null,
+  userSlug: string
+) {
+  console.log("onVerifyClick");
+  await createLocalUser(user);
+  redirect(`/user/${userSlug}`);
+}

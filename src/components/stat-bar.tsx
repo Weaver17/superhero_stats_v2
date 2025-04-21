@@ -19,8 +19,12 @@ const StatBar = ({ level }: StatBarProps) => {
           className={`relative h-7 ${barColor}  md:h-9 lg:h-11`}
         >
           {/* STAT LEVEL NUMBER */}
-          <p className="absolute top-[2px] right-2 text-[#dec400] md:top-[6px] lg:top-[7px] lg:text-2xl lg:font-bold">
-            {Number.isNaN(levelNumber) || levelNumber < 5 ? "" : levelNumber}
+          <p
+            className={`absolute top-[2px]  text-[#dec400] md:top-[6px] lg:top-[7px] lg:text-2xl lg:font-bold ${
+              levelNumber > 50 ? "right-2" : "right-[-24px] lg:right-[-36px]"
+            }`}
+          >
+            {Number.isNaN(levelNumber) || levelNumber}
           </p>
         </div>
       </div>

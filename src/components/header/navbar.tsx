@@ -15,16 +15,9 @@ type NavbarProps = {
   user: KindeUser<Record<string, any>> | null;
   userSlug: string;
   localUser: TCreateLocalUserSchema | null;
-  onVerifyClick: () => Promise<void>;
 };
 
-function Navbar({
-  isLoggedIn,
-  user,
-  userSlug,
-  localUser,
-  onVerifyClick,
-}: NavbarProps) {
+function Navbar({ isLoggedIn, user, userSlug, localUser }: NavbarProps) {
   return (
     <nav className=" hidden sm:flex gap-4 items-center">
       <Link href="/custom-hero/all">
@@ -47,7 +40,7 @@ function Navbar({
               </Button>
             </Link>
           ) : (
-            <VerifyUserBtn onClick={onVerifyClick} />
+            <VerifyUserBtn user={user} userSlug={userSlug} />
           )}
 
           <Link href="/create-a-hero">

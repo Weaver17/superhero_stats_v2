@@ -15,7 +15,6 @@ type MobileNavbarProps = {
   user: KindeUser<Record<string, any>> | null;
   userSlug: string;
   localUser: TCreateLocalUserSchema | null;
-  onVerifyClick: () => Promise<void>;
 };
 
 function MobileNavbar({
@@ -23,7 +22,6 @@ function MobileNavbar({
   user,
   userSlug,
   localUser,
-  onVerifyClick,
 }: MobileNavbarProps) {
   return (
     <nav className="flex flex-col gap-1 items-center sm:hidden">
@@ -44,7 +42,7 @@ function MobileNavbar({
               </Button>
             </Link>
           ) : (
-            <VerifyUserBtn onClick={onVerifyClick} />
+            <VerifyUserBtn user={user} userSlug={userSlug} />
           )}
 
           <Link href="/create-a-hero">
