@@ -51,19 +51,23 @@ async function Page({ params }: HeroSlugType) {
 
   const userKindeId = userRecord?.kindeId;
 
-  if (userKindeId !== kindeId || userRecord?.role === "basic-user") {
+  if (userKindeId !== kindeId) {
     throw new Error("Cannot edit heroes you did not create!");
   }
 
   return (
     <div className="py-6 px-2 bg-[url('../../public/random-dark.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
       <div className="flex flex-col gap-6 mx-auto mb-6 justify-center items-center max-w-[70%]">
-        <h2 className="font-semibold text-6xl">Edit {hero?.name}</h2>
-        <p className="font-semibold text-xl text-center">
+        <h2 className="font-semibold text-xl sm:text-2xl md:text-4xl lg:text-6xl">
+          Edit {hero?.name}
+        </h2>
+        <p className="text-center md:font-semibold md:text-lg lg:text-xl">
           Here you can edit your Hero. Click "Save" to save changes or "Cancel"
           to go back to the hero's page.
         </p>
-        <p className="font-semibold text-center">All fields are required</p>
+        <p className="text-center text-sm md:text-base md:font-semibold">
+          All fields are required
+        </p>
       </div>
       <div className="section border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm">
         {hero && (
