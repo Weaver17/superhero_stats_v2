@@ -22,38 +22,26 @@ async function Footer() {
       <div className="flex justify-between">
         <div className="flex flex-col gap-0.5 md:gap-1 lg:gap-2">
           <Link href="/custom-hero/all">
-            <Button
-              className="text-xs p-0 sm:text-sm md:text-md lg:text-lg "
-              variant="link"
-            >
+            <Button className=" p-0 md:p-0 lg:p-0" variant="link">
               Custom Heroes
             </Button>
           </Link>
           {isLoggedIn ? (
             <>
               <Link href={`/user/${userSlug}`}>
-                <Button
-                  className="text-xs p-0 sm:text-sm md:text-md lg:text-lg "
-                  variant="link"
-                >
+                <Button className=" p-0 md:p-0 lg:p-0" variant="link">
                   {user?.username}
                 </Button>
               </Link>
               <Link href="/create-a-hero">
-                <Button
-                  className="text-xs p-0 sm:text-sm md:text-md lg:text-lg "
-                  variant="link"
-                >
+                <Button className=" p-0 md:p-0 lg:p-0 " variant="link">
                   Create-A-Hero
                 </Button>
               </Link>
 
               <LogoutLink>
                 {" "}
-                <Button
-                  className="text-xs p-0 sm:text-sm md:text-md lg:text-lg "
-                  variant="link"
-                >
+                <Button className=" p-0 md:p-0 lg:p-0 " variant="link">
                   Log Out
                 </Button>
               </LogoutLink>
@@ -61,19 +49,13 @@ async function Footer() {
           ) : (
             <>
               <LoginLink>
-                <Button
-                  className="text-xs p-0 sm:text-sm md:text-md lg:text-lg "
-                  variant="link"
-                >
+                <Button className=" p-0 md:p-0 lg:p-0 " variant="link">
                   Sign In
                 </Button>
               </LoginLink>
 
               <RegisterLink>
-                <Button
-                  className="text-xs p-0 sm:text-sm md:text-md lg:text-lg "
-                  variant="link"
-                >
+                <Button className=" p-0 md:p-0 lg:p-0 " variant="link">
                   Sign Up
                 </Button>
               </RegisterLink>
@@ -89,10 +71,7 @@ async function Footer() {
               target="_blank"
               href="https://github.com/Weaver17/superhero_stats_v2"
             >
-              <Button
-                className="text-xs p-0 sm:text-sm md:text-md lg:text-lg "
-                variant="link"
-              >
+              <Button className=" p-0 md:p-0 lg:p-0 " variant="link">
                 GitHub
               </Button>
             </Link>
@@ -102,10 +81,7 @@ async function Footer() {
               target="_blank"
               href="https://www.linkedin.com/in/andrew-weaver-1725-profile/"
             >
-              <Button
-                className="text-xs p-0 sm:text-sm md:text-md lg:text-lg "
-                variant="link"
-              >
+              <Button className=" p-0 md:p-0 lg:p-0 " variant="link">
                 My LinkedIn
               </Button>
             </Link>
@@ -115,20 +91,14 @@ async function Footer() {
               target="_blank"
               href="https://andrew-weaver-portfolio.vercel.app/"
             >
-              <Button
-                className="text-xs p-0 sm:text-sm md:text-md lg:text-lg "
-                variant="link"
-              >
+              <Button className=" p-0 md:p-0 lg:p-0 " variant="link">
                 My Portfolio
               </Button>
             </Link>
           </li>
           <li>
             <Link target="_blank" href="https://kinde.com/">
-              <Button
-                className="text-xs p-0 sm:text-sm md:text-md lg:text-lg "
-                variant="link"
-              >
+              <Button className=" p-0 md:p-0 lg:p-0 " variant="link">
                 Kinde
               </Button>
             </Link>

@@ -21,10 +21,7 @@ function Navbar({ isLoggedIn, user, userSlug, localUser }: NavbarProps) {
   return (
     <nav className=" hidden sm:flex gap-4 items-center">
       <Link href="/custom-hero/all">
-        <Button
-          className="h-8 rounded-md gap-1.5 px-0 md:h-9 md:py-2 lg:h-10 lg:rounded-md"
-          variant="link"
-        >
+        <Button className=" p-0 md:p-0 lg:p-0" variant="link">
           Custom Heroes
         </Button>
       </Link>
@@ -32,10 +29,7 @@ function Navbar({ isLoggedIn, user, userSlug, localUser }: NavbarProps) {
         <>
           {localUser ? (
             <Link href={`/user/${userSlug}`}>
-              <Button
-                className="h-8 rounded-md gap-1.5 px-0 md:h-9 md:py-2 lg:h-10 lg:rounded-md"
-                variant="link"
-              >
+              <Button className=" p-0 md:p-0 lg:p-0" variant="link">
                 {user?.username}
               </Button>
             </Link>

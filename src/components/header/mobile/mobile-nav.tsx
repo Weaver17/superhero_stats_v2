@@ -26,7 +26,7 @@ function MobileNavbar({
   return (
     <nav className="flex flex-col gap-1 items-center sm:hidden">
       <Link href="/custom-hero/all">
-        <Button className="h-8 rounded-md gap-1.5 text-xs px-0 " variant="link">
+        <Button className="text-xs p-0 md:p-0 lg:p-0" variant="link">
           Custom Heroes
         </Button>
       </Link>
@@ -34,10 +34,7 @@ function MobileNavbar({
         <>
           {localUser ? (
             <Link href={`/user/${userSlug}`}>
-              <Button
-                className="h-8 rounded-md gap-1.5 text-xs px-0 "
-                variant="link"
-              >
+              <Button className="text-xs p-0 md:p-0 lg:p-0" variant="link">
                 {user?.username}
               </Button>
             </Link>
@@ -46,19 +43,13 @@ function MobileNavbar({
           )}
 
           <Link href="/create-a-hero">
-            <Button
-              className="h-8 rounded-md gap-1.5 text-xs px-3 "
-              variant="link"
-            >
+            <Button className="text-xs p-0 md:p-0 lg:p-0 " variant="link">
               Create-A-Hero
             </Button>
           </Link>
           <LogoutLink>
             {" "}
-            <Button
-              className="h-8 rounded-md gap-1.5 px-3 text-xs md:h-9 md:px-4 md:py-2 lg:h-10 lg:rounded-md lg:px-6"
-              variant="link"
-            >
+            <Button className="text-xs p-0 md:p-0 lg:p-0" variant="link">
               Log Out
             </Button>
           </LogoutLink>
