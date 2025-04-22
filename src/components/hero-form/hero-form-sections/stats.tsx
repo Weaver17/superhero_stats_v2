@@ -3,10 +3,8 @@ import HeroFormNumberInput from "../hero-form-components/number-input";
 
 function HeroFormStats() {
   return (
-    <div className="flex flex-col gap-4 px-20  max-w-120 py-4 border border-muted-foreground ">
-      <h3 className="text-center font-semibold text-2xl  pb-4 border-b border-secondary">
-        Powerstats
-      </h3>
+    <div className="flex flex-col gap-4 max-w-120 py-4 border border-muted-foreground px-10 mg:px-20">
+      <h3 className="create-a-hero-section-title">Powerstats</h3>
       <HeroFormNumberInput
         formName="powerstats.combat"
         label="Combat"

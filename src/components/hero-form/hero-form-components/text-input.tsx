@@ -31,7 +31,7 @@ function HeroFormTextInput({
       name={formName}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className="text-xl">{label}</FormLabel>
+          <FormLabel>{label}</FormLabel>
           <FormControl>
             <Input placeholder={placeholder} {...field} />
           </FormControl>

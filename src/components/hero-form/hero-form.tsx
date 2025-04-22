@@ -51,12 +51,12 @@ function HeroForm({
         }}
         className="flex flex-col items-center"
       >
-        <div className="flex gap-4">
-          <div className="flex flex-col gap-4 p-4">
+        <div className="flex flex-col gap-4 lg:flex-row">
+          <div className="flex flex-col gap-4 p-4 md:flex-row lg:flex-col">
             <HeroFormGeneral />
             <HeroFormBio />
           </div>
-          <div className="grid grid-cols-2 gap-4 p-4">
+          <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2">
             <HeroFormApp />
             <HeroFormWork />
             <HeroFormConn />

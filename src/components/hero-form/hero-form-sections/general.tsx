@@ -5,10 +5,8 @@ import { CUSTOM_HERO_BACKGROUNDS } from "@/lib/constants";
 
 function HeroFormGeneral() {
   return (
-    <div className="flex flex-col gap-4 px-20 max-w-120 py-4 border border-muted-foreground ">
-      <h3 className="text-center font-semibold text-2xl pb-4 border-b border-secondary">
-        General Info
-      </h3>
+    <div className="mx-auto flex flex-col gap-4  max-w-120 py-4 border border-muted-foreground px-10 mg:px-20">
+      <h3 className="create-a-hero-section-title">General Info</h3>
       <HeroFormTextInput
         formName="name"
         placeholder="SuperHero Name"

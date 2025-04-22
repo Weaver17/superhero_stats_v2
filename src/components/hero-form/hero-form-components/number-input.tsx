@@ -32,7 +32,7 @@ function HeroFormNumberInput({
       render={({ field }) => (
         <FormItem className="">
           <div className="flex justify-between">
-            <FormLabel className="text-xl">{label}</FormLabel>
+            <FormLabel>{label}</FormLabel>
             <FormControl>
               <Input
                 type="number"

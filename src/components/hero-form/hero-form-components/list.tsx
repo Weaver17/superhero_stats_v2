@@ -30,7 +30,7 @@ function HeroFormList({
       name={formName}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className="text-xl">{label}</FormLabel>
+          <FormLabel>{label}</FormLabel>
           <FormControl>
             <Textarea {...field} />
           </FormControl>

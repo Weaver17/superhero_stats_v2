@@ -41,6 +41,26 @@ body {
   }
 }
 
+.create-a-hero-section-title {
+  padding: 0 0 1rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: var(--text-lg) /* 1.125rem = 18px */;
+  line-height: var(
+    --tw-leading,
+    var(--text-lg--line-height) /* calc(1.75 / 1.125) ≈ 1.5556 */
+  );
+  border-bottom: 1px solid var(--secondary);
+
+  @media (width >= 40rem /* 640px */) {
+    font-size: var(--text-2xl) /* 1.5rem = 24px */;
+    line-height: var(
+      --tw-leading,
+      var(--text-2xl--line-height) /* calc(2 / 1.5) ≈ 1.3333 */
+    );
+  }
+}
+
 .no-spinner::-webkit-inner-spin-button,
 .no-spinner::-webkit-outer-spin-button {
   -webkit-appearance: none;

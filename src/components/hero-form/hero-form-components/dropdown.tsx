@@ -39,7 +39,7 @@ function HeroFormDropdown({
       name={formName}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className="text-xl">{label}</FormLabel>
+          <FormLabel>{label}</FormLabel>
           <Select onValueChange={field.onChange} defaultValue={field.value}>
             <FormControl>
               <SelectTrigger>
