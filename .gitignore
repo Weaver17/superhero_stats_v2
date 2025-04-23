@@ -45,3 +45,6 @@ bash.exe.stackdump
 
 # just in case
 prisma/
+compose.yaml
+Dockerfile
+.dockerignore
