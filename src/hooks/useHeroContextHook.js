@@ -1,5 +1,5 @@
 import { HeroContext } from "@/contexts/heroContext";
-import React, { useContext } from "react";
+import { useContext } from "react";
 
 function useHeroContextHook() {
   const context = useContext(HeroContext);

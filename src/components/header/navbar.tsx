@@ -12,7 +12,7 @@ import VerifyUserBtn from "../buttons/verify-user-btn";
 
 type NavbarProps = {
   isLoggedIn: boolean | null;
-  user: KindeUser<Record<string, any>> | null;
+  user: KindeUser<Record<string, unknown>> | null;
   userSlug: string;
   localUser: TCreateLocalUserSchema | null;
 };

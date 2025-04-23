@@ -62,8 +62,8 @@ async function Page({ params }: HeroSlugType) {
           Edit {hero?.name}
         </h2>
         <p className="text-center md:font-semibold md:text-lg lg:text-xl">
-          Here you can edit your Hero. Click "Save" to save changes or "Cancel"
-          to go back to the hero's page.
+          Here you can edit your Hero. Click &ldquo;Save&ldquo; to save changes
+          or &ldquo;Cancel&ldquo; to go back to the hero&ldquo;s page.
         </p>
         <p className="text-center text-sm md:text-base md:font-semibold">
           All fields are required

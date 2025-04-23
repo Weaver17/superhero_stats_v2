@@ -27,7 +27,7 @@ function Work() {
       setWorkPreview(usefulWork);
     };
     fetchWork();
-  }, []);
+  });
 
   return (
     <div className="p-6 flex flex-col border-b border-secondary md:py-0 md:border-b-0 md:border-r">

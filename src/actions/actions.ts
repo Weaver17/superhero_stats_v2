@@ -418,7 +418,7 @@ export async function deleteHero(
 }
 
 export async function createLocalUser(
-  kindeUserInfo: KindeUser<Record<string, any>> | null
+  kindeUserInfo: KindeUser<Record<string, unknown>> | null
 ) {
   try {
     console.log("Creating Local User...");
@@ -457,7 +457,7 @@ export async function createLocalUser(
 }
 
 export async function onVerifyClick(
-  user: KindeUser<Record<string, any>> | null,
+  user: KindeUser<Record<string, unknown>> | null,
   userSlug: string
 ) {
   console.log("onVerifyClick");

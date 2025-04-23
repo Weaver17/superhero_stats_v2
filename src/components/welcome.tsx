@@ -23,8 +23,8 @@ function Welcome() {
         Welcome to SuperHero Stats!
       </h1>
       <p className="font-medium text-sm md:text-xl lg:text-3xl ">
-        Search for a Hero below and click on the card to go to that hero's stat
-        page
+        Search for a Hero below and click on the card to go to that hero&apos;s
+        stat page
       </p>
       <p className="font-medium text-sm md:text-xl lg:text-3xl">
         Click{" "}

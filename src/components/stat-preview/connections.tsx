@@ -27,7 +27,7 @@ function Connections() {
       setConnPreview(usefulConn);
     };
     fetchConn();
-  }, []);
+  });
 
   return (
     <div className="px-6 flex flex-col ">

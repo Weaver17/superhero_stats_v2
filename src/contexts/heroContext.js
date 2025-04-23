@@ -1,42 +1,43 @@
 "use client";
 import { BASE_URL, headers, heroRequest } from "@/lib/constants";
-import React, { useMemo, useContext } from "react";
+import React, { useMemo, useContext, useCallback } from "react";
 import PropTypes from "prop-types";
 
 export const HeroContext = React.createContext();
 
 export const HeroContextProvider = ({ children }) => {
-  const getHero = async (hero) => {
+  const getHero = useCallback(async (hero) => {
     return await heroRequest(`${BASE_URL}/search/${hero}`, headers);
-  };
+  }, []);
 
-  const getHeroById = async (id) => {
+  // Wrap other functions similarly if needed for stability
+  const getHeroById = useCallback(async (id) => {
     return await heroRequest(`${BASE_URL}/${id}`, headers);
-  };
+  }, []);
 
-  const getBatman = async () => {
+  const getBatman = useCallback(async () => {
     return await heroRequest(`${BASE_URL}/search/batman`, headers);
-  };
+  }, []);
 
-  const getPowerPreviewHero = async (id) => {
+  const getPowerPreviewHero = useCallback(async (id) => {
     return await heroRequest(`${BASE_URL}/${id}/powerstats`, headers);
-  };
+  }, []);
 
-  const getAppPreviewHero = async (id) => {
+  const getAppPreviewHero = useCallback(async (id) => {
     return await heroRequest(`${BASE_URL}/${id}/appearance`, headers);
-  };
+  }, []);
 
-  const getWorkPreviewHero = async (id) => {
+  const getWorkPreviewHero = useCallback(async (id) => {
     return await heroRequest(`${BASE_URL}/${id}/work`, headers);
-  };
+  }, []);
 
-  const getBioPreviewHero = async (id) => {
+  const getBioPreviewHero = useCallback(async (id) => {
     return await heroRequest(`${BASE_URL}/${id}/biography`, headers);
-  };
+  }, []);
 
-  const getConnPreviewHero = async (id) => {
+  const getConnPreviewHero = useCallback(async (id) => {
     return await heroRequest(`${BASE_URL}/${id}/connections`, headers);
-  };
+  }, []);
 
   const contextValue = useMemo(
     () => ({

@@ -27,7 +27,7 @@ function Appearance() {
       setAppPreview(usefulAppearance);
     };
     fetchAppearance();
-  }, []);
+  });
 
   return (
     <div className="p-6 flex flex-col border-b border-secondary lg:py-0 lg:border-b-0 lg:border-r">

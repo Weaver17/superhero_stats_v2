@@ -5,7 +5,7 @@ import { KindeUser } from "@kinde-oss/kinde-auth-nextjs";
 import { onVerifyClick } from "@/actions/actions";
 
 type VerifyBtnProps = {
-  user: KindeUser<Record<string, any>> | null;
+  user: KindeUser<Record<string, unknown>> | null;
   userSlug: string;
 };
 

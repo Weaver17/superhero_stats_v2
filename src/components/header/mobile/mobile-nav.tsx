@@ -12,7 +12,7 @@ import VerifyUserBtn from "@/components/buttons/verify-user-btn";
 
 type MobileNavbarProps = {
   isLoggedIn: boolean | null;
-  user: KindeUser<Record<string, any>> | null;
+  user: KindeUser<Record<string, unknown>> | null;
   userSlug: string;
   localUser: TCreateLocalUserSchema | null;
 };

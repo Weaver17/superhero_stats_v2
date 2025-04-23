@@ -26,7 +26,7 @@ function Powerstats() {
       setPowerstatPreview(powerstats);
     };
     fetchPowerstats();
-  }, []);
+  });
   return (
     <div className="pb-7 flex flex-col justify-center border-b border-secondary">
       <h3 className=" mx-auto mb-1 text-sm md:font-semibold md:mb-4 md:text-xl lg:mb-8 lg:text-2xl">
