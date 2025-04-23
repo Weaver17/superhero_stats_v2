@@ -31,7 +31,7 @@ function Welcome() {
         <Button
           onClick={(e) => handleLinkClick(e, "#stat-preview")}
           variant={"ghost"}
-          className="text-sm font-medium px-1 underline md:text-xl lg:text-3xl"
+          className="text-sm font-medium px-1 underline md:text-xl md:px-1 lg:text-3xl lg:px-1"
         >
           here
         </Button>{" "}
@@ -42,7 +42,7 @@ function Welcome() {
         <Button
           onClick={(e) => handleLinkClick(e, "#create-a-hero")}
           variant={"ghost"}
-          className="text-sm font-medium px-1 underline md:text-xl lg:text-3xl"
+          className="text-sm font-medium px-1 underline md:text-xl md:px-1 lg:text-3xl lg:px-1"
         >
           here
         </Button>{" "}
