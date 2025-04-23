@@ -1,5 +1,5 @@
 import HeroForm from "@/components/hero-form/hero-form";
-import { prisma } from "@/lib/database";
+import { prisma } from "@/lib/prisma";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 

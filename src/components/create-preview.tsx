@@ -2,7 +2,7 @@ import React from "react";
 import CreateCardPreview from "./create-preview/preview-create-card";
 import CreateBioPreview from "./create-preview/preview-create-bio";
 import CreatePowerPreview from "./create-preview/preview-create-power";
-import { prisma } from "@/lib/database";
+import { prisma } from "@/lib/prisma";
 import backup from "../../public/vercel.svg";
 
 async function CreateAHeroPreview() {

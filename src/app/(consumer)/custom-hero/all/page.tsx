@@ -1,6 +1,6 @@
 import Loading from "@/app/loading/loading";
 import CustomCardList from "@/components/custom-list";
-import { prisma } from "@/lib/database";
+import { prisma } from "@/lib/prisma";
 import { Hero } from "@/lib/types";
 import React, { Suspense } from "react";
 

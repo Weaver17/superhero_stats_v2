@@ -4,7 +4,7 @@ import {
   heightMetricToImperial,
   weightMetricToImperial,
 } from "@/lib/constants";
-import { prisma } from "@/lib/database";
+import { prisma } from "@/lib/prisma";
 import { heroSchema } from "@/schema/heroSchema";
 import { KindeUser } from "@kinde-oss/kinde-auth-nextjs";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";

@@ -1,6 +1,6 @@
 import React from "react";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { prisma } from "@/lib/database";
+import { prisma } from "@/lib/prisma";
 import TitleLink from "./header/title-link";
 import Navbar from "./header/navbar";
 import MobileNavbar from "./header/mobile/mobile-nav";

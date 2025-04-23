@@ -6,7 +6,7 @@ import HeroImage from "@/components/hero-page/hero-image";
 import HeroName from "@/components/hero-page/hero-name";
 import HeroPower from "@/components/hero-page/hero-power";
 import HeroWork from "@/components/hero-page/hero-work";
-import { prisma } from "@/lib/database";
+import { prisma } from "@/lib/prisma";
 import React, { Suspense } from "react";
 import backup from "../../../../../public/vercel.svg";
 import { Button } from "@/components/ui/button";
