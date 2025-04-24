@@ -13,12 +13,6 @@ import { z } from "zod";
 
 type TCreateHeroInput = z.infer<typeof heroSchema>;
 
-// type kindeUserInfoProps = {
-//   username?: string;
-//   id?: string;
-//   email?: string;
-// };
-
 export async function createHero(
   data: TCreateHeroInput,
   kindeId: string,
@@ -34,7 +28,6 @@ export async function createHero(
       redirect("/");
     }
 
-    console.log("Trying createHero");
     const parsed = heroSchema.safeParse(data);
 
     if (!parsed.success) {
@@ -141,14 +134,12 @@ export async function createHero(
 
     return hero;
   } catch (e) {
-    console.log("Error in createHero");
     console.error(e);
   }
 }
 
 export async function updateHero(data: TCreateHeroInput) {
   try {
-    console.log("Trying createHero");
     const updatedHero = heroSchema.safeParse(data);
 
     if (!updatedHero.success) {
@@ -179,7 +170,6 @@ export async function updateHero(data: TCreateHeroInput) {
       throw new Error("Cannot edit heroes you did not create!");
     }
 
-    console.log("Trying updateHero");
     const updatedData = heroSchema.safeParse(data);
 
     if (!updatedData.success) {
@@ -190,8 +180,6 @@ export async function updateHero(data: TCreateHeroInput) {
     const existingHero = await prisma.hero.findUnique({
       where: { slug: updatedData.data.name.toLowerCase().replace(/\s+/g, "-") },
     });
-
-    console.log(updatedData.data.name);
 
     if (!existingHero) throw new Error("Hero does not exist");
 
@@ -351,7 +339,6 @@ export async function updateHero(data: TCreateHeroInput) {
 
     return heroUpdates;
   } catch (e) {
-    console.log("Error in updateHero");
     console.error(e);
   }
 }
@@ -362,8 +349,6 @@ export async function deleteHero(
   currentUserKindeId: string | undefined
 ) {
   try {
-    console.log(id, creatorKindeId, currentUserKindeId);
-
     const { isAuthenticated } = getKindeServerSession();
 
     const isLoggedIn = await isAuthenticated();
@@ -412,7 +397,6 @@ export async function deleteHero(
 
     await prisma.hero.delete({ where: { id } });
   } catch (e) {
-    console.log("Error in deleteHero");
     console.error(e);
   }
 }
@@ -421,8 +405,6 @@ export async function createLocalUser(
   kindeUserInfo: KindeUser<Record<string, unknown>> | null
 ) {
   try {
-    console.log("Creating Local User...");
-
     const { isAuthenticated, getUser } = getKindeServerSession();
 
     const isLoggedIn = await isAuthenticated();
@@ -451,7 +433,6 @@ export async function createLocalUser(
       return localUser;
     }
   } catch (e) {
-    console.log("Error in addLocalUser");
     console.error(e);
   }
 }
@@ -460,7 +441,6 @@ export async function onVerifyClick(
   user: KindeUser<Record<string, unknown>> | null,
   userSlug: string
 ) {
-  console.log("onVerifyClick");
   await createLocalUser(user);
   redirect(`/user/${userSlug}`);
 }

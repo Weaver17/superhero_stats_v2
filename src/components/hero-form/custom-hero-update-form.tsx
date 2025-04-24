@@ -34,7 +34,6 @@ function CustomHeroUpdateForm({ hero }: CustomUpdateFormProps) {
 
   const onSubmit = async (updated: TCreateHeroSchema) => {
     try {
-      console.log("onSubmit");
       await updateHero(updated);
       const updatedSlug = updated.name.toLowerCase().replace(/\s+/g, "-");
       toast("Hero changes saved successfully!", heroFormSuccessToast);
@@ -73,9 +72,7 @@ function CustomHeroUpdateForm({ hero }: CustomUpdateFormProps) {
           <Button onClick={onCancel} type="button" variant="outline">
             Cancel
           </Button>
-          <Button type="submit">
-            {isSubmitting ? "Saving..." : "Save Changes"}
-          </Button>
+          <Button>{isSubmitting ? "Saving..." : "Save Changes"}</Button>
         </div>
       </form>
     </Form>

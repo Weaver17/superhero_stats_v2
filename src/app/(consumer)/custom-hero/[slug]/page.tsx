@@ -75,7 +75,6 @@ async function page({ params }: HeroSlugType) {
   async function handleConfirm() {
     "use server";
     await deleteHero(hero?.id, hero?.creator?.kindeId, kindeUser?.id);
-    console.log("Confirm Delete Hero");
     toast("That Hero's Hero-ing time is OVER!!", heroFormSuccessToast);
     redirect("/custom-hero/all");
   }

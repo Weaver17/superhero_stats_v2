@@ -32,7 +32,6 @@ function HeroForm({
 
   const onSubmit = async (data: TCreateHeroSchema) => {
     try {
-      console.log("onSubmit");
       await createHero(data, kindeId, username, userId);
       const heroSlug = data.name.toLowerCase().replace(/\s+/g, "-");
       toast("Hero created successfully!", heroFormSuccessToast);
@@ -63,9 +62,7 @@ function HeroForm({
             <HeroFormStats />
           </div>
         </div>
-        <Button type="submit">
-          {isSubmitting ? "Submitting..." : "Submit Your Hero"}
-        </Button>
+        <Button>{isSubmitting ? "Submitting..." : "Submit Your Hero"}</Button>
       </form>
     </Form>
   );

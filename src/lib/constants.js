@@ -1,4 +1,5 @@
-export const BASE_URL = `https://corsproxy.io/?url=https://superheroapi.com/api/${API_KEY}`;
+export const BASE_URL =
+  "https://corsproxy.io/?url=https://superheroapi.com/api/cf5e8cb0f38ad9f2713ccc5537ffa595";
 
 export const POWERSTAT_HERO_ID = "70"; // Bruce Wayne Batman
 export const APPEARANCE_HERO_ID = "620"; // Peter Parker Spider-Man

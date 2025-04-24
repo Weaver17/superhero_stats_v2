@@ -23,8 +23,6 @@ async function Page() {
 
   const userId = userRecord?.id;
 
-  console.log(userRecord?.kindeId, user?.id);
-
   return (
     <div className="py-6 px-2 bg-[url('../../public/random-dark.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
       <div className="flex flex-col gap-6 mx-auto mb-6 justify-center items-center max-w-[70%]">
