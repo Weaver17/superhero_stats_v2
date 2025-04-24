@@ -25,7 +25,7 @@ function Biography() {
       setBioPreview(usefulBio);
     };
     fetchBio();
-  });
+  }, [getHeroById, getBioPreviewHero]);
 
   return (
     <div className="px-6 flex flex-col">

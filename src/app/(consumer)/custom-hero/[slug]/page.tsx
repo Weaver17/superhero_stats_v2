@@ -22,14 +22,16 @@ import { heroFormSuccessToast } from "@/lib/toast";
 
 type HeroSlugType = {
   params: {
-    slug: string;
+    slug: Promise<string>;
   };
 };
 
 async function page({ params }: HeroSlugType) {
+  const slug = await params.slug;
+
   const hero = await prisma.hero.findUnique({
     where: {
-      slug: params.slug,
+      slug: slug,
     },
     include: {
       appearance: {

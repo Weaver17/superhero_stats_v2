@@ -5,14 +5,16 @@ import { redirect } from "next/navigation";
 
 type HeroSlugType = {
   params: {
-    slug: string;
+    slug: Promise<string>;
   };
 };
 
 async function Page({ params }: HeroSlugType) {
+  const slug = await params.slug;
+
   const hero = await prisma.hero.findUnique({
     where: {
-      slug: params.slug,
+      slug: slug,
     },
     include: {
       appearance: {

@@ -7,9 +7,9 @@ import React, { Suspense } from "react";
 async function page({
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: Promise<string | undefined>;
 }) {
-  const hero = (await searchParams).search || "";
+  const hero = (await searchParams)?.search ?? "";
   const res = await fetch(
     "https://corsproxy.io/?url=https://superheroapi.com/api/cf5e8cb0f38ad9f2713ccc5537ffa595/search/" +
       hero
