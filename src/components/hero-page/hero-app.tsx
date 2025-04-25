@@ -18,48 +18,70 @@ function HeroApp({
   hair_color,
 }: Readonly<HeroAppProps>) {
   return (
-    <div className="px-6 flex flex-col justify-center gap-6">
-      <h3 className="font-semibold text-4xl text-center">Appearance</h3>
-      <ul className="flex flex-col  mx-auto gap-4 w-[80%] text-xl justify-between">
-        <li className="stat-wrapper justify-between">
-          <p className="font-semibold self-start text-end">Eye Color:</p>
+    <div className="p-6 flex flex-col lg:py-0">
+      <h3 className="font-semibold text-xl mb-4 text-center md:text-4xl">
+        Appearance
+      </h3>
+      <ul className="flex flex-col gap-4 h-[90%] justify-between mx-auto min-w-[60%]  lg:min-w-[50%]">
+        <li className="flex flex-col items-center text-center sm:flex-row sm:justify-between">
+          <p className=" text-base sm:font-semibold sm:self-start md:text-xl">
+            Eye Color:
+          </p>
           <div className="w-[30%]">
-            <p className="text-secondary">{eye_color ?? "N/A"}</p>
+            <p className="text-secondary text-sm sm:text-end md:text-xl">
+              {eye_color ?? "N/A"}
+            </p>
           </div>
         </li>
 
-        <li className="stat-wrapper justify-between ">
-          <p className="font-semibold self-start text-end">Hair Color:</p>
+        <li className="flex flex-col items-center text-center sm:flex-row sm:justify-between ">
+          <p className="text-base sm:font-semibold sm:self-start md:text-xl">
+            Hair Color:
+          </p>
           <div className="w-[30%]">
-            <p className="text-secondary text-">{hair_color ?? "N/A"}</p>
+            <p className="text-secondary text-sm sm:text-end md:text-xl">
+              {hair_color ?? "N/A"}
+            </p>
           </div>
         </li>
-        <li className="stat-wrapper justify-between ">
-          <p className="font-semibold self-start text-end">Gender:</p>
+        <li className="flex flex-col items-center text-center sm:flex-row sm:justify-between ">
+          <p className="text-base sm:font-semibold sm:self-start md:text-xl">
+            Gender:
+          </p>
           <div className="w-[30%]">
-            <p className="text-secondary">{gender ?? "N/A"}</p>
+            <p className="text-secondary text-sm sm:text-end md:text-xl">
+              {gender ?? "N/A"}
+            </p>
           </div>
         </li>
-        <li className="stat-wrapper justify-between ">
-          <p className="font-semibold self-start text-end">Race:</p>
+        <li className="flex flex-col items-center text-center sm:flex-row sm:justify-between ">
+          <p className="text-base sm:font-semibold sm:self-start md:text-xl">
+            Race:
+          </p>
           <div className="w-[30%]">
-            <p className="text-secondary">{race ?? "N/A"}</p>
+            <p className="text-secondary text-sm sm:text-end md:text-xl">
+              {race ?? "N/A"}
+            </p>
           </div>
         </li>
-        <li className="stat-wrapper-list justify-between ">
-          <p className="font-semibold self-start text-end">Height:</p>
+        <li className="flex flex-col items-center text-center sm:flex-row sm:justify-between">
+          <p className="text-base sm:font-semibold sm:self-start md:text-xl">
+            Height:
+          </p>
           <div className="w-[30%]">
-            <div className="text-secondary overflow-ellipsis ">
+            <div className="text-secondary text-sm sm:text-end md:text-xl">
               {height?.map((a, i) => (
                 <div key={`${a}-${i}`}>{a}</div>
               ))}
             </div>
           </div>
         </li>
-        <li className="stat-wrapper-list justify-between ">
-          <p className="font-semibold self-start text-end">Weight:</p>
+        <li className="flex flex-col items-center text-center sm:flex-row sm:justify-between">
+          <p className="text-base sm:font-semibold sm:self-start md:text-xl">
+            Weight:
+          </p>
           <div className="w-[30%]">
-            <div className="text-secondary overflow-ellipsis ">
+            <div className="text-secondary text-sm sm:text-end md:text-xl">
               {weight?.map((a, i) => (
                 <div key={`${a}-${i}`}>{a}</div>
               ))}

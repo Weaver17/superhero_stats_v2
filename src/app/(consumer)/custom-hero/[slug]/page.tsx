@@ -93,7 +93,7 @@ async function page({ params }: HeroSlugType) {
 
         <div className="section relative border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm">
           <div className="absolute top-3 right-4 flex gap-4 items-center">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs text-muted-foreground sm:text-sm">
               Created by:{" "}
               <Link href={`/user/${creatorSlug}`} className="hover:underline">
                 {hero?.creator?.username}
@@ -103,7 +103,7 @@ async function page({ params }: HeroSlugType) {
             isLoggedIn ? (
               <>
                 <Link href={`/custom-hero/${hero?.slug}/edit`}>
-                  <Button className="px-1" variant="ghost">
+                  <Button className="px-1 text-sm md:text-base" variant="ghost">
                     EDIT
                   </Button>
                 </Link>
@@ -113,7 +113,7 @@ async function page({ params }: HeroSlugType) {
               <></>
             )}
           </div>
-          <div className="grid grid-cols-2 mx-5 pb-10 border-b border-secondary ">
+          <div className="flex flex-col-reverse gap-4 items-center py-6 border-b border-secondary md:grid md:grid-cols-2">
             <HeroImage
               image={hero?.image?.url ?? imageBackup}
               name={hero?.name ?? ""}
@@ -124,7 +124,7 @@ async function page({ params }: HeroSlugType) {
               realName={hero?.biography?.full_name ?? ""}
             />
           </div>
-          <div className="grid grid-cols-2 items-start mx-5 p-10 border-b border-secondary">
+          <div className="flex flex-col gap-4 mx-5 py-6 border-b border-secondary lg:grid lg:grid-cols-2">
             {/* BIO  */}
             <HeroBio
               alter_egos={hero?.biography?.alter_egos ?? ""}
@@ -165,7 +165,7 @@ async function page({ params }: HeroSlugType) {
               strength={hero?.powerstats?.strength ?? ""}
             />
           </div>
-          <div className="grid grid-cols-2 items-start mx-5 p-10 border-b border-secondary">
+          <div className="flex flex-col gap-4 mx-5 py-6 border-b border-secondary lg:grid lg:grid-cols-2">
             {/* WORK  */}
             <HeroWork
               occupation={hero?.work?.occupation ?? ""}

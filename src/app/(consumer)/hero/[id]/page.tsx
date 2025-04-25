@@ -27,7 +27,7 @@ async function page({ params }: { params: Promise<{ id: string }> }) {
     <Suspense fallback={<Loading />}>
       <section className="py-6 px-2 bg-[url('../../public/city-backdrop-2.jpg')] bg-cover bg-no-repeat bg-center min-h-screen">
         <div className="section border border-secondary rounded-2xl bg-background/40 backdrop-blur-sm">
-          <div className="grid grid-cols-2 mx-5 pb-10 border-b border-secondary ">
+          <div className="flex flex-col-reverse gap-4 items-center py-6 border-b border-secondary md:grid md:grid-cols-2">
             <HeroImage
               image={image}
               name={hero?.name}
@@ -38,7 +38,7 @@ async function page({ params }: { params: Promise<{ id: string }> }) {
               realName={hero?.biography?.full_name}
             />
           </div>
-          <div className="grid grid-cols-2 items-start mx-5 p-10 border-b border-secondary">
+          <div className="flex flex-col gap-4 mx-5 py-6 border-b border-secondary lg:grid lg:grid-cols-2">
             {/* BIO  */}
             <HeroBio
               alter_egos={hero?.biography?.alter_egos}
@@ -69,7 +69,7 @@ async function page({ params }: { params: Promise<{ id: string }> }) {
               strength={hero?.powerstats?.strength}
             />
           </div>
-          <div className="grid grid-cols-2 items-start mx-5 p-10 border-b border-secondary">
+          <div className="flex flex-col gap-4 mx-5 py-6 border-b border-secondary lg:grid lg:grid-cols-2">
             {/* WORK  */}
             <HeroWork
               occupation={hero?.work?.occupation}

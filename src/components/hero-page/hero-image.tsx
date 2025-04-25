@@ -13,7 +13,7 @@ function HeroImage({ image, name, publisher }: Readonly<HeroImageProps>) {
   const borderClass = getBorderClass(publisher);
 
   return (
-    <div className={`p-2 w-[80%] border ${borderClass}`}>
+    <div className={`p-2 w-[80%] mx-auto border ${borderClass}`}>
       <AspectRatio ratio={8 / 10}>
         <Image
           className="w-full h-full object-cover mx-auto p-3 contain"

@@ -7,18 +7,22 @@ type HeroWorkProps = {
 
 function HeroWork({ occupation, base }: Readonly<HeroWorkProps>) {
   return (
-    <div className="px-6 flex flex-col justify-center ">
-      <h3 className="font-semibold  text-4xl text-center mb-2">Work</h3>
-      <ul className="flex flex-col gap-4 w-[100%] h-[90%] justify-between">
-        <li className="flex flex-col">
-          <p className="font-semibold text-xl text-center my-4">
+    <div className="p-6 flex flex-col border-b border-secondary lg:py-0 lg:border-b-0">
+      <h3 className="font-semibold text-xl mb-4 text-center md:text-4xl">
+        Work
+      </h3>
+      <ul className="flex flex-col gap-4 h-[90%] mx-auto min-w-[60%]  ">
+        <li className="flex flex-col text-center">
+          <p className="text-base sm:font-semibold md:text-xl">
             Occupation(s):
           </p>
-          <p className="text-secondary text-center">{occupation ?? "N/A"}</p>
+          <p className="text-secondary text-sm md:text-xl">
+            {occupation ?? "N/A"}
+          </p>
         </li>
-        <li className="flex flex-col">
-          <p className="font-semibold text-xl text-center my-4">Base(s):</p>
-          <div className="text-secondary text-center">
+        <li className="flex flex-col text-center">
+          <p className="text-base sm:font-semibold  md:text-xl">Base(s):</p>
+          <div className="text-secondary text-sm md:text-xl">
             {base?.split(";").map((b, i) => (
               <div className=" " key={`${b}-${i}`}>
                 {b}

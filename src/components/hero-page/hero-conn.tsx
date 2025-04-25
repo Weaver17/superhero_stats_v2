@@ -7,23 +7,25 @@ type HeroConnProps = {
 
 function HeroConn({ group_affiliation, relatives }: Readonly<HeroConnProps>) {
   return (
-    <div className="px-6 flex flex-col justify-center ">
-      <h3 className="font-semibold  text-4xl text-center mb-2">Connections</h3>
+    <div className="p-6 flex flex-col lg:py-0">
+      <h3 className="font-semibold text-xl mb-4 text-center md:text-4xl">
+        Connections
+      </h3>
 
-      <ul className="flex flex-col gap-4 w-[100%] h-[90%] justify-between">
-        <li className="flex flex-col  ">
-          <p className="font-semibold text-xl text-center my-4">Relatives:</p>
-          <div className="text-secondary text-center">
+      <ul className="flex flex-col gap-4 h-[90%] justify-between mx-auto min-w-[60%]">
+        <li className="flex flex-col text-center  ">
+          <p className="text-base sm:font-semibold md:text-xl">Relatives:</p>
+          <div className="text-secondary text-sm md:text-xl">
             {relatives
               ?.split(",")
               .map((r, i) => <div key={`${r}-${i}`}>{r}</div>) ?? "N/A"}
           </div>
         </li>
-        <li className="flex flex-col ">
-          <p className="font-semibold text-xl text-center my-4">
+        <li className="flex flex-col text-center ">
+          <p className="text-base sm:font-semibold md:text-xl">
             Group Affiliation(s):
           </p>
-          <div className="text-secondary text-center">
+          <div className="text-secondary text-sm md:text-xl">
             {group_affiliation
               ?.split(";")
               .map((g, i) => <div key={`${g}-${i}`}>{g}</div>) ?? "N/A"}

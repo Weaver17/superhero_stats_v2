@@ -21,36 +21,38 @@ function HeroPower({
   return (
     <div className="p-10 flex flex-col gap-6">
       <h4 className="font-semibold text-4xl text-center">Powerstats</h4>
-      <ul className="flex flex-col w-[100%] gap-6">
-        <li className="stat-wrapper">
-          <p className="w-[150px] font-semibold text-xl text-end">Combat:</p>
+      <div className="flex w-full">
+        <ul className="flex flex-col gap-3.5 mt-1 mr-2 md:mt-1.5 md:mr-4 md:gap-7.5 lg:mt-3 lg:mr-6 lg:gap-10">
+          <li className="stat-wrapper">
+            <p className="text-base md:font-semibold lg:text-xl">Combat:</p>
+          </li>
+          <li className="stat-wrapper">
+            <p className="text-base md:font-semibold lg:text-xl">Durability:</p>
+          </li>
+          <li className="stat-wrapper">
+            <p className="text-base md:font-semibold lg:text-xl">
+              Intelligence:
+            </p>
+          </li>
+          <li className="stat-wrapper">
+            <p className="text-base md:font-semibold lg:text-xl">Power:</p>
+          </li>
+          <li className="stat-wrapper">
+            <p className="text-base md:font-semibold lg:text-xl">Speed:</p>
+          </li>
+          <li className="stat-wrapper">
+            <p className="text-base md:font-semibold lg:text-xl">Strength:</p>
+          </li>
+        </ul>
+        <div className="flex flex-col gap-1.5 w-[100%] md:gap-[13px] lg:gap-5">
           <StatBar level={combat ?? "0"} />
-        </li>
-        <li className="stat-wrapper">
-          <p className="w-[150px] font-semibold text-xl text-end">
-            Durability:
-          </p>
           <StatBar level={durability ?? "0"} />
-        </li>
-        <li className="stat-wrapper">
-          <p className="w-[150px] font-semibold text-xl text-end">
-            Intelligence:
-          </p>
           <StatBar level={intelligence ?? "0"} />
-        </li>
-        <li className="stat-wrapper">
-          <p className="w-[150px] font-semibold text-xl text-end">Power:</p>
           <StatBar level={power ?? "0"} />
-        </li>
-        <li className="stat-wrapper">
-          <p className="w-[150px] font-semibold text-xl text-end">Speed:</p>
           <StatBar level={speed ?? "0"} />
-        </li>
-        <li className="stat-wrapper">
-          <p className="w-[150px] font-semibold text-xl text-end">Strength:</p>
           <StatBar level={strength ?? "0"} />
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   );
 }
