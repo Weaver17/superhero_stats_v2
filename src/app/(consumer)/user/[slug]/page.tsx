@@ -3,16 +3,12 @@ import { prisma } from "@/lib/prisma";
 import { Hero } from "@/lib/types";
 import { getMonth } from "@/lib/utils";
 
-type UserSlugType = {
-  params: {
-    slug: string;
-  };
-};
+async function page({ params }: { params: Promise<{ slug: string }> }) {
+  const slug = (await params).slug;
 
-async function page({ params }: UserSlugType) {
   const localUser = await prisma.user.findUnique({
     where: {
-      slug: params?.slug,
+      slug: slug,
     },
   });
 

@@ -20,14 +20,8 @@ import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
 import { heroFormSuccessToast } from "@/lib/toast";
 
-type HeroSlugType = {
-  params: {
-    slug: string;
-  };
-};
-
-async function page({ params }: HeroSlugType) {
-  const slug = params.slug;
+async function page({ params }: { params: Promise<{ slug: string }> }) {
+  const slug = (await params).slug;
 
   const hero = await prisma.hero.findUnique({
     where: {

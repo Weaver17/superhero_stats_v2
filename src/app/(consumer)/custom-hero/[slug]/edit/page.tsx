@@ -3,14 +3,8 @@ import { prisma } from "@/lib/prisma";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 
-type HeroSlugType = {
-  params: {
-    slug: string;
-  };
-};
-
-async function Page({ params }: HeroSlugType) {
-  const slug = params.slug;
+async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const slug = (await params).slug;
 
   const hero = await prisma.hero.findUnique({
     where: {
