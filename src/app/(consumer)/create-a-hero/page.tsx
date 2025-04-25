@@ -14,9 +14,17 @@ async function page() {
 
   const user = await getUser();
 
+  if (!user) {
+    redirect("/");
+  }
+
   const userRecord = await prisma.user.findUnique({
     where: { username: user?.username ?? "" },
   });
+
+  if (!userRecord) {
+    redirect("/");
+  }
 
   const kindeId = user?.id;
   const username = user?.username;
