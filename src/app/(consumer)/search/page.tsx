@@ -5,10 +5,13 @@ import { Hero, HeroResponse } from "@/lib/types";
 import { redirect } from "next/navigation";
 import React, { Suspense } from "react";
 
+// Force this page to be rendered dynamically at request time
+export const dynamic = "force-dynamic";
+
 async function page({
   searchParams,
 }: {
-  searchParams: Promise<string | undefined>;
+  searchParams?: Promise<string | undefined>;
 }) {
   const hero = (await searchParams)?.search ?? "";
 
