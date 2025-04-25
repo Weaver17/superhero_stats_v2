@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 
-async function Page() {
+async function page() {
   const { isAuthenticated, getUser } = getKindeServerSession();
 
   const isLoggedIn = await isAuthenticated();
@@ -49,4 +49,4 @@ async function Page() {
   );
 }
 
-export default Page;
+export default page;
