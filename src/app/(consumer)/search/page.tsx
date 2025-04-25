@@ -24,12 +24,12 @@ async function page({
   const heroes: Hero[] = heroResponse.results as unknown as Hero[];
 
   return (
-    <div>
-      <SearchForm />
-      <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Loading />}>
+      <div>
+        <SearchForm />
         <CardList heroes={heroes} />
-      </Suspense>
-    </div>
+      </div>
+    </Suspense>
   );
 }
 
