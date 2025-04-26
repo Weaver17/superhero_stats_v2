@@ -48,3 +48,4 @@ prisma/
 compose.yaml
 Dockerfile
 .dockerignore
+.vercel
