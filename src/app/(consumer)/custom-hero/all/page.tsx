@@ -4,6 +4,9 @@ import { prisma } from "@/lib/prisma";
 import { Hero } from "@/lib/types";
 import React, { Suspense } from "react";
 
+// Force this page to be rendered dynamically at request time
+export const dynamic = "force-dynamic";
+
 async function page() {
   const heroes = (await prisma.hero.findMany({
     include: {
