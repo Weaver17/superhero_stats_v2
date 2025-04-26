@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import { Suspense } from "react";
 
 // Force this page to be rendered dynamically at request time
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 async function page() {
   const { isAuthenticated, getUser } = getKindeServerSession();
