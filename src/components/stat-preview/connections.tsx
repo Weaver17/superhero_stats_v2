@@ -31,7 +31,7 @@ function Connections() {
 
   return (
     <div className="px-6 flex flex-col ">
-      <h3 className=" mx-auto mb-4 text-sm md:font-semibold md:mb-4 md:text-xl lg:mb-8 lg:text-2xl">
+      <h3 className=" mx-auto mb-4 text-base font-semibold md:text-xl lg:mb-8 lg:text-2xl">
         Connections
       </h3>
       <p className="mx-auto mb-4 text-sm font-semibold md:text-lg lg:hidden">

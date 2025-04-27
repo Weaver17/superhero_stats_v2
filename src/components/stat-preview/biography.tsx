@@ -29,10 +29,10 @@ function Biography() {
 
   return (
     <div className="px-6 flex flex-col">
-      <h3 className=" mx-auto mb-4 text-sm font-semibold md:mb-4 md:text-xl lg:mb-8 lg:text-2xl">
+      <h3 className=" mx-auto mb-4 text-base font-semibold md:text-xl lg:mb-8 lg:text-2xl">
         Biography
       </h3>
-      <p className="mx-auto mb-2 text-sm font-semibold sm:hidden">
+      <p className="mx-auto mb-4 text-sm font-semibold sm:hidden">
         {bioPreviewCard?.name}
       </p>
       <div className="flex gap-5 justify-center">
@@ -48,9 +48,9 @@ function Biography() {
             <p className="preview-stat-title text-end">Alter Egos:</p>
             <p className="text-secondary">{bioPreview?.alter_egos ?? "N/A"}</p>
           </li>
-          <li className="flex flex-col items-center text-center bio-list:gap-[2px] bio-list:flex-row bio-list:justify-between">
+          <li className="flex flex-col text-center bio-list:gap-[2px] bio-list:flex-row bio-list:justify-between">
             <p className="preview-stat-title text-end">Aliases:</p>
-            <div className="text-secondary  overflow-ellipsis ">
+            <div className="text-secondary text-end overflow-ellipsis ">
               {bioPreview?.aliases?.slice(0, 3).map((a, i) => (
                 <div key={`${a}-${i}`}>{a}</div>
               ))}

@@ -30,8 +30,8 @@ function Work() {
   }, [getHeroById, getWorkPreviewHero]);
 
   return (
-    <div className="p-6 flex flex-col border-b border-secondary md:py-0 md:border-b-0 md:border-r">
-      <h3 className=" mx-auto mb-4 text-sm font-semibold md:mb-4 md:text-xl lg:mb-8 lg:text-2xl">
+    <div className="pb-6 flex flex-col border-b border-secondary md:py-0 md:border-b-0 md:border-r">
+      <h3 className=" mx-auto mb-4 text-base font-semibold md:text-xl lg:mb-8 lg:text-2xl">
         Work
       </h3>
       <p className="mx-auto mb-4 text-sm font-semibold md:text-lg lg:hidden">

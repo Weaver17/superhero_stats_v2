@@ -32,11 +32,11 @@ function Appearance() {
 
   return (
     <div className="p-6 flex flex-col border-b border-secondary lg:py-0 lg:border-b-0 lg:border-r">
-      <h3 className=" mx-auto mb-4 text-sm font-semibold md:mb-4 md:text-xl lg:mb-8 lg:text-2xl">
+      <h3 className=" mx-auto mb-4 text-base font-semibold md:text-xl lg:mb-8 lg:text-2xl">
         Appearance
       </h3>
       <Suspense fallback={<Loading />}>
-        <p className="mx-auto mb-2 text-sm font-semibold sm:hidden">
+        <p className="mx-auto mb-4 text-sm font-semibold sm:hidden">
           {appPreviewCard?.name}
         </p>
         <div className="flex flex-row-reverse justify-center gap-5">

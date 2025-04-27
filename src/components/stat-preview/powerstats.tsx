@@ -30,11 +30,11 @@ function Powerstats() {
   }, [getHeroById, getPowerPreviewHero]);
   return (
     <div className="pb-7 flex flex-col justify-center border-b border-secondary">
-      <h3 className=" mx-auto mb-1 text-sm md:font-semibold md:mb-4 md:text-xl lg:mb-8 lg:text-2xl">
+      <h3 className=" mx-auto mb-4 text-base font-semibold md:text-xl lg:mb-8 lg:text-2xl">
         Powerstats
       </h3>
       <Suspense fallback={<Loading />}>
-        <p className="mx-auto mb-2 text-sm md:font-semibold lg:hidden">
+        <p className="mx-auto mb-2 text-sm font-semibold lg:hidden">
           {powerPreviewCard?.name}
         </p>
         <div className="flex gap-5">
