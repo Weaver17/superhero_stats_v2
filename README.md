@@ -1,4 +1,4 @@
-# SuperHero Stats Backup
+# SuperHero Stats
 
 In this web app you can search for superheroes and click on their card to see their stats. Appearance, Powerstats, Biography and more! Also, you can sign up and create your own SuperHero!
 
